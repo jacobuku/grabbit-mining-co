@@ -5,6 +5,10 @@ Downloads each hit's presigned clip URL (regenerated via /api/v1/videos/playback
 it has expired), grabs the frame at half the clip duration with ffmpeg, writes
 thumbs/<clip_id>.jpg (640 px wide, JPEG q 5) and sets hit["thumb_url"] to that path.
 
+NOTE: needs a playback URL from the backend for each hit. mine.py no longer writes
+hit["video_url"], so this only works for hits that already have a thumbnail on disk;
+fresh results need a per-hit playback URL from /api/v1/videos/playback-url.
+
 Usage:
   python thumbs.py
 """
