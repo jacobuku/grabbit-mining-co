@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Grabbit Mining Co.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#0E0D0B; --card:#1A1814; --card2:#221F1A; --line:#2E2A23;
@@ -126,6 +126,48 @@
     body{height:auto;overflow:auto}
     .clip{aspect-ratio:16/9;flex:none}
   }
+
+  /* ===== PIXEL / MINING THEME (accents only; body text stays readable) ===== */
+  :root{--px:'Press Start 2P',var(--mono);--dia:#4FE3E0;--gold:#F5C542;--iron:#D9D2C5;--coal:#4A4640;--stone:#2F2C27}
+  body{background-color:var(--bg);background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:16px 16px}
+  .brand h1,.counter .v,.counter .k,.step .n,.btn,.qbar button,.sevbig,.sev,.listhead b,.toast,.cosmos .lab,.legend{font-family:var(--px);letter-spacing:0}
+  .brand h1{font-size:18px;line-height:1.4}
+  .counter .k{font-size:9px;margin-bottom:6px;color:var(--muted)}
+  .counter .v{font-size:30px;font-weight:400}
+  .step .n{font-size:9px}
+  .cosmos .lab{font-size:9px}
+  .listhead b{font-size:10px}
+  /* hard pixel edges */
+  .panel,.step,.qbar input,.chip,.mode,.pill,.listhead button,.btn,.qbar button,.sev,.sevbig,.toast,.bubble{border-radius:0 !important}
+  .panel,.step{border-width:2px}
+  .btn,.qbar button{box-shadow:4px 4px 0 #000;transition:transform .05s,box-shadow .05s}
+  .btn:active:not(:disabled),.qbar button:active{transform:translate(4px,4px);box-shadow:0 0 0 #000}
+  .btn{font-size:13px;padding:14px 16px;font-weight:400}
+  .btn small{font-size:9px}
+  .btn.r{border-width:3px}
+  .qbar button{font-size:13px;font-weight:400}
+  .bubble{border:3px solid #000;box-shadow:4px 4px 0 #000;font-family:var(--sans)}
+  .bubble:after{bottom:-10px}
+  .toast{font-size:11px;line-height:1.6;border:3px solid #000;box-shadow:5px 5px 0 #000;font-weight:400}
+  .sevbig{font-size:11px;box-shadow:3px 3px 0 #000}
+  .step.wait{animation:pxblink 1s steps(2) infinite}
+  @keyframes pxblink{50%{border-color:#7a2e20}}
+  /* pixel-art mascot */
+  .px{image-rendering:pixelated;image-rendering:crisp-edges}
+  .brand img{animation:hop 2.6s steps(1) infinite}
+  @keyframes hop{0%,70%{transform:translateY(0)}75%{transform:translateY(-6px)}80%{transform:translateY(0)}85%{transform:translateY(-3px)}90%,100%{transform:translateY(0)}}
+  .buddy img.beg{animation:pxbeg 1s steps(1) infinite}
+  @keyframes pxbeg{0%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+  /* severity = ore blocks */
+  .sev{position:relative;font-size:12px;padding:9px 0;color:#111;box-shadow:inset -3px -3px 0 rgba(0,0,0,.35),inset 3px 3px 0 rgba(255,255,255,.35)}
+  .sev.o5{background:var(--dia)} .sev.o4{background:var(--gold)} .sev.o3{background:var(--iron)}
+  .sev.o2{background:var(--coal);color:#eee} .sev.o1{background:var(--stone);color:#888}
+  .sevbig.o5{background:var(--dia);color:#111} .sevbig.o4{background:var(--gold);color:#111} .sevbig.o3{background:var(--iron);color:#111}
+  .legend{font-size:8px;color:var(--muted);padding:8px 16px;border-bottom:1px solid var(--line);display:flex;gap:12px;flex-wrap:wrap}
+  .legend i{display:inline-block;width:9px;height:9px;margin-right:5px;vertical-align:-1px}
+  .clip .ph b{font-family:var(--px);font-size:14px;line-height:1.6}
+  .clip .ph{padding:12px 28px 44px}
+  .clip .ph .pick{font-size:36px;display:block;margin-bottom:8px}
 </style>
 </head>
 <body>
@@ -172,9 +214,10 @@
   </div>
 
   <div class="panel">
-    <div class="listhead"><b>HITS · RANKED BY SEVERITY</b>
+    <div class="listhead"><b>ORE · BY SEVERITY</b>
       <span><button id="dlR">⬇ results.json</button> <button id="dlE">⬇ test set</button></span>
     </div>
+    <div class="legend"><span><i style="background:var(--dia)"></i>5 DIAMOND</span><span><i style="background:var(--gold)"></i>4 GOLD</span><span><i style="background:var(--iron)"></i>3 IRON</span><span><i style="background:var(--coal)"></i>2 COAL</span><span><i style="background:var(--stone)"></i>1 STONE</span></div>
     <div class="list" id="list"></div>
   </div>
 </main>
@@ -265,7 +308,7 @@ function renderList(){
   $("list").innerHTML=sorted().map(h=>{
     const s=h.llm.severity, m=h.review==="confirmed"?"✅":h.review==="rejected"?"✖":"";
     return `<div class="row ${cur===h?"sel":""} ${h.llm.is_match?"":"nm"}" data-id="${esc(h.id)}">
-      <div class="sev ${s>=4?"hi":""}">${s}</div>
+      <div class="sev o${Math.max(1,Math.min(5,s))}" title="${["","stone","coal","iron","gold","diamond"][Math.max(1,Math.min(5,s))]}">${s}</div>
       <div><div class="cam">${esc(h.camera_id)} · ${esc(h.location)} · ${fmt(h.start_s)}–${fmt(h.end_s)}</div>
       <div class="why">${esc(h.llm.rationale)}</div></div>
       <div class="mark">${m}</div></div>`;
@@ -282,8 +325,8 @@ function showClip(h){
   let media;
   if(h.video_url) media=`<video src="${esc(h.video_url)}" autoplay muted loop playsinline></video>`;
   else if(h.thumb_url) media=`<img src="${esc(h.thumb_url)}" alt="">`;
-  else media=`<div class="ph"><b>${esc(h.llm.tags&&h.llm.tags.length?h.llm.tags.join(" · "):"clip")}</b>Clip plays from the VAST archive on the build VM. Evidence below is what the pipeline wrote down.</div>`;
-  $("clip").innerHTML=media+`<div class="overlay">${meta}${pills}</div>`+(h.llm.is_match?`<div class="sevbig">SEVERITY ${h.llm.severity}</div>`:"");
+  else media=`<div class="ph"><span class="pick">⛏️</span><b>${esc(h.llm.tags&&h.llm.tags.length?h.llm.tags.join(" · "):"clip")}</b></div>`;
+  $("clip").innerHTML=media+`<div class="overlay">${meta}${pills}</div>`+(h.llm.is_match?`<div class="sevbig o${h.llm.severity}">${["","STONE","COAL","IRON","GOLD","DIAMOND"][Math.max(1,Math.min(5,h.llm.severity))]} · SEV ${h.llm.severity}</div>`:"");
   $("caption").textContent=h.caption||"—";
   $("rat").textContent= (h.llm.is_match?"LLM: ":"LLM (not a match): ")+(h.llm.rationale||"");
 }
@@ -299,10 +342,21 @@ const LINES={
   none:["Not flagged. Nothing to see here.","Boring clip. Next!"]
 };
 const pick=a=>a[Math.floor(Math.random()*a.length)];
+const PIXC={};
+function pixel(src,size){
+  const key=src+"|"+size;
+  if(PIXC[key]) return PIXC[key];
+  return PIXC[key]=new Promise(res=>{
+    const im=new Image();
+    im.onload=()=>{try{const c=document.createElement("canvas");c.width=c.height=size;const x=c.getContext("2d");x.imageSmoothingEnabled=false;x.drawImage(im,0,0,size,size);res(c.toDataURL())}catch(e){res(src)}};
+    im.onerror=()=>res(src); im.src=src;
+  });
+}
+function pxSet(img,src,size){img.dataset.pose=src;img.classList.add("px");pixel(src,size).then(u=>{if(img.dataset.pose===src)img.src=u})}
 function setBunny(src,line,anim){
   const b=$("bunny");
-  if(!b.src.endsWith(src)){b.src=src;}
-  b.className="";void b.offsetWidth;b.className=anim||"";
+  if(b.dataset.pose!==src) pxSet(b,src,52);
+  b.classList.remove("pop","beg");void b.offsetWidth;if(anim)b.classList.add(anim);
   $("bubble").textContent=line;
 }
 function paintReview(){
@@ -349,6 +403,7 @@ $("reset").onclick=e=>{e.preventDefault();try{localStorage.removeItem(KEY)}catch
 $("bC").onclick=()=>decide("confirmed");
 $("bR").onclick=()=>decide("rejected");
 document.addEventListener("keydown",e=>{if(e.target.tagName==="INPUT")return; if(e.key==="c"||e.key==="C")decide("confirmed"); if(e.key==="r"||e.key==="R")decide("rejected")});
+pxSet(document.querySelector(".brand img"),"grabbit/grabbit_hi.svg",40);
 init();
 </script>
 </body>
