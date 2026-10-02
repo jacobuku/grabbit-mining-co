@@ -1,337 +1,316 @@
 """
 mine.py — Grabbit Mining Co. / Edge Case Miner
 
-For each scenario: expand into 3-5 search queries (W&B Inference), search every camera
-(VSS /api/v1/search), fetch Cosmos caption + YOLO counts + playback URL (VSS /videos/*),
-score each hit (W&B Inference), and write results.json in the sample_results.json schema.
+For each scenario: expand it into search queries (W&B Inference), search every camera
+in the VSS index, pull the Cosmos Reason caption + YOLO counts for each hit, score each
+hit with an LLM (W&B Inference), and write results.json in the sample_results.json schema.
 
-Every remote call has a 12 s timeout. When one fails, the hit gets path="fallback" and a
-keyword-rule severity; otherwise path="live".
+Every remote call has a 12 s timeout. If a call for a hit fails, the hit gets
+path = "fallback" and its severity comes from a keyword rule on the caption.
 
 Usage:
-  .venv/bin/python mine.py            # all three scenarios
-  .venv/bin/python mine.py --first    # first scenario only
+  python mine.py              -> all three scenarios
+  python mine.py --limit 1    -> first scenario only
 """
 import argparse
+import glob
 import json
 import os
 import re
-import threading
 import time
-from datetime import datetime, timezone
+import urllib.error
+import urllib.request
+from datetime import datetime
+from urllib.parse import quote
 
-import requests
-import weave
-from openai import OpenAI
-
-TIMEOUT_S = 12
-TOP_PER_SCENARIO = 12
 SCENARIOS = [
     "forklift within 2m of a worker in an aisle",
     "person close to a moving vehicle",
     "vehicle braking hard",
 ]
-WANDB_BASE_URL = "https://api.inference.wandb.ai/v1"
-WANDB_MODEL = os.environ.get("WANDB_MODEL", "meta-llama/Llama-3.1-8B-Instruct")
-CONFIG_PATH = "/config/team-45.config"
-OUT_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "results.json")
+TIMEOUT_S = 12
+TOP_HITS = 12
+INFERENCE_BASE_URL = "https://api.inference.wandb.ai/v1"
+INFERENCE_MODEL = "meta-llama/Llama-3.1-8B-Instruct"
+
+try:
+    import weave
+    op = weave.op()
+except ImportError:
+    weave = None
+
+    def op(fn):
+        return fn
+
+try:
+    import openai
+except ImportError:
+    openai = None
 
 
-def load_team_config():
-    if os.environ.get("INGRESS_URL") and os.environ.get("USERNAME") and os.environ.get("PASSWORD"):
-        return
-    configs = [f for f in os.listdir("/config") if f.endswith(".config")] if os.path.isdir("/config") else []
-    path = CONFIG_PATH if os.path.exists(CONFIG_PATH) else (os.path.join("/config", configs[0]) if len(configs) == 1 else None)
-    if not path:
-        return
-    with open(path) as f:
-        for line in f:
-            line = line.strip()
-            if line and not line.startswith("#") and "=" in line:
-                k, v = line.split("=", 1)
-                os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+def load_env():
+    """Env vars win; anything missing is read from the single /config/*.config file."""
+    configs = sorted(glob.glob("/config/*.config"))
+    if len(configs) == 1:
+        with open(configs[0]) as f:
+            for line in f:
+                line = line.strip()
+                if not line or line.startswith("#") or "=" not in line:
+                    continue
+                key, value = line.split("=", 1)
+                os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
 
 
-load_team_config()
-BACKEND = os.environ.get("INGRESS_URL", "").rstrip("/")
-WANDB_TEAM = os.environ.get("WANDB_TEAM", "")
-WANDB_PROJECT = os.environ.get("WANDB_PROJECT", "")
+# ---------- VSS retrieval API ----------
 
-llm = OpenAI(
-    base_url=WANDB_BASE_URL,
-    api_key=os.environ.get("WANDB_API_KEY", "missing"),
-    project=f"{WANDB_TEAM}/{WANDB_PROJECT}" if WANDB_TEAM and WANDB_PROJECT else None,
-    timeout=TIMEOUT_S,
-    max_retries=0,
-)
+class Backend:
+    def __init__(self):
+        self.base = os.environ["INGRESS_URL"].rstrip("/")
+        self.token = None
+
+    def call(self, method, path, body=None):
+        data = json.dumps(body).encode() if body is not None else None
+        headers = {"Content-Type": "application/json"}
+        if self.token:
+            headers["Authorization"] = f"Bearer {self.token}"
+        req = urllib.request.Request(self.base + path, data=data, method=method, headers=headers)
+        with urllib.request.urlopen(req, timeout=TIMEOUT_S) as r:
+            return json.load(r)
+
+    def login(self):
+        resp = self.call("POST", "/api/v1/auth/login",
+                         {"username": os.environ["USERNAME"], "password": os.environ["PASSWORD"]})
+        self.token = resp["access_token"]
+
+    def search(self, query):
+        return self.call("POST", "/api/v1/search", {
+            "query": query,
+            "top_k": 20,
+            "llm_top_n": 1,
+            "min_similarity": 0.2,
+            "include_public": True,
+        })
+
+    def metadata(self, source):
+        return self.call("GET", f"/api/v1/videos/metadata?source={quote(source, safe='')}")
+
+    def detections(self, source):
+        return self.call("GET", f"/api/v1/videos/detections?source={quote(source, safe='')}")
+
+    def playback_url(self, source):
+        q = f"source={quote(source, safe='')}&token={self.token}&expires_in=3600"
+        return self.call("GET", f"/api/v1/videos/playback-url?{q}")
 
 
-def init_weave():
-    """weave.init has no timeout of its own; give it 12 s and continue untraced if it fails."""
-    result = {}
+# ---------- W&B Inference ----------
 
-    def run():
-        try:
-            weave.init(f"{WANDB_TEAM}/{WANDB_PROJECT}")
-            result["ok"] = True
-        except Exception as e:
-            result["error"] = str(e)
-
-    t = threading.Thread(target=run, daemon=True)
-    t.start()
-    t.join(TIMEOUT_S)
-    return result.get("ok", False), result.get("error", "timeout")
-
-
-def extract_json(text):
-    m = re.search(r"\{.*\}|\[.*\]", text or "", re.S)
-    return json.loads(m.group(0)) if m else json.loads(text)
-
-
-# ---------- W&B Inference ops ----------
-
-@weave.op()
-def expand_scenario(scenario: str) -> list:
-    resp = llm.chat.completions.create(
-        model=WANDB_MODEL,
-        messages=[
-            {"role": "system", "content": (
-                "You write search queries for a video-search engine whose index holds one-paragraph "
-                "descriptions of short surveillance clips (warehouses, highways, city streets). "
-                "Return ONLY a JSON array of 3 to 5 short, distinct, visual search queries. No prose."
-            )},
-            {"role": "user", "content": scenario},
-        ],
-        temperature=0.3,
+def inference_client():
+    if openai is None:
+        return None
+    return openai.OpenAI(
+        base_url=INFERENCE_BASE_URL,
+        api_key=os.environ["WANDB_API_KEY"],
+        project=f"{os.environ['WANDB_TEAM']}/{os.environ['WANDB_PROJECT']}",
+        timeout=TIMEOUT_S,
+        max_retries=0,
     )
-    queries = extract_json(resp.choices[0].message.content)
+
+
+def chat(client, system, user):
+    if client is None:
+        raise RuntimeError("openai package not installed")
+    resp = client.chat.completions.create(
+        model=INFERENCE_MODEL,
+        messages=[{"role": "system", "content": system}, {"role": "user", "content": user}],
+        temperature=0,
+    )
+    return resp.choices[0].message.content
+
+
+def parse_json_object(text):
+    match = re.search(r"\{.*\}", text, re.S)
+    if not match:
+        raise ValueError(f"no JSON object in LLM output: {text[:120]!r}")
+    return json.loads(match.group(0))
+
+
+@op
+def expand_scenario(client, scenario: str) -> list:
+    system = ("You turn a description of a dangerous moment into search queries for a video "
+              "archive of warehouse, street and highway cameras. Reply with JSON only: "
+              '{"queries": ["...", "..."]} containing 3 to 5 short, distinct queries.')
+    queries = parse_json_object(chat(client, system, scenario))["queries"]
     queries = [q.strip() for q in queries if isinstance(q, str) and q.strip()]
     if not 3 <= len(queries) <= 5:
         raise ValueError(f"expected 3-5 queries, got {len(queries)}")
     return queries
 
 
-@weave.op()
-def score_hit(scenario: str, caption: str, detections: dict) -> dict:
-    resp = llm.chat.completions.create(
-        model=WANDB_MODEL,
-        messages=[
-            {"role": "system", "content": (
-                "You judge whether a video clip matches a safety scenario. Use only the clip caption "
-                "and YOLO object counts. Reply with strict JSON and nothing else: "
-                '{"is_match": bool, "severity": 1-5 integer, "tags": [short snake_case strings], '
-                '"rationale": "one sentence"}. Severity: 5 = imminent contact, 1 = no risk.'
-            )},
-            {"role": "user", "content": json.dumps(
-                {"scenario": scenario, "caption": caption, "yolo_counts": detections})},
-        ],
-        temperature=0,
-    )
-    out = extract_json(resp.choices[0].message.content)
-    sev = int(out["severity"])
-    if not isinstance(out.get("is_match"), bool) or not 1 <= sev <= 5:
-        raise ValueError(f"invalid judgment: {out}")
-    return {
-        "is_match": out["is_match"],
-        "severity": sev,
-        "tags": [str(t) for t in out.get("tags", [])],
-        "rationale": str(out.get("rationale", "")).strip(),
-    }
+@op
+def judge_hit(client, scenario: str, caption: str, detections: dict) -> dict:
+    system = ("You review one video segment against a safety scenario. Reply with strict JSON "
+              'only, no prose: {"is_match": true|false, "severity": 1-5, "tags": ["..."], '
+              '"rationale": "one sentence"}. Severity 5 = imminent contact, 1 = no risk.')
+    user = (f"Scenario: {scenario}\nCosmos Reason description: {caption}\n"
+            f"YOLO object counts: {json.dumps(detections)}")
+    out = parse_json_object(chat(client, system, user))
+    if not isinstance(out.get("is_match"), bool):
+        raise ValueError("is_match must be a bool")
+    if not isinstance(out.get("severity"), int) or not 1 <= out["severity"] <= 5:
+        raise ValueError("severity must be an int 1-5")
+    if not isinstance(out.get("tags"), list) or not isinstance(out.get("rationale"), str):
+        raise ValueError("tags must be a list and rationale a string")
+    return {"is_match": out["is_match"], "severity": out["severity"],
+            "tags": [str(t) for t in out["tags"]], "rationale": out["rationale"].strip()}
 
 
-# ---------- keyword fallbacks ----------
+# ---------- keyword fallback ----------
 
 HIGH_RISK = {
-    "running": r"\brunn?ing\b|\bruns\b",
-    "under_2m": r"under 2 ?m|within 2 ?m|less than 2 ?m|touching",
-    "turning_toward": r"turn\w* (toward|towards)",
+    "running": ["running", " runs ", "ran toward"],
+    "under_2m": ["under 2 m", "under 2m", "within 2 m", "within 2m", "touching"],
+    "turning_toward": ["turning toward", "turns toward", "turning towards", "turns towards"],
 }
-LOW_RISK = {"stationary": r"stationary|parked|not moving"}
-
-
-def fallback_queries(scenario):
-    return [scenario, f"{scenario} near miss", f"{scenario} warehouse or road"]
+LOW_RISK = ["stationary", "parked", "not moving"]
 
 
 def keyword_judgment(caption):
-    text = (caption or "").lower()
-    high = [tag for tag, rx in HIGH_RISK.items() if re.search(rx, text)]
-    low = [tag for tag, rx in LOW_RISK.items() if re.search(rx, text)]
-    if high:
-        sev = 5 if len(high) >= 2 else 4
-    elif low:
-        sev = 2 if "person" in text or "worker" in text else 1
+    text = f" {caption.lower()} "
+    tags = [tag for tag, words in HIGH_RISK.items() if any(w in text for w in words)]
+    if tags:
+        severity = 5 if len(tags) >= 2 else 4
+    elif any(w in text for w in LOW_RISK):
+        severity = 2 if "person" in text else 1
+        tags = ["stationary"]
     else:
-        sev = 3
-    tags = high or low
-    reason = f"Keyword rule matched: {', '.join(tags)}." if tags else "Keyword rule: no risk keywords found."
-    return {"is_match": sev >= 4, "severity": sev, "tags": tags, "rationale": reason}
-
-
-# ---------- VSS retrieval API ----------
-
-def login():
-    r = requests.post(f"{BACKEND}/api/v1/auth/login", timeout=TIMEOUT_S,
-                      json={"username": os.environ["USERNAME"], "password": os.environ["PASSWORD"]})
-    r.raise_for_status()
-    return r.json()["access_token"]
-
-
-def search(token, query):
-    r = requests.post(f"{BACKEND}/api/v1/search", timeout=TIMEOUT_S,
-                      headers={"Authorization": f"Bearer {token}"},
-                      json={"query": query, "top_k": 20, "llm_top_n": 1,
-                            "min_similarity": 0.2, "include_public": True})
-    r.raise_for_status()
-    return r.json().get("results") or []
-
-
-def get_metadata(token, source):
-    r = requests.get(f"{BACKEND}/api/v1/videos/metadata", timeout=TIMEOUT_S,
-                     headers={"Authorization": f"Bearer {token}"}, params={"source": source})
-    r.raise_for_status()
-    return r.json()
-
-
-def get_detections(token, source):
-    r = requests.get(f"{BACKEND}/api/v1/videos/detections", timeout=TIMEOUT_S,
-                     headers={"Authorization": f"Bearer {token}"}, params={"source": source})
-    if r.status_code == 404:
-        return {}
-    r.raise_for_status()
-    return r.json().get("object_counts") or {}
-
-
-def get_playback_url(token, source):
-    r = requests.get(f"{BACKEND}/api/v1/videos/playback-url", timeout=TIMEOUT_S,
-                     params={"source": source, "token": token, "expires_in": 86400})
-    r.raise_for_status()
-    return r.json().get("url")
-
-
-def parse_counts(value):
-    if isinstance(value, str):
-        try:
-            value = json.loads(value)
-        except ValueError:
-            return {}
-    return value if isinstance(value, dict) else {}
-
-
-def segment_id(source):
-    return os.path.splitext(os.path.basename(source))[0]
+        severity = 3
+    return {"is_match": severity >= 4, "severity": severity, "tags": tags,
+            "rationale": f"Keyword rule (LLM unavailable): severity {severity} from caption keywords."}
 
 
 # ---------- pipeline ----------
 
-def mine_scenario(token, scenario):
+def segment_id(source):
+    return os.path.basename(source).rsplit(".", 1)[0]
+
+
+def parse_counts(value):
+    if isinstance(value, dict):
+        return value
     try:
-        queries = expand_scenario(scenario)
-        expand_path = "live"
+        return json.loads(value) if value else {}
+    except (TypeError, json.JSONDecodeError):
+        return {}
+
+
+def build_hit(backend, client, scenario, row):
+    source = row["source"]
+    failures = []
+    hit = {
+        "id": segment_id(source),
+        "camera_id": row.get("camera_id"),
+        "location": row.get("location"),
+        "start_s": row.get("segment_start_sec"),
+        "end_s": row.get("segment_end_sec"),
+        "caption": row.get("reasoning_content") or "",
+        "detections": parse_counts(row.get("object_counts")),
+    }
+
+    try:
+        meta = backend.metadata(source)
+        hit["caption"] = meta.get("reasoning_content") or hit["caption"]
     except Exception as e:
-        print(f"  expand failed ({type(e).__name__}: {e}); using fallback queries")
-        queries = fallback_queries(scenario)
-        expand_path = "fallback"
-    print(f"  expand path={expand_path}: {queries}")
+        failures.append(f"metadata: {e}")
+
+    try:
+        hit["detections"] = parse_counts(backend.detections(source).get("object_counts")) or hit["detections"]
+    except urllib.error.HTTPError as e:
+        if e.code != 404:  # 404 = no YOLO sidecar for this segment, not a failure
+            failures.append(f"detections: {e}")
+    except Exception as e:
+        failures.append(f"detections: {e}")
+
+    try:
+        url = backend.playback_url(source).get("url")
+        if url:
+            hit["video_url"] = url
+    except Exception as e:
+        failures.append(f"playback-url: {e}")
+
+    t0 = time.monotonic()
+    try:
+        hit["llm"] = judge_hit(client, scenario, hit["caption"], hit["detections"])
+    except Exception as e:
+        failures.append(f"llm: {e}")
+        hit["llm"] = keyword_judgment(hit["caption"])
+    hit["latency_ms"] = round((time.monotonic() - t0) * 1000)
+
+    hit["review"] = "pending"
+    hit["path"] = "fallback" if failures else "live"
+    if failures:
+        hit["fallback_reason"] = "; ".join(failures)[:300]
+    return hit
+
+
+def mine(backend, client, scenario):
+    run = {"query": scenario, "generated_at": datetime.now().astimezone().isoformat(timespec="seconds")}
+
+    try:
+        queries = expand_scenario(client, scenario)
+        run["expand_path"] = "live"
+    except Exception as e:
+        queries = [scenario]
+        run["expand_path"] = "fallback"
+        print(f"  expand fallback: {e}")
+    run["search_queries"] = queries
 
     best = {}
     for q in queries:
         try:
-            rows = search(token, q) if token else []
-            print(f"  search path=live  {len(rows):>2} rows  {q!r}")
+            rows = backend.search(q).get("results") or []
+            print(f"  search live    {len(rows):>3} rows  {q}")
         except Exception as e:
-            print(f"  search path=fallback ({type(e).__name__}) {q!r}")
-            rows = []
+            print(f"  search failed            {q}  ({e})")
+            continue
         for row in rows:
-            src = row.get("source")
-            if src and (src not in best or row.get("similarity_score", 0) > best[src].get("similarity_score", 0)):
-                best[src] = row
-    top = sorted(best.values(), key=lambda r: r.get("similarity_score", 0), reverse=True)[:TOP_PER_SCENARIO]
+            sid = segment_id(row["source"])
+            if sid not in best or row["similarity_score"] > best[sid]["similarity_score"]:
+                best[sid] = row
 
-    hits = []
-    for row in top:
-        src = row["source"]
-        path = "live"
-        caption = row.get("reasoning_content") or ""
-        detections = parse_counts(row.get("object_counts"))
-        video_url = None
-        try:
-            meta = get_metadata(token, src)
-            caption = meta.get("reasoning_content") or caption
-        except Exception:
-            path = "fallback"
-        try:
-            detections = get_detections(token, src) or detections
-        except Exception:
-            path = "fallback"
-        try:
-            video_url = get_playback_url(token, src)
-        except Exception:
-            path = "fallback"
-
-        t0 = time.perf_counter()
-        try:
-            judgment = score_hit(scenario, caption, detections)
-        except Exception:
-            judgment = keyword_judgment(caption)
-            path = "fallback"
-        latency_ms = int((time.perf_counter() - t0) * 1000)
-
-        hit = {
-            "id": segment_id(src),
-            "camera_id": row.get("camera_id"),
-            "location": row.get("location"),
-            "start_s": row.get("segment_start_sec"),
-            "end_s": row.get("segment_end_sec"),
-            "caption": caption,
-            "detections": detections,
-            "llm": judgment,
-            "review": "pending",
-            "latency_ms": latency_ms,
-            "path": path,
-        }
-        if video_url:
-            hit["video_url"] = video_url
-        hits.append(hit)
-        print(f"  hit {len(hits):>2} path={path:<8} sev={judgment['severity']} match={judgment['is_match']} "
-              f"{latency_ms:>5} ms  {hit['camera_id']}  {hit['id'][:60]}")
-
-    return {
-        "query": scenario,
-        "generated_at": datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds"),
-        "path": expand_path,
-        "hits": hits,
-    }
+    top = sorted(best.values(), key=lambda r: r["similarity_score"], reverse=True)[:TOP_HITS]
+    run["hits"] = [build_hit(backend, client, scenario, row) for row in top]
+    return run
 
 
 def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--first", action="store_true", help="run only the first scenario")
-    args = ap.parse_args()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--limit", type=int, default=len(SCENARIOS), help="run the first N scenarios")
+    parser.add_argument("--out", default=os.path.join(os.path.dirname(os.path.abspath(__file__)), "results.json"))
+    args = parser.parse_args()
 
-    traced, err = init_weave()
-    project_url = f"https://wandb.ai/{WANDB_TEAM}/{WANDB_PROJECT}/weave"
-    print(f"Weave: {'tracing to' if traced else f'NOT tracing ({err}); project would be'} {project_url}")
-    print(f"Model: {WANDB_MODEL}")
+    load_env()
+    weave_project = f"{os.environ['WANDB_TEAM']}/{os.environ['WANDB_PROJECT']}"
+    if weave is not None:
+        weave.init(weave_project)
+    else:
+        print("weave not installed: ops run untraced")
 
-    try:
-        token = login()
-        print("VSS login path=live")
-    except Exception as e:
-        token = None
-        print(f"VSS login path=fallback ({type(e).__name__})")
+    backend = Backend()
+    backend.login()
+    client = inference_client()
 
     runs = []
-    for scenario in (SCENARIOS[:1] if args.first else SCENARIOS):
-        print(f"\n== {scenario}")
-        runs.append(mine_scenario(token, scenario))
+    for scenario in SCENARIOS[:args.limit]:
+        print(f"scenario: {scenario}")
+        run = mine(backend, client, scenario)
+        live = sum(h["path"] == "live" for h in run["hits"])
+        print(f"  {len(run['hits'])} hits ({live} live, {len(run['hits']) - live} fallback)")
+        runs.append(run)
 
-    with open(OUT_PATH, "w") as f:
+    with open(args.out, "w") as f:
         json.dump({"runs": runs}, f, indent=2)
-    n = sum(len(r["hits"]) for r in runs)
-    fb = sum(h["path"] == "fallback" for r in runs for h in r["hits"])
-    print(f"\nWrote {OUT_PATH}: {len(runs)} runs, {n} hits ({fb} fallback)")
-    print(f"Weave project: {project_url}")
+    print(f"wrote {args.out}")
+    print(f"Weave project: https://wandb.ai/{weave_project}/weave")
 
 
 if __name__ == "__main__":
