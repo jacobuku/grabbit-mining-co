@@ -3,7 +3,7 @@ thumbs.py — middle-frame thumbnail for every hit in results.json.
 
 Downloads each hit's presigned clip URL (regenerated via /api/v1/videos/playback-url if
 it has expired), grabs the frame at half the clip duration with ffmpeg, writes
-thumbs/<clip_id>.jpg (640 px wide, JPEG q 5) and sets hit["thumb"] to that path.
+thumbs/<clip_id>.jpg (640 px wide, JPEG q 5) and sets hit["thumb_url"] to that path.
 
 Usage:
   python thumbs.py
@@ -78,7 +78,7 @@ def main():
                     print(f"  regenerated URL  {hit['id']}")
                     download(hit["video_url"], video)
                 middle_frame(video, jpg)
-            hit["thumb"] = rel
+            hit["thumb_url"] = rel
 
     total = sum(os.path.getsize(os.path.join(THUMBS, n)) for n in os.listdir(THUMBS))
     print(f"{len(hits)} hits, {len(os.listdir(THUMBS))} thumbs, {total / 1024:.0f} KB total")

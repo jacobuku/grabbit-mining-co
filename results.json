@@ -40,7 +40,7 @@
           "evidence_source": "cosmos",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_075712_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_03.rgb_chunk_0000_segment_002_of_002.jpg"
+          "thumb_url": "thumbs/20261001_075712_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_03.rgb_chunk_0000_segment_002_of_002.jpg"
         },
         {
           "id": "20261001_075554_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_00.rgb_chunk_0000_segment_001_of_002",
@@ -69,7 +69,7 @@
           "evidence_source": "cosmos",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_075554_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_00.rgb_chunk_0000_segment_001_of_002.jpg"
+          "thumb_url": "thumbs/20261001_075554_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_00.rgb_chunk_0000_segment_001_of_002.jpg"
         },
         {
           "id": "20261001_075737_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_04.rgb_chunk_0000_segment_002_of_002",
@@ -98,7 +98,7 @@
           "evidence_source": "cosmos",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_075737_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_04.rgb_chunk_0000_segment_002_of_002.jpg"
+          "thumb_url": "thumbs/20261001_075737_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_04.rgb_chunk_0000_segment_002_of_002.jpg"
         },
         {
           "id": "20261001_075529_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_04.rgb_chunk_0000_segment_001_of_002",
@@ -128,7 +128,7 @@
           "evidence_source": "cosmos",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_075529_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_04.rgb_chunk_0000_segment_001_of_002.jpg"
+          "thumb_url": "thumbs/20261001_075529_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_04.rgb_chunk_0000_segment_001_of_002.jpg"
         },
         {
           "id": "20261001_074929_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_00.rgb_chunk_0000_segment_002_of_002",
@@ -158,7 +158,7 @@
           "evidence_source": "cosmos",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_074929_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_00.rgb_chunk_0000_segment_002_of_002.jpg"
+          "thumb_url": "thumbs/20261001_074929_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_00.rgb_chunk_0000_segment_002_of_002.jpg"
         },
         {
           "id": "20261001_075529_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_04.rgb_chunk_0000_segment_002_of_002",
@@ -187,7 +187,7 @@
           "evidence_source": "cosmos",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_075529_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_04.rgb_chunk_0000_segment_002_of_002.jpg"
+          "thumb_url": "thumbs/20261001_075529_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_04.rgb_chunk_0000_segment_002_of_002.jpg"
         },
         {
           "id": "20261001_075554_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_00.rgb_chunk_0000_segment_002_of_002",
@@ -217,7 +217,7 @@
           "evidence_source": "cosmos",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_075554_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_00.rgb_chunk_0000_segment_002_of_002.jpg"
+          "thumb_url": "thumbs/20261001_075554_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_00.rgb_chunk_0000_segment_002_of_002.jpg"
         },
         {
           "id": "20261001_075046_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_03.rgb_chunk_0000_segment_002_of_002",
@@ -245,7 +245,7 @@
           "evidence_source": "cosmos",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_075046_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_03.rgb_chunk_0000_segment_002_of_002.jpg"
+          "thumb_url": "thumbs/20261001_075046_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_03.rgb_chunk_0000_segment_002_of_002.jpg"
         },
         {
           "id": "20261001_074513_0851b7a332077a4fc0e2_01021d3989e38beb3395_run_10_seed_213384163.ceiling_00.rgb_chunk_0000_segment_001_of_002",
@@ -278,7 +278,7 @@
           "evidence_source": "cosmos",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_074513_0851b7a332077a4fc0e2_01021d3989e38beb3395_run_10_seed_213384163.ceiling_00.rgb_chunk_0000_segment_001_of_002.jpg"
+          "thumb_url": "thumbs/20261001_074513_0851b7a332077a4fc0e2_01021d3989e38beb3395_run_10_seed_213384163.ceiling_00.rgb_chunk_0000_segment_001_of_002.jpg"
         },
         {
           "id": "20261001_074513_0851b7a332077a4fc0e2_01021d3989e38beb3395_run_10_seed_213384163.ceiling_00.rgb_chunk_0000_segment_002_of_002",
@@ -309,7 +309,7 @@
           "evidence_source": "cosmos",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_074513_0851b7a332077a4fc0e2_01021d3989e38beb3395_run_10_seed_213384163.ceiling_00.rgb_chunk_0000_segment_002_of_002.jpg"
+          "thumb_url": "thumbs/20261001_074513_0851b7a332077a4fc0e2_01021d3989e38beb3395_run_10_seed_213384163.ceiling_00.rgb_chunk_0000_segment_002_of_002.jpg"
         },
         {
           "id": "20261001_074955_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_01.rgb_chunk_0000_segment_001_of_002",
@@ -340,7 +340,7 @@
           "evidence_source": "cosmos",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_074955_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_01.rgb_chunk_0000_segment_001_of_002.jpg"
+          "thumb_url": "thumbs/20261001_074955_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_01.rgb_chunk_0000_segment_001_of_002.jpg"
         },
         {
           "id": "20261001_074929_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_00.rgb_chunk_0000_segment_001_of_002",
@@ -371,7 +371,7 @@
           "evidence_source": "cosmos",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_074929_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_00.rgb_chunk_0000_segment_001_of_002.jpg"
+          "thumb_url": "thumbs/20261001_074929_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_00.rgb_chunk_0000_segment_001_of_002.jpg"
         }
       ]
     },
@@ -413,7 +413,7 @@
           "evidence_source": "cosmos",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_075712_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_03.rgb_chunk_0000_segment_002_of_002.jpg"
+          "thumb_url": "thumbs/20261001_075712_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_03.rgb_chunk_0000_segment_002_of_002.jpg"
         },
         {
           "id": "20261001_074123_neighborhood_20260902_chunk_0012_segment_001_of_006",
@@ -442,7 +442,7 @@
           "evidence_source": "cosmos",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_074123_neighborhood_20260902_chunk_0012_segment_001_of_006.jpg"
+          "thumb_url": "thumbs/20261001_074123_neighborhood_20260902_chunk_0012_segment_001_of_006.jpg"
         },
         {
           "id": "20261001_073249_neighborhood_20260901_chunk_0022_segment_003_of_006",
@@ -473,7 +473,7 @@
           "evidence_source": "yolo",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_073249_neighborhood_20260901_chunk_0022_segment_003_of_006.jpg"
+          "thumb_url": "thumbs/20261001_073249_neighborhood_20260901_chunk_0022_segment_003_of_006.jpg"
         },
         {
           "id": "20261001_074955_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_01.rgb_chunk_0000_segment_001_of_002",
@@ -502,7 +502,7 @@
           "evidence_source": "cosmos",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_074955_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_01.rgb_chunk_0000_segment_001_of_002.jpg"
+          "thumb_url": "thumbs/20261001_074955_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_01.rgb_chunk_0000_segment_001_of_002.jpg"
         },
         {
           "id": "20261001_075412_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_01.rgb_chunk_0000_segment_001_of_002",
@@ -532,7 +532,7 @@
           "evidence_source": "cosmos",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_075412_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_01.rgb_chunk_0000_segment_001_of_002.jpg"
+          "thumb_url": "thumbs/20261001_075412_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_01.rgb_chunk_0000_segment_001_of_002.jpg"
         },
         {
           "id": "20261001_075412_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_01.rgb_chunk_0000_segment_002_of_002",
@@ -562,7 +562,7 @@
           "evidence_source": "cosmos",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_075412_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_01.rgb_chunk_0000_segment_002_of_002.jpg"
+          "thumb_url": "thumbs/20261001_075412_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_01.rgb_chunk_0000_segment_002_of_002.jpg"
         },
         {
           "id": "20261001_075529_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_04.rgb_chunk_0000_segment_002_of_002",
@@ -590,7 +590,7 @@
           "evidence_source": "cosmos",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_075529_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_04.rgb_chunk_0000_segment_002_of_002.jpg"
+          "thumb_url": "thumbs/20261001_075529_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_04.rgb_chunk_0000_segment_002_of_002.jpg"
         },
         {
           "id": "20261001_073800_neighborhood_20260902_chunk_0004_segment_006_of_006",
@@ -620,7 +620,7 @@
           "evidence_source": "both",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_073800_neighborhood_20260902_chunk_0004_segment_006_of_006.jpg"
+          "thumb_url": "thumbs/20261001_073800_neighborhood_20260902_chunk_0004_segment_006_of_006.jpg"
         },
         {
           "id": "20261001_075046_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_03.rgb_chunk_0000_segment_002_of_002",
@@ -648,7 +648,7 @@
           "evidence_source": "cosmos",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_075046_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_03.rgb_chunk_0000_segment_002_of_002.jpg"
+          "thumb_url": "thumbs/20261001_075046_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_03.rgb_chunk_0000_segment_002_of_002.jpg"
         },
         {
           "id": "20261001_075712_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_03.rgb_chunk_0000_segment_001_of_002",
@@ -676,7 +676,7 @@
           "evidence_source": "cosmos",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_075712_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_03.rgb_chunk_0000_segment_001_of_002.jpg"
+          "thumb_url": "thumbs/20261001_075712_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_03.rgb_chunk_0000_segment_001_of_002.jpg"
         },
         {
           "id": "20261001_075112_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_04.rgb_chunk_0000_segment_002_of_002",
@@ -705,7 +705,7 @@
           "evidence_source": "cosmos",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_075112_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_04.rgb_chunk_0000_segment_002_of_002.jpg"
+          "thumb_url": "thumbs/20261001_075112_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_04.rgb_chunk_0000_segment_002_of_002.jpg"
         },
         {
           "id": "20261001_073710_neighborhood_20260902_chunk_0002_segment_003_of_006",
@@ -733,7 +733,7 @@
           "evidence_source": "cosmos",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_073710_neighborhood_20260902_chunk_0002_segment_003_of_006.jpg"
+          "thumb_url": "thumbs/20261001_073710_neighborhood_20260902_chunk_0002_segment_003_of_006.jpg"
         }
       ]
     },
@@ -779,7 +779,7 @@
           "evidence_source": "both",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_071303_set06_video_chunk_0006_segment_005_of_006.jpg"
+          "thumb_url": "thumbs/20261001_071303_set06_video_chunk_0006_segment_005_of_006.jpg"
         },
         {
           "id": "20261001_071328_set06_video_chunk_0007_segment_006_of_006",
@@ -809,7 +809,7 @@
           "evidence_source": "both",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_071328_set06_video_chunk_0007_segment_006_of_006.jpg"
+          "thumb_url": "thumbs/20261001_071328_set06_video_chunk_0007_segment_006_of_006.jpg"
         },
         {
           "id": "20261001_075138_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.eye_00.rgb_chunk_0000_segment_001_of_002",
@@ -838,7 +838,7 @@
           "evidence_source": "cosmos",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_075138_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.eye_00.rgb_chunk_0000_segment_001_of_002.jpg"
+          "thumb_url": "thumbs/20261001_075138_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.eye_00.rgb_chunk_0000_segment_001_of_002.jpg"
         },
         {
           "id": "20261001_075838_2025_test_Warehouse_017_Camera_chunk_0002_segment_002_of_006",
@@ -870,7 +870,7 @@
           "evidence_source": "both",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_075838_2025_test_Warehouse_017_Camera_chunk_0002_segment_002_of_006.jpg"
+          "thumb_url": "thumbs/20261001_075838_2025_test_Warehouse_017_Camera_chunk_0002_segment_002_of_006.jpg"
         },
         {
           "id": "20261001_074538_0851b7a332077a4fc0e2_01021d3989e38beb3395_run_10_seed_213384163.ceiling_01.rgb_chunk_0000_segment_002_of_002",
@@ -899,7 +899,7 @@
           "evidence_source": "cosmos",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_074538_0851b7a332077a4fc0e2_01021d3989e38beb3395_run_10_seed_213384163.ceiling_01.rgb_chunk_0000_segment_002_of_002.jpg"
+          "thumb_url": "thumbs/20261001_074538_0851b7a332077a4fc0e2_01021d3989e38beb3395_run_10_seed_213384163.ceiling_01.rgb_chunk_0000_segment_002_of_002.jpg"
         },
         {
           "id": "20261001_080820_2025_test_Warehouse_017_Camera_02_chunk_0005_segment_001_of_006",
@@ -932,7 +932,7 @@
           "evidence_source": "both",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_080820_2025_test_Warehouse_017_Camera_02_chunk_0005_segment_001_of_006.jpg"
+          "thumb_url": "thumbs/20261001_080820_2025_test_Warehouse_017_Camera_02_chunk_0005_segment_001_of_006.jpg"
         },
         {
           "id": "20261001_080705_2025_test_Warehouse_017_Camera_02_chunk_0002_segment_003_of_006",
@@ -966,7 +966,7 @@
           "evidence_source": "yolo",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_080705_2025_test_Warehouse_017_Camera_02_chunk_0002_segment_003_of_006.jpg"
+          "thumb_url": "thumbs/20261001_080705_2025_test_Warehouse_017_Camera_02_chunk_0002_segment_003_of_006.jpg"
         },
         {
           "id": "20261001_075554_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_00.rgb_chunk_0000_segment_002_of_002",
@@ -995,7 +995,7 @@
           "evidence_source": "cosmos",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_075554_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_00.rgb_chunk_0000_segment_002_of_002.jpg"
+          "thumb_url": "thumbs/20261001_075554_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_00.rgb_chunk_0000_segment_002_of_002.jpg"
         },
         {
           "id": "20261001_080755_2025_test_Warehouse_017_Camera_02_chunk_0004_segment_003_of_006",
@@ -1028,7 +1028,7 @@
           "evidence_source": "both",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_080755_2025_test_Warehouse_017_Camera_02_chunk_0004_segment_003_of_006.jpg"
+          "thumb_url": "thumbs/20261001_080755_2025_test_Warehouse_017_Camera_02_chunk_0004_segment_003_of_006.jpg"
         },
         {
           "id": "20261001_074955_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_01.rgb_chunk_0000_segment_001_of_002",
@@ -1058,7 +1058,7 @@
           "evidence_source": "cosmos",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_074955_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_01.rgb_chunk_0000_segment_001_of_002.jpg"
+          "thumb_url": "thumbs/20261001_074955_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_01.rgb_chunk_0000_segment_001_of_002.jpg"
         },
         {
           "id": "20261001_081001_2025_test_Warehouse_017_Camera_02_chunk_0009_segment_004_of_006",
@@ -1091,7 +1091,7 @@
           "evidence_source": "both",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_081001_2025_test_Warehouse_017_Camera_02_chunk_0009_segment_004_of_006.jpg"
+          "thumb_url": "thumbs/20261001_081001_2025_test_Warehouse_017_Camera_02_chunk_0009_segment_004_of_006.jpg"
         },
         {
           "id": "20261001_080019_2025_test_Warehouse_017_Camera_chunk_0006_segment_005_of_006",
@@ -1125,7 +1125,7 @@
           "evidence_source": "both",
           "review": "pending",
           "path": "live",
-          "thumb": "thumbs/20261001_080019_2025_test_Warehouse_017_Camera_chunk_0006_segment_005_of_006.jpg"
+          "thumb_url": "thumbs/20261001_080019_2025_test_Warehouse_017_Camera_chunk_0006_segment_005_of_006.jpg"
         }
       ]
     }
