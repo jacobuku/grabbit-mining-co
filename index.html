@@ -14,7 +14,7 @@
   }
   *{box-sizing:border-box}
   html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px}
-  body{display:flex;flex-direction:column;min-height:100vh}
+  body{display:flex;flex-direction:column;height:100vh;overflow:hidden}
   button{font-family:inherit;cursor:pointer}
 
   /* top bar */
@@ -54,7 +54,7 @@
   /* main */
   main{flex:1;display:grid;grid-template-columns:3fr 2fr;gap:16px;padding:0 28px 14px;min-height:0}
   .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-height:0}
-  .clip{position:relative;aspect-ratio:16/8.2;background:#000;display:flex;align-items:center;justify-content:center}
+  .clip{position:relative;flex:1 1 auto;min-height:160px;background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden}
   .clip video,.clip img{width:100%;height:100%;object-fit:cover}
   .clip .ph{padding:28px;color:var(--muted);font-size:15px;line-height:1.5;text-align:center;max-width:80%}
   .clip .ph b{display:block;color:var(--text);font-size:20px;margin-bottom:8px}
@@ -103,6 +103,8 @@
     .pipe{grid-template-columns:repeat(3,1fr)}
     main{grid-template-columns:1fr}
     .detail{flex-direction:column;align-items:stretch}
+    body{height:auto;overflow:auto}
+    .clip{aspect-ratio:16/9;flex:none}
   }
 </style>
 </head>
@@ -191,12 +193,12 @@ async function init(){
     hits.push(h);
   }));
   const qs=[...new Set(data.runs.map(r=>r.query))];
-  const chips=[...new Set([...qs,...DEFAULT_CHIPS])].slice(0,4);
+  const chips=[...new Set([...DEFAULT_CHIPS,...qs])].slice(0,4);
   $("chips").innerHTML=chips.map(q=>`<button class="chip" data-q="${esc(q)}">${esc(q)}</button>`).join("");
   $("chips").onclick=e=>{const b=e.target.closest(".chip"); if(b) run(b.dataset.q)};
   $("qform").onsubmit=e=>{e.preventDefault(); run($("q").value.trim())};
   renderPipe(-1);
-  run(qs[0]||DEFAULT_CHIPS[0], true);
+  run(chips.find(q=>qs.includes(q))||chips[0], true);
 }
 
 function renderPipe(stage, timings={}){
