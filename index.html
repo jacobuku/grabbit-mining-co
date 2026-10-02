@@ -18,16 +18,18 @@
   button{font-family:inherit;cursor:pointer}
 
   /* top bar */
-  .top{display:flex;align-items:center;justify-content:space-between;padding:14px 28px;border-bottom:1px solid var(--line)}
-  .brand{display:flex;align-items:center;gap:12px}
-  .brand img{width:46px;height:46px}
-  .brand h1{margin:0;font-size:20px;letter-spacing:.14em;font-weight:800}
+  .top{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px;padding:10px 28px;border-bottom:1px solid var(--line)}
+  .brand{display:flex;align-items:center;gap:14px;min-width:0}
+  .brand img{width:76px;height:76px;flex:none;transform-origin:50% 90%;animation:wave 2.6s ease-in-out infinite}
+  @keyframes wave{0%,70%,100%{transform:rotate(0)}78%{transform:rotate(-8deg)}86%{transform:rotate(7deg)}94%{transform:rotate(-4deg)}}
+  .brand h1{margin:0;font-size:20px;letter-spacing:.14em;font-weight:800;white-space:nowrap}
   .brand small{display:block;color:var(--muted);font-size:13px;letter-spacing:0;font-weight:500;margin-top:2px}
-  .counter{display:flex;gap:28px;align-items:baseline;font-family:var(--mono)}
+  .counter{display:flex;gap:26px;align-items:baseline;font-family:var(--mono)}
+  .counter>div{white-space:nowrap}
   .counter .k{color:var(--muted);font-size:12px;letter-spacing:.12em;display:block;font-family:var(--sans);font-weight:600}
   .counter .v{font-size:44px;font-weight:700;color:var(--amber);line-height:1}
   .counter .v.ok{color:var(--green)}
-  .mode{font-family:var(--mono);font-size:12px;color:var(--amber);border:1px solid var(--amber);border-radius:999px;padding:4px 10px;align-self:center}
+  .mode{justify-self:center;font-family:var(--mono);font-size:12px;color:var(--amber);border:1px solid var(--amber);border-radius:999px;padding:4px 10px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 
   /* query */
   .query{padding:16px 28px 8px}
@@ -50,24 +52,33 @@
   .step.done .n,.step.done .s{color:var(--green)}
   .step.wait{border-color:var(--coral)}
   .step.wait .s{color:var(--coral)}
+  .step.wait{animation:blink 1.6s ease-in-out infinite}
+  @keyframes blink{50%{box-shadow:0 0 0 3px rgba(255,107,74,.25)}}
 
   /* main */
   main{flex:1;display:grid;grid-template-columns:3fr 2fr;gap:16px;padding:0 28px 14px;min-height:0}
   .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-height:0}
-  .clip{position:relative;flex:1 1 auto;min-height:160px;background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .clip{position:relative;flex:1 1 auto;min-height:120px;background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden}
   .clip video,.clip img{width:100%;height:100%;object-fit:cover}
   .clip .ph{padding:28px;color:var(--muted);font-size:15px;line-height:1.5;text-align:center;max-width:80%}
   .clip .ph b{display:block;color:var(--text);font-size:20px;margin-bottom:8px}
   .overlay{position:absolute;left:12px;bottom:12px;display:flex;gap:6px;flex-wrap:wrap}
   .pill{font-family:var(--mono);font-size:12px;background:rgba(14,13,11,.85);border:1px solid var(--line);border-radius:6px;padding:3px 8px}
   .sevbig{position:absolute;right:12px;top:12px;font-family:var(--mono);font-weight:700;font-size:14px;padding:5px 10px;border-radius:6px;background:var(--coral);color:#1A0E0A}
-  .detail{padding:14px 18px;display:flex;gap:18px;align-items:center;border-top:1px solid var(--line)}
+  .detail{padding:10px 18px;display:flex;gap:18px;align-items:center;border-top:1px solid var(--line)}
   .detail .txt{flex:1;min-width:0}
   .cosmos{font-size:15px;line-height:1.45}
   .cosmos .lab{color:var(--amber);font-family:var(--mono);font-size:12px;letter-spacing:.08em;display:block;margin-bottom:3px}
   .rat{color:var(--muted);font-size:14px;margin-top:8px}
-  .review{display:flex;align-items:center;gap:12px}
-  .review img{width:92px;height:92px}
+  .review{display:flex;align-items:center;gap:14px}
+  .buddy{position:relative;display:flex;flex-direction:column;align-items:center}
+  .buddy img{width:128px;height:128px;margin:-14px 0 -12px}
+  .buddy img.pop{animation:pop .45s cubic-bezier(.3,1.6,.5,1)}
+  .buddy img.beg{animation:beg 1.4s ease-in-out infinite}
+  @keyframes pop{0%{transform:scale(.7) translateY(10px)}100%{transform:scale(1)}}
+  @keyframes beg{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  .bubble{position:relative;background:var(--text);color:#1a1814;font-weight:700;font-size:14px;line-height:1.3;padding:8px 12px;border-radius:12px;max-width:210px;text-align:center;margin-bottom:6px}
+  .bubble:after{content:"";position:absolute;left:50%;bottom:-7px;margin-left:-7px;border:7px solid transparent;border-bottom:0;border-top-color:var(--text)}
   .btns{display:flex;flex-direction:column;gap:8px}
   .btn{border:0;border-radius:10px;padding:12px 22px;font-size:16px;font-weight:800;min-width:132px}
   .btn.c{background:var(--green);color:#0E1A0B}
@@ -77,7 +88,8 @@
   .state.ok{color:var(--green)} .state.no{color:var(--coral)} .state.pend{color:var(--amber)}
 
   .listhead{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line)}
-  .listhead b{font-size:14px;letter-spacing:.08em;color:var(--muted)}
+  .listhead b{font-size:13px;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
+  .listhead span{white-space:nowrap}
   .listhead button{background:transparent;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:6px 10px;font-size:13px}
   .list{overflow:auto;flex:1}
   .row{display:grid;grid-template-columns:44px 1fr 22px;gap:12px;align-items:center;padding:11px 16px;border-bottom:1px solid var(--line);cursor:pointer}
@@ -96,9 +108,17 @@
   .toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--green);color:#0E1A0B;font-weight:700;padding:12px 18px;border-radius:10px;opacity:0;transition:all .3s;pointer-events:none}
   .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
+  @media (max-width:1400px){
+    .brand small{display:none}
+    .counter .v{font-size:36px}
+    .counter{gap:18px}
+  }
   @media (max-width:900px){
     .top{flex-wrap:wrap;gap:10px;padding:12px 16px}
     .counter .v{font-size:30px}
+    .top{grid-template-columns:1fr}
+    .mode{justify-self:start}
+    .buddy img{width:110px;height:110px}
     .query,.pipe,main,footer{padding-left:16px;padding-right:16px}
     .pipe{grid-template-columns:repeat(3,1fr)}
     main{grid-template-columns:1fr}
@@ -141,7 +161,7 @@
         <div class="rat" id="rat"></div>
       </div>
       <div class="review">
-        <img id="bunny" src="grabbit/grabbit_please.svg" alt="Grabbit">
+        <div class="buddy"><div class="bubble" id="bubble">Pick a clip!</div><img id="bunny" src="grabbit/grabbit_please.svg" alt="Grabbit"></div>
         <div class="btns">
           <button class="btn c" id="bC">Confirm <small>(C)</small></button>
           <button class="btn r" id="bR">Reject <small>(R)</small></button>
@@ -160,7 +180,7 @@
 </main>
 
 <footer>
-  <span>VAST DataEngine · VastDB · NVIDIA Cosmos Reason / Embed · YOLO11 · CoreWeave GPUs · W&amp;B Inference + Weave · Built in Cursor</span>
+  <span>🐰 Grabbit can't reach its own button — that's the safety feature. &nbsp;·&nbsp; VAST DataEngine · VastDB · NVIDIA Cosmos Reason / Embed · YOLO11 · CoreWeave GPUs · W&amp;B Inference + Weave · Built in Cursor</span>
   <a href="https://github.com/jacobuku/grabbit-mining-co" target="_blank" rel="noopener">github.com/jacobuku/grabbit-mining-co</a>
 </footer>
 <div class="toast" id="toast"></div>
@@ -272,15 +292,28 @@ function select(h){
   cur=h; showClip(h); renderList(); paintReview();
 }
 
+const LINES={
+  pending:["Please? My arms can't reach the button.","You press it. I'm just a rabbit.","Human, your move. 🥺"],
+  confirmed:["YES! 🥕 Into the test set!","Carrot earned. Forklift reported.","Mined it. Shipped it."],
+  rejected:["Fine. I'll pretend I never saw it.","Okay, false alarm. Ears down.","Noted. I'll flag less drama."],
+  none:["Not flagged. Nothing to see here.","Boring clip. Next!"]
+};
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+function setBunny(src,line,anim){
+  const b=$("bunny");
+  if(!b.src.endsWith(src)){b.src=src;}
+  b.className="";void b.offsetWidth;b.className=anim||"";
+  $("bubble").textContent=line;
+}
 function paintReview(){
-  const h=cur, st=$("state"), b=$("bunny");
+  const h=cur, st=$("state"), b={set src(v){}};
   const can=h&&h.llm.is_match;
   $("bC").disabled=$("bR").disabled=!can;
-  if(!h){st.className="state pend";st.textContent="Pick a clip to review.";b.src="grabbit/grabbit_please.svg";return}
-  if(!h.llm.is_match){st.className="state";st.textContent="The LLM did not flag this clip, so it never reaches a human.";b.src="grabbit/grabbit_hi.svg";return}
-  if(h.review==="confirmed"){st.className="state ok";st.textContent=`Confirmed by a human: ${h.llm.rationale}`;b.src="grabbit/grabbit_yes.svg"}
-  else if(h.review==="rejected"){st.className="state no";st.textContent=`Rejected by a human — kept out of the test set.`;b.src="grabbit/grabbit_no.svg"}
-  else{st.className="state pend";st.textContent="Waiting for a human. Grabbit can't reach its own button.";b.src="grabbit/grabbit_please.svg"}
+  if(!h){st.className="state pend";st.textContent="Pick a clip to review.";setBunny("grabbit/grabbit_hi.svg","Pick a clip!","pop");return}
+  if(!h.llm.is_match){st.className="state";st.textContent="The LLM did not flag this clip, so it never reaches a human.";setBunny("grabbit/grabbit_hi.svg",pick(LINES.none),"pop");return}
+  if(h.review==="confirmed"){st.className="state ok";st.textContent=`Confirmed by a human: ${h.llm.rationale}`;setBunny("grabbit/grabbit_yes.svg",pick(LINES.confirmed),"pop")}
+  else if(h.review==="rejected"){st.className="state no";st.textContent=`Rejected by a human — kept out of the test set.`;setBunny("grabbit/grabbit_no.svg",pick(LINES.rejected),"pop")}
+  else{st.className="state pend";st.textContent="Waiting for a human. Grabbit can't reach its own button.";setBunny("grabbit/grabbit_please.svg",pick(LINES.pending),"beg")}
 }
 
 function decide(v){
@@ -288,9 +321,9 @@ function decide(v){
   h.review=v; saveReviews(); paintReview(); counters(); renderList();
   if(v==="confirmed"){
     const n=hits.filter(x=>x.review==="confirmed").length;
-    toast(`Action taken: added to regression test set (${n} clip${n===1?"":"s"} total).`);
+    toast(`🥕 Action taken: added to regression test set (${n} clip${n===1?"":"s"} total).`);
     renderPipe(6,{...lastT,4:"human decided",5:`${n} in test set`});
-  }else{ toast("Rejected — the miner learns what not to flag.", true); }
+  }else{ toast("Rejected — kept out of the test set. Grabbit is sulking.", true); }
   setTimeout(()=>{const nxt=sorted().find(x=>x.review==="pending"&&x.llm.is_match); if(nxt) select(nxt)},1500);
 }
 
