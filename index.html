@@ -181,7 +181,7 @@
 
 <footer>
   <span>🐰 Grabbit can't reach its own button — that's the safety feature. &nbsp;·&nbsp; VAST DataEngine · VastDB · NVIDIA Cosmos Reason / Embed · YOLO11 · CoreWeave GPUs · W&amp;B Inference + Weave · Built in Cursor</span>
-  <a href="https://github.com/jacobuku/grabbit-mining-co" target="_blank" rel="noopener">github.com/jacobuku/grabbit-mining-co</a>
+  <span><a href="#" id="reset" title="Clear clicks made in this browser and reload the saved results">↺ reset demo</a> &nbsp;·&nbsp; <a href="https://github.com/jacobuku/grabbit-mining-co" target="_blank" rel="noopener">github.com/jacobuku/grabbit-mining-co</a></span>
 </footer>
 <div class="toast" id="toast"></div>
 
@@ -345,6 +345,7 @@ $("dlE").onclick=()=>{
   const lines=hits.filter(h=>h.review==="confirmed").map(h=>JSON.stringify({clip_id:h.id,camera_id:h.camera_id,location:h.location,start_s:h.start_s,end_s:h.end_s,query:h.query,severity:h.llm.severity,tags:h.llm.tags||[],rationale:h.llm.rationale,verified_by:"human"}));
   download("edge_cases.jsonl",lines.join("\n")+"\n","application/x-ndjson");
 };
+$("reset").onclick=e=>{e.preventDefault();try{localStorage.removeItem(KEY)}catch(_){};location.reload()};
 $("bC").onclick=()=>decide("confirmed");
 $("bR").onclick=()=>decide("rejected");
 document.addEventListener("keydown",e=>{if(e.target.tagName==="INPUT")return; if(e.key==="c"||e.key==="C")decide("confirmed"); if(e.key==="r"||e.key==="R")decide("rejected")});
