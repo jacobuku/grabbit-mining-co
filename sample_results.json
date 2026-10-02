@@ -1,0 +1,41 @@
+{
+  "runs": [
+    {
+      "query": "person close to a moving vehicle",
+      "generated_at": "2026-10-02T12:00:00-07:00",
+      "hits": [
+        {"id": "sdg_wh_014", "camera_id": "sdg_warehouse_cam-2", "location": "warehouse3", "start_s": 0, "end_s": 5,
+         "caption": "A forklift turns into the aisle while a worker walks within 2 m. RISK = high",
+         "detections": {"person": 1, "forklift": 1},
+         "llm": {"is_match": true, "severity": 5, "tags": ["forklift", "aisle", "under_2m"], "rationale": "Forklift turning toward a walking worker under 2 m away."},
+         "review": "confirmed", "latency_ms": 1820},
+        {"id": "sdg_wh_022", "camera_id": "sdg_warehouse_cam-2", "location": "warehouse3", "start_s": 5, "end_s": 10,
+         "caption": "Worker stands next to a parked forklift. RISK = low",
+         "detections": {"person": 1, "forklift": 1},
+         "llm": {"is_match": true, "severity": 2, "tags": ["forklift", "parked"], "rationale": "Person near a forklift, but it is not moving."},
+         "review": "rejected", "latency_ms": 1540},
+        {"id": "i24_s3_p2c1", "camera_id": "i24_cam-1", "location": "nashville", "start_s": 10, "end_s": 15,
+         "caption": "Dense highway traffic, no pedestrians visible.",
+         "detections": {"car": 14, "truck": 3},
+         "llm": {"is_match": false, "severity": 1, "tags": [], "rationale": "No person in frame."},
+         "review": "pending", "latency_ms": 1310},
+        {"id": "sdg_wh_031", "camera_id": "sdg_warehouse_cam-2", "location": "warehouse3", "start_s": 0, "end_s": 5,
+         "caption": "Forklift reverses while a person crosses behind it. RISK = high",
+         "detections": {"person": 1, "forklift": 1},
+         "llm": {"is_match": true, "severity": 4, "tags": ["forklift", "reversing", "crossing"], "rationale": "Person crossing behind a reversing forklift."},
+         "review": "pending", "latency_ms": 2050}
+      ]
+    },
+    {
+      "query": "vehicle braking hard",
+      "generated_at": "2026-10-02T12:05:00-07:00",
+      "hits": [
+        {"id": "i24_s1_p1c2", "camera_id": "i24_cam-1", "location": "nashville", "start_s": 20, "end_s": 25,
+         "caption": "Truck brakes sharply as a car cuts into its lane. RISK = medium",
+         "detections": {"car": 6, "truck": 1},
+         "llm": {"is_match": true, "severity": 4, "tags": ["hard_braking", "lane_cut"], "rationale": "Truck brakes hard after a lane cut-in."},
+         "review": "confirmed", "latency_ms": 1690}
+      ]
+    }
+  ]
+}
