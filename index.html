@@ -41,7 +41,17 @@
   .chip.on{border-color:var(--amber);color:var(--amber)}
 
   /* pipeline */
-  .pipe{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;padding:8px 28px 14px}
+  .pipe{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;padding:4px 28px 12px;font-size:13px;color:#6f675b}
+  .ps{white-space:nowrap;opacity:.55}
+  .ps b{color:var(--muted);font-weight:600;margin-right:4px}
+  .ps.done{opacity:.8}
+  .ps.cur{opacity:1}
+  .ps.cur b{color:var(--text)}
+  .ps.cur .st{color:var(--amber)}
+  .ps.wait .st{color:var(--coral)}
+  .ps .st{font-family:var(--mono);font-size:12px;margin-left:4px}
+  .arr{opacity:.35}
+  .wb{color:#FFBE00;font-weight:600}.vast{color:#1FD3E0;font-weight:600}.nv{color:#76B900;font-weight:600}.cw{color:#2F6FED;font-weight:600}
   .step{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;transition:all .25s}
   .step .n{font-family:var(--mono);font-size:12px;color:var(--muted)}
   .step .t{font-weight:600;font-size:14px;margin-top:2px}
@@ -58,8 +68,8 @@
   /* main */
   main{flex:1;display:grid;grid-template-columns:3fr 2fr;gap:16px;padding:0 28px 14px;min-height:0}
   .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-height:0}
-  .clip{position:relative;flex:1 1 auto;min-height:120px;background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden}
-  .clip video,.clip img{width:100%;height:100%;object-fit:cover}
+  .clip{position:relative;flex:0 1 auto;aspect-ratio:16/9;max-height:46vh;width:100%;min-height:120px;margin:0 auto;background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .clip video,.clip img{width:100%;height:100%;object-fit:contain;background:#000}
   .clip .ph{padding:28px;color:var(--muted);font-size:15px;line-height:1.5;text-align:center;max-width:80%}
   .clip .ph b{display:block;color:var(--text);font-size:20px;margin-bottom:8px}
   .overlay{position:absolute;left:12px;bottom:12px;display:flex;gap:6px;flex-wrap:wrap}
@@ -92,13 +102,15 @@
   .listhead span{white-space:nowrap}
   .listhead button{background:transparent;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:6px 10px;font-size:13px}
   .list{overflow:auto;flex:1}
-  .row{display:grid;grid-template-columns:44px 1fr 22px;gap:12px;align-items:center;padding:11px 16px;border-bottom:1px solid var(--line);cursor:pointer}
+  .row{display:grid;grid-template-columns:44px 1fr 22px;gap:12px;align-items:center;padding:8px 16px;border-bottom:1px solid var(--line);cursor:pointer}
   .row:hover{background:var(--card2)}
   .row.sel{background:var(--card2);box-shadow:3px 0 0 var(--amber) inset}
   .sev{font-family:var(--mono);font-weight:700;font-size:16px;text-align:center;border-radius:6px;padding:6px 0;background:var(--line);color:var(--text)}
   .sev.hi{background:var(--coral);color:#1A0E0A}
-  .row .cam{font-family:var(--mono);font-size:12px;color:var(--muted)}
-  .row .why{font-size:14px;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .row .cam{font-family:var(--mono);font-size:10.5px;color:#6f675b;margin-top:2px}
+  .more{color:var(--amber);font-size:12px}
+  .rat .meta{font-family:var(--mono);font-size:11px;color:#6f675b}
+  .row .why{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .mark{font-size:16px;text-align:center}
   .row.nm{opacity:.45}
 
@@ -120,7 +132,6 @@
     .mode{justify-self:start}
     .buddy img{width:110px;height:110px}
     .query,.pipe,main,footer{padding-left:16px;padding-right:16px}
-    .pipe{grid-template-columns:repeat(3,1fr)}
     main{grid-template-columns:1fr}
     .detail{flex-direction:column;align-items:stretch}
     body{height:auto;overflow:auto}
@@ -223,7 +234,7 @@
 </main>
 
 <footer>
-  <span>🐰 Grabbit can't reach its own button — that's the safety feature. &nbsp;·&nbsp; VAST DataEngine · VastDB · NVIDIA Cosmos Reason / Embed · YOLO11 · CoreWeave GPUs · W&amp;B Inference + Weave · Built in Cursor</span>
+  <span>🐰 Grabbit can't reach its own button — that's the safety feature. &nbsp;·&nbsp; <span class="vast">VAST DataEngine · VastDB</span> · <span class="nv">NVIDIA Cosmos Reason / Embed · YOLO11</span> · <span class="cw">CoreWeave GPUs</span> · <span class="wb">W&amp;B Inference + Weave</span> · Built in Cursor</span>
   <span><a href="#" id="reset" title="Clear clicks made in this browser and reload the saved results">↺ reset demo</a> &nbsp;·&nbsp; <a href="https://github.com/jacobuku/grabbit-mining-co" target="_blank" rel="noopener">github.com/jacobuku/grabbit-mining-co</a></span>
 </footer>
 <div class="toast" id="toast"></div>
@@ -245,7 +256,7 @@ async function init(){
     try{ const r=await fetch(f,{cache:"no-store"}); if(!r.ok) continue; data=await r.json(); source=f; break; }catch(e){}
   }
   replay=!(new URLSearchParams(location.search).get("live"));
-  $("mode").textContent = source==="sample_results.json" ? "Sample data — real results not loaded yet" : (replay ? "Replay — cached results from the VAST pipeline" : "Live");
+  $("mode").innerHTML = source==="sample_results.json" ? "Sample data — real results not loaded yet" : (replay ? 'Replay of today\'s run on <span class="vast">VAST DataEngine</span> · live pipeline, cached results' : "Live");
   const saved=loadReviews();
   hits=[];
   data.runs.forEach(run=>run.hits.forEach(h=>{
@@ -264,13 +275,15 @@ async function init(){
   run(chips.find(q=>qs.includes(q))||chips[0], true);
 }
 
+const SPON=['<span class="wb">W&amp;B Inference</span>','<span class="vast">VastDB</span> · <span class="nv">Cosmos Embed</span>','<span class="nv">Cosmos Reason · YOLO11</span> on <span class="cw">CoreWeave GPUs</span>','<span class="wb">W&amp;B Inference + Weave</span>','human','export → policy eval'];
+const SHORT=["Expand","Search","Evidence","Severity","Review","Act"];
 function renderPipe(stage, timings={}){
-  $("pipe").innerHTML=STEPS.map(([n,t],i)=>{
-    let cls="", s="";
-    if(i<stage){cls="done"; s=timings[i]||"done";}
-    else if(i===stage){cls= i===4?"wait":"run"; s= i===4?"waiting for a human":"running…";}
-    return `<div class="step ${cls}"><div class="n">${n}</div><div class="t">${t}</div><div class="s">${s}</div></div>`;
-  }).join("");
+  $("pipe").innerHTML=SHORT.map((t,i)=>{
+    let cls="", st="";
+    if(i<stage){cls="done"; st=timings[i]||"";}
+    else if(i===stage){cls="cur"+(i===4?" wait":""); st= i===4?"waiting for a human":(timings[i]||"running…");}
+    return `<span class="ps ${cls}"><b>${String(i+1).padStart(2,"0")} ${t}</b>${SPON[i]}${st?`<span class="st">· ${st}</span>`:""}</span>`;
+  }).join('<span class="arr">→</span>');
 }
 
 function hitsFor(q){
@@ -287,7 +300,9 @@ async function run(q, instant=false){
   const flagged=hs.filter(h=>h.llm&&h.llm.is_match).length;
   const lat=hs.map(h=>h.latency_ms).filter(Boolean).sort((a,b)=>a-b);
   const med=lat.length?lat[Math.floor(lat.length/2)]:null;
-  const t={0:"5 queries",1:`${hs.length} hits · ${cams} cam${cams===1?"":"s"}`,2:"captions + detections",3:`${flagged} flagged${med?` · ${(med/1000).toFixed(1)}s/clip`:""}`};
+  const runObj=data.runs.find(r=>r.query===q)||{};
+  const nq=(runObj.search_queries||[]).length||5;
+  const t={0:`${nq} queries`,1:`${hs.length} hits · ${cams} cam${cams===1?"":"s"}`,2:"",3:`${flagged} flagged${med?` · ${(med/1000).toFixed(1)}s/clip`:""}`};
   lastT=t;
   if(instant){renderPipe(4,t);}
   else{ for(let i=0;i<=4;i++){renderPipe(i,t); if(i<4) await new Promise(r=>setTimeout(r,450));} }
@@ -309,8 +324,8 @@ function renderList(){
     const s=h.llm.severity, m=h.review==="confirmed"?"✅":h.review==="rejected"?"✖":"";
     return `<div class="row ${cur===h?"sel":""} ${h.llm.is_match?"":"nm"}" data-id="${esc(h.id)}">
       <div class="sev o${Math.max(1,Math.min(5,s))}" title="${["","stone","coal","iron","gold","diamond"][Math.max(1,Math.min(5,s))]}">${s}</div>
-      <div><div class="cam">${esc(h.camera_id)} · ${esc(h.location)} · ${fmt(h.start_s)}–${fmt(h.end_s)}</div>
-      <div class="why">${esc(h.llm.rationale)}</div></div>
+      <div><div class="why">${esc(h.llm.rationale)}</div>
+      <div class="cam">${h.search_rank!=null?`search #${h.search_rank} · `:""}${esc(h.camera_id)} · ${fmt(h.start_s)}–${fmt(h.end_s)}</div></div>
       <div class="mark">${m}</div></div>`;
   }).join("");
   $("list").onclick=e=>{const r=e.target.closest(".row"); if(r) select(sorted().find(h=>h.id===r.dataset.id))};
@@ -327,8 +342,12 @@ function showClip(h){
   else if(h.video_url) media=`<video src="${esc(h.video_url)}" autoplay muted loop playsinline></video>`;
   else media=`<div class="ph"><span class="pick">⛏️</span><b>${esc(h.llm.tags&&h.llm.tags.length?h.llm.tags.join(" · "):"clip")}</b></div>`;
   $("clip").innerHTML=media+`<div class="overlay">${meta}${pills}</div>`+(h.llm.is_match?`<div class="sevbig o${h.llm.severity}">${["","STONE","COAL","IRON","GOLD","DIAMOND"][Math.max(1,Math.min(5,h.llm.severity))]} · SEV ${h.llm.severity}</div>`:"");
-  $("caption").textContent=h.caption||"—";
-  $("rat").textContent= (h.llm.is_match?"LLM: ":"LLM (not a match): ")+(h.llm.rationale||"");
+  const cap=h.caption||"—";
+  const idx=cap.search(/RISK\s*=/i);
+  const risk=idx>=0?cap.slice(idx):cap.split(/(?<=\.)\s+/).pop();
+  const rest=idx>=0?cap.slice(0,idx).trim():cap.slice(0,cap.length-risk.length).trim();
+  $("caption").innerHTML=esc(risk)+(rest?` <a href="#" class="more" onclick="this.nextElementSibling.style.display='inline';this.remove();return false">more</a><span class="restcap" style="display:none"><br><span style="color:var(--muted)">${esc(rest)}</span></span>`:"");
+  $("rat").innerHTML= esc((h.llm.is_match?"LLM: ":"LLM (not a match): ")+(h.llm.rationale||""))+`<span class="meta"> · <span class="wb">W&amp;B Inference</span>${h.llm.model?" "+esc(h.llm.model):""}${h.latency_ms?` · ${h.latency_ms} ms`:""}</span>`;
 }
 
 function select(h){
@@ -337,7 +356,7 @@ function select(h){
 
 const LINES={
   pending:["Please? My arms can't reach the button.","You press it. I'm just a rabbit.","Human, your move. 🥺"],
-  confirmed:["YES! 🥕 Into the test set!","Carrot earned. Forklift reported.","Mined it. Shipped it."],
+  confirmed:["YES! 🥕 Into the test set!","Carrot earned. Case reported.","Mined it. Shipped it."],
   rejected:["Fine. I'll pretend I never saw it.","Okay, false alarm. Ears down.","Noted. I'll flag less drama."],
   none:["Not flagged. Nothing to see here.","Boring clip. Next!"]
 };
@@ -376,7 +395,7 @@ function decide(v){
   if(v==="confirmed"){
     const n=hits.filter(x=>x.review==="confirmed").length;
     toast(`🥕 Action taken: added to regression test set (${n} clip${n===1?"":"s"} total).`);
-    renderPipe(6,{...lastT,4:"human decided",5:`${n} in test set`});
+    renderPipe(5,{...lastT,4:"human decided",5:`${n} in test set`});
   }else{ toast("Rejected — kept out of the test set. Grabbit is sulking.", true); }
   setTimeout(()=>{const nxt=sorted().find(x=>x.review==="pending"&&x.llm.is_match); if(nxt) select(nxt)},1500);
 }
