@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grabbit Mining Co.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0E0D0B; --card:#1A1814; --card2:#221F1A; --line:#2E2A23;
+    --text:#F3E9D7; --muted:#9C9282; --coral:#FF6B4A; --green:#6BBF59; --amber:#E8C77A;
+    --mono:'JetBrains Mono',ui-monospace,monospace; --sans:'Inter',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px}
+  body{display:flex;flex-direction:column;min-height:100vh}
+  button{font-family:inherit;cursor:pointer}
+
+  /* top bar */
+  .top{display:flex;align-items:center;justify-content:space-between;padding:14px 28px;border-bottom:1px solid var(--line)}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand img{width:46px;height:46px}
+  .brand h1{margin:0;font-size:20px;letter-spacing:.14em;font-weight:800}
+  .brand small{display:block;color:var(--muted);font-size:13px;letter-spacing:0;font-weight:500;margin-top:2px}
+  .counter{display:flex;gap:28px;align-items:baseline;font-family:var(--mono)}
+  .counter .k{color:var(--muted);font-size:12px;letter-spacing:.12em;display:block;font-family:var(--sans);font-weight:600}
+  .counter .v{font-size:44px;font-weight:700;color:var(--amber);line-height:1}
+  .counter .v.ok{color:var(--green)}
+  .mode{font-family:var(--mono);font-size:12px;color:var(--amber);border:1px solid var(--amber);border-radius:999px;padding:4px 10px;align-self:center}
+
+  /* query */
+  .query{padding:16px 28px 8px}
+  .qbar{display:flex;gap:10px}
+  .qbar input{flex:1;background:var(--card);border:1px solid var(--line);color:var(--text);font-size:18px;padding:13px 16px;border-radius:10px;font-family:var(--sans)}
+  .qbar button{background:var(--coral);color:#1A0E0A;border:0;border-radius:10px;padding:0 22px;font-weight:800;font-size:16px}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .chip{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:6px 12px;font-size:14px}
+  .chip.on{border-color:var(--amber);color:var(--amber)}
+
+  /* pipeline */
+  .pipe{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;padding:8px 28px 14px}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;transition:all .25s}
+  .step .n{font-family:var(--mono);font-size:12px;color:var(--muted)}
+  .step .t{font-weight:600;font-size:14px;margin-top:2px}
+  .step .s{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:4px;min-height:15px}
+  .step.run{border-color:var(--amber);box-shadow:0 0 0 1px var(--amber) inset}
+  .step.run .s{color:var(--amber)}
+  .step.done{border-color:#3d5a35}
+  .step.done .n,.step.done .s{color:var(--green)}
+  .step.wait{border-color:var(--coral)}
+  .step.wait .s{color:var(--coral)}
+
+  /* main */
+  main{flex:1;display:grid;grid-template-columns:3fr 2fr;gap:16px;padding:0 28px 14px;min-height:0}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-height:0}
+  .clip{position:relative;aspect-ratio:16/8.2;background:#000;display:flex;align-items:center;justify-content:center}
+  .clip video,.clip img{width:100%;height:100%;object-fit:cover}
+  .clip .ph{padding:28px;color:var(--muted);font-size:15px;line-height:1.5;text-align:center;max-width:80%}
+  .clip .ph b{display:block;color:var(--text);font-size:20px;margin-bottom:8px}
+  .overlay{position:absolute;left:12px;bottom:12px;display:flex;gap:6px;flex-wrap:wrap}
+  .pill{font-family:var(--mono);font-size:12px;background:rgba(14,13,11,.85);border:1px solid var(--line);border-radius:6px;padding:3px 8px}
+  .sevbig{position:absolute;right:12px;top:12px;font-family:var(--mono);font-weight:700;font-size:14px;padding:5px 10px;border-radius:6px;background:var(--coral);color:#1A0E0A}
+  .detail{padding:14px 18px;display:flex;gap:18px;align-items:center;border-top:1px solid var(--line)}
+  .detail .txt{flex:1;min-width:0}
+  .cosmos{font-size:15px;line-height:1.45}
+  .cosmos .lab{color:var(--amber);font-family:var(--mono);font-size:12px;letter-spacing:.08em;display:block;margin-bottom:3px}
+  .rat{color:var(--muted);font-size:14px;margin-top:8px}
+  .review{display:flex;align-items:center;gap:12px}
+  .review img{width:92px;height:92px}
+  .btns{display:flex;flex-direction:column;gap:8px}
+  .btn{border:0;border-radius:10px;padding:12px 22px;font-size:16px;font-weight:800;min-width:132px}
+  .btn.c{background:var(--green);color:#0E1A0B}
+  .btn.r{background:transparent;color:var(--coral);border:2px solid var(--coral)}
+  .btn:disabled{opacity:.35;cursor:default}
+  .state{font-size:15px;font-weight:600;padding:10px 18px;border-top:1px solid var(--line);min-height:44px}
+  .state.ok{color:var(--green)} .state.no{color:var(--coral)} .state.pend{color:var(--amber)}
+
+  .listhead{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line)}
+  .listhead b{font-size:14px;letter-spacing:.08em;color:var(--muted)}
+  .listhead button{background:transparent;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:6px 10px;font-size:13px}
+  .list{overflow:auto;flex:1}
+  .row{display:grid;grid-template-columns:44px 1fr 22px;gap:12px;align-items:center;padding:11px 16px;border-bottom:1px solid var(--line);cursor:pointer}
+  .row:hover{background:var(--card2)}
+  .row.sel{background:var(--card2);box-shadow:3px 0 0 var(--amber) inset}
+  .sev{font-family:var(--mono);font-weight:700;font-size:16px;text-align:center;border-radius:6px;padding:6px 0;background:var(--line);color:var(--text)}
+  .sev.hi{background:var(--coral);color:#1A0E0A}
+  .row .cam{font-family:var(--mono);font-size:12px;color:var(--muted)}
+  .row .why{font-size:14px;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mark{font-size:16px;text-align:center}
+  .row.nm{opacity:.45}
+
+  footer{padding:10px 28px 14px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line)}
+  footer a{color:var(--muted)}
+
+  .toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--green);color:#0E1A0B;font-weight:700;padding:12px 18px;border-radius:10px;opacity:0;transition:all .3s;pointer-events:none}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  @media (max-width:900px){
+    .top{flex-wrap:wrap;gap:10px;padding:12px 16px}
+    .counter .v{font-size:30px}
+    .query,.pipe,main,footer{padding-left:16px;padding-right:16px}
+    .pipe{grid-template-columns:repeat(3,1fr)}
+    main{grid-template-columns:1fr}
+    .detail{flex-direction:column;align-items:stretch}
+  }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <img src="grabbit/grabbit_hi.svg" alt="Grabbit">
+    <div><h1>GRABBIT MINING CO.</h1><small>Edge cases mined from video nobody watched</small></div>
+  </div>
+  <span class="mode" id="mode">Loading…</span>
+  <div class="counter">
+    <div><span class="k">FLAGGED</span><span class="v" id="cFlag">0</span></div>
+    <div><span class="k">HUMAN-CONFIRMED</span><span class="v ok" id="cConf">—</span></div>
+    <div><span class="k">IN TEST SET</span><span class="v" id="cSet">0</span></div>
+  </div>
+</header>
+
+<section class="query">
+  <form class="qbar" id="qform">
+    <input id="q" autocomplete="off" aria-label="Scenario">
+    <button type="submit">Mine</button>
+  </form>
+  <div class="chips" id="chips"></div>
+</section>
+
+<section class="pipe" id="pipe"></section>
+
+<main>
+  <div class="panel">
+    <div class="clip" id="clip"></div>
+    <div class="detail">
+      <div class="txt">
+        <div class="cosmos"><span class="lab">COSMOS REASON SAYS</span><span id="caption">—</span></div>
+        <div class="rat" id="rat"></div>
+      </div>
+      <div class="review">
+        <img id="bunny" src="grabbit/grabbit_please.svg" alt="Grabbit">
+        <div class="btns">
+          <button class="btn c" id="bC">Confirm <small>(C)</small></button>
+          <button class="btn r" id="bR">Reject <small>(R)</small></button>
+        </div>
+      </div>
+    </div>
+    <div class="state pend" id="state">Pick a clip to review.</div>
+  </div>
+
+  <div class="panel">
+    <div class="listhead"><b>HITS · RANKED BY SEVERITY</b>
+      <span><button id="dlR">⬇ results.json</button> <button id="dlE">⬇ test set</button></span>
+    </div>
+    <div class="list" id="list"></div>
+  </div>
+</main>
+
+<footer>
+  <span>VAST DataEngine · VastDB · NVIDIA Cosmos Reason / Embed · YOLO11 · CoreWeave GPUs · W&amp;B Inference + Weave · Built in Cursor</span>
+  <a href="https://github.com/jacobuku/grabbit-mining-co" target="_blank" rel="noopener">github.com/jacobuku/grabbit-mining-co</a>
+</footer>
+<div class="toast" id="toast"></div>
+
+<script>
+const STEPS=[["01","Expand query"],["02","Search cameras"],["03","Cosmos + YOLO evidence"],["04","LLM severity"],["05","Human review"],["06","Act: test set"]];
+const DEFAULT_CHIPS=["forklift within 2 m of a worker in an aisle","person close to a moving vehicle","vehicle braking hard"];
+const KEY="grabbit-reviews-v1";
+let data={runs:[]}, hits=[], cur=null, activeQuery=null, replay=true, lastT={}, source='results.json';
+
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function loadReviews(){try{return JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){return {}}}
+function saveReviews(){try{const m={};hits.forEach(h=>{if(h.review!=="pending")m[h.id+"|"+h.query]=h.review});localStorage.setItem(KEY,JSON.stringify(m))}catch(e){}}
+
+async function init(){
+  for(const f of ["results.json","sample_results.json"]){
+    try{ const r=await fetch(f,{cache:"no-store"}); if(!r.ok) continue; data=await r.json(); source=f; break; }catch(e){}
+  }
+  replay=!(new URLSearchParams(location.search).get("live"));
+  $("mode").textContent = source==="sample_results.json" ? "Sample data — real results not loaded yet" : (replay ? "Replay — cached results from the VAST pipeline" : "Live");
+  const saved=loadReviews();
+  hits=[];
+  data.runs.forEach(run=>run.hits.forEach(h=>{
+    h.query=run.query;
+    const k=h.id+"|"+run.query;
+    if(saved[k]) h.review=saved[k];
+    if(!h.review) h.review="pending";
+    hits.push(h);
+  }));
+  const qs=[...new Set(data.runs.map(r=>r.query))];
+  const chips=[...new Set([...qs,...DEFAULT_CHIPS])].slice(0,4);
+  $("chips").innerHTML=chips.map(q=>`<button class="chip" data-q="${esc(q)}">${esc(q)}</button>`).join("");
+  $("chips").onclick=e=>{const b=e.target.closest(".chip"); if(b) run(b.dataset.q)};
+  $("qform").onsubmit=e=>{e.preventDefault(); run($("q").value.trim())};
+  renderPipe(-1);
+  run(qs[0]||DEFAULT_CHIPS[0], true);
+}
+
+function renderPipe(stage, timings={}){
+  $("pipe").innerHTML=STEPS.map(([n,t],i)=>{
+    let cls="", s="";
+    if(i<stage){cls="done"; s=timings[i]||"done";}
+    else if(i===stage){cls= i===4?"wait":"run"; s= i===4?"waiting for a human":"running…";}
+    return `<div class="step ${cls}"><div class="n">${n}</div><div class="t">${t}</div><div class="s">${s}</div></div>`;
+  }).join("");
+}
+
+function hitsFor(q){
+  const exact=hits.filter(h=>h.query===q);
+  return exact;
+}
+
+async function run(q, instant=false){
+  if(!q) return;
+  activeQuery=q; $("q").value=q;
+  document.querySelectorAll(".chip").forEach(c=>c.classList.toggle("on",c.dataset.q===q));
+  const hs=hitsFor(q);
+  const cams=new Set(hs.map(h=>h.camera_id)).size;
+  const flagged=hs.filter(h=>h.llm&&h.llm.is_match).length;
+  const lat=hs.map(h=>h.latency_ms).filter(Boolean).sort((a,b)=>a-b);
+  const med=lat.length?lat[Math.floor(lat.length/2)]:null;
+  const t={0:"5 queries",1:`${hs.length} hits · ${cams} cam${cams===1?"":"s"}`,2:"captions + detections",3:`${flagged} flagged${med?` · ${(med/1000).toFixed(1)}s/clip`:""}`};
+  lastT=t;
+  if(instant){renderPipe(4,t);}
+  else{ for(let i=0;i<=4;i++){renderPipe(i,t); if(i<4) await new Promise(r=>setTimeout(r,450));} }
+  if(!hs.length){
+    $("list").innerHTML=`<div style="padding:20px;color:var(--muted)">No cached results for this scenario yet. ${replay?"Replay mode only shows scenarios the pipeline already mined.":""}</div>`;
+    showClip(null); counters(); return;
+  }
+  renderList(); counters();
+  const firstPending=sorted().find(h=>h.review==="pending"&&h.llm.is_match);
+  select(firstPending||sorted()[0]);
+}
+
+function sorted(){
+  return hitsFor(activeQuery).slice().sort((a,b)=>(b.llm.is_match-a.llm.is_match)||(b.llm.severity-a.llm.severity));
+}
+
+function renderList(){
+  $("list").innerHTML=sorted().map(h=>{
+    const s=h.llm.severity, m=h.review==="confirmed"?"✅":h.review==="rejected"?"✖":"";
+    return `<div class="row ${cur===h?"sel":""} ${h.llm.is_match?"":"nm"}" data-id="${esc(h.id)}">
+      <div class="sev ${s>=4?"hi":""}">${s}</div>
+      <div><div class="cam">${esc(h.camera_id)} · ${esc(h.location)} · ${fmt(h.start_s)}–${fmt(h.end_s)}</div>
+      <div class="why">${esc(h.llm.rationale)}</div></div>
+      <div class="mark">${m}</div></div>`;
+  }).join("");
+  $("list").onclick=e=>{const r=e.target.closest(".row"); if(r) select(sorted().find(h=>h.id===r.dataset.id))};
+}
+
+function fmt(s){s=Math.round(s||0);return `${Math.floor(s/60)}:${String(s%60).padStart(2,"0")}`}
+
+function showClip(h){
+  if(!h){$("clip").innerHTML=`<div class="ph"><b>No clip selected</b></div>`;$("caption").textContent="—";$("rat").textContent="";return}
+  const pills=Object.entries(h.detections||{}).map(([k,v])=>`<span class="pill">${v} ${esc(k)}</span>`).join("");
+  const meta=`<span class="pill">${esc(h.camera_id)}</span><span class="pill">${esc(h.location)}</span><span class="pill">${fmt(h.start_s)}–${fmt(h.end_s)}</span>`;
+  let media;
+  if(h.video_url) media=`<video src="${esc(h.video_url)}" autoplay muted loop playsinline></video>`;
+  else if(h.thumb_url) media=`<img src="${esc(h.thumb_url)}" alt="">`;
+  else media=`<div class="ph"><b>${esc(h.llm.tags&&h.llm.tags.length?h.llm.tags.join(" · "):"clip")}</b>Clip plays from the VAST archive on the build VM. Evidence below is what the pipeline wrote down.</div>`;
+  $("clip").innerHTML=media+`<div class="overlay">${meta}${pills}</div>`+(h.llm.is_match?`<div class="sevbig">SEVERITY ${h.llm.severity}</div>`:"");
+  $("caption").textContent=h.caption||"—";
+  $("rat").textContent= (h.llm.is_match?"LLM: ":"LLM (not a match): ")+(h.llm.rationale||"");
+}
+
+function select(h){
+  cur=h; showClip(h); renderList(); paintReview();
+}
+
+function paintReview(){
+  const h=cur, st=$("state"), b=$("bunny");
+  const can=h&&h.llm.is_match;
+  $("bC").disabled=$("bR").disabled=!can;
+  if(!h){st.className="state pend";st.textContent="Pick a clip to review.";b.src="grabbit/grabbit_please.svg";return}
+  if(!h.llm.is_match){st.className="state";st.textContent="The LLM did not flag this clip, so it never reaches a human.";b.src="grabbit/grabbit_hi.svg";return}
+  if(h.review==="confirmed"){st.className="state ok";st.textContent=`Confirmed by a human: ${h.llm.rationale}`;b.src="grabbit/grabbit_yes.svg"}
+  else if(h.review==="rejected"){st.className="state no";st.textContent=`Rejected by a human — kept out of the test set.`;b.src="grabbit/grabbit_no.svg"}
+  else{st.className="state pend";st.textContent="Waiting for a human. Grabbit can't reach its own button.";b.src="grabbit/grabbit_please.svg"}
+}
+
+function decide(v){
+  const h=cur; if(!h||!h.llm.is_match) return;
+  h.review=v; saveReviews(); paintReview(); counters(); renderList();
+  if(v==="confirmed"){
+    const n=hits.filter(x=>x.review==="confirmed").length;
+    toast(`Action taken: added to regression test set (${n} clip${n===1?"":"s"} total).`);
+    renderPipe(6,{...lastT,4:"human decided",5:`${n} in test set`});
+  }else{ toast("Rejected — the miner learns what not to flag.", true); }
+  setTimeout(()=>{const nxt=sorted().find(x=>x.review==="pending"&&x.llm.is_match); if(nxt) select(nxt)},1500);
+}
+
+function counters(){
+  const fl=hits.filter(h=>h.llm.is_match), rv=fl.filter(h=>h.review!=="pending"), cf=rv.filter(h=>h.review==="confirmed");
+  $("cFlag").textContent=fl.length;
+  $("cConf").textContent=rv.length?Math.round(100*cf.length/rv.length)+"%":"—";
+  $("cSet").textContent=cf.length;
+}
+
+function toast(msg,bad){const t=$("toast");t.textContent=msg;t.style.background=bad?"var(--coral)":"var(--green)";t.classList.add("show");clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove("show"),2600)}
+
+function download(name,text,type){const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([text],{type}));a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+$("dlR").onclick=()=>{
+  const out={...data,runs:data.runs.map(r=>({...r,hits:r.hits.map(h=>{const {query,...rest}=h;return rest})}))};
+  download("results.json",JSON.stringify(out,null,2),"application/json");
+};
+$("dlE").onclick=()=>{
+  const lines=hits.filter(h=>h.review==="confirmed").map(h=>JSON.stringify({clip_id:h.id,camera_id:h.camera_id,location:h.location,start_s:h.start_s,end_s:h.end_s,query:h.query,severity:h.llm.severity,tags:h.llm.tags||[],rationale:h.llm.rationale,verified_by:"human"}));
+  download("edge_cases.jsonl",lines.join("\n")+"\n","application/x-ndjson");
+};
+$("bC").onclick=()=>decide("confirmed");
+$("bR").onclick=()=>decide("rejected");
+document.addEventListener("keydown",e=>{if(e.target.tagName==="INPUT")return; if(e.key==="c"||e.key==="C")decide("confirmed"); if(e.key==="r"||e.key==="R")decide("rejected")});
+init();
+</script>
+</body>
+</html>
