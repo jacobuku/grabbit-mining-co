@@ -2,9 +2,9 @@
 
 **Describe a dangerous moment in one sentence. Get a human-verified edge-case test set from video nobody has watched.**
 
-> Headline: across **[TOTAL_SEGMENTS]** indexed video segments, our agent flagged **[FLAGGED]** risky clips; a human reviewed them and confirmed **[PRECISION]**. Median LLM scoring time: **[MEDIAN_MS] ms** per clip. *(numbers from `eval_report.py`, Oct 2 2026)*
+> Headline: across **2352** indexed video segments, our agent flagged **[FLAGGED]** risky clips; a human reviewed them and confirmed **[PRECISION]**. Median LLM scoring time: **[MEDIAN_MS] ms** per clip. *(numbers from `eval_report.py`, Oct 2 2026)*
 
-Live app: [APP_URL] · Demo video: [VIDEO_URL] · Team: LJ (build) & KJ (product, evaluation, human review)
+Live app: https://jacobuku.github.io/grabbit-mining-co · Demo video: [VIDEO_URL] · Team: LJ (build) & KJ (product, evaluation, human review)
 
 ---
 
@@ -42,16 +42,21 @@ python3 eval_report.py results.json --export   # prints report, writes metrics.m
 
 Results: see [`metrics.md`](metrics.md).
 
-## Re-ingestion prompt
-Cosmos Reason only writes down what the prompt asks for, so we re-ingested warehouse (Pack C) and highway (Pack A) clips with:
+## Numbers from today's run
+- 3 scenarios × 12 hits = 36 hits.
+- LLM matches: 10 (forklift), 5 (person-vehicle), 2 (braking).
+- Median LLM scoring time: 431 / 388 / 385 ms.
+- The top severity-5 clip was found at search rank 9 (forklift) and rank 7 (person-vehicle); braking's best clip was at rank 11.
 
-> Describe every person and every vehicle/forklift in the segment. For each person, state the approximate distance to the nearest moving vehicle (touching / under 2m / 2-5m / far), whether the vehicle is moving, braking, or turning, and whether the person is in a walkway or occluded. For vehicles, note hard braking, sudden lane changes, or tailgating. End with: RISK = low/medium/high.
+## Re-ingestion prompt
+Cosmos Reason only writes down what the prompt asks for, so we re-ingested 8 warehouse chunks (16 segments) with:
+
+> Describe every person and every forklift in the segment. For each person: approximate distance to the nearest forklift (touching / under 2 m / 2-5 m / far), whether the forklift is moving, turning, or stationary, whether the person is in a walkway or aisle, and whether the person is running. Note if forks are raised or extended toward a person. End with: RISK = low/medium/high and one sentence why.
 
 ## Reproduce
 1. On the VAST workshop VM: `cd ~/vast-builders-challenge && git pull`, then clone this repo next to it.
 2. Credentials and endpoints come from the team environment (`/config/<team>.config`); nothing is hard-coded.
-3. Start the app: [RUN_COMMAND]. Open `/app` on the team host.
-4. Replay mode without the backend: open the app with `?demo=1` (reads cached `results.json`, labeled "Replay" on screen).
+3. Open https://jacobuku.github.io/grabbit-mining-co - the page replays results.json with human review and export. mine.py regenerates results.json on the workshop VM.
 
 ## Honest limitations
 - Only clips we re-ingested carry distance/risk descriptions; the rest use the default captions.
