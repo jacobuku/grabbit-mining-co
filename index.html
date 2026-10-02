@@ -393,6 +393,7 @@ function decide(v){
   const h=cur; if(!h||!h.llm.is_match) return;
   h.review=v; saveReviews(); paintReview(); counters(); renderList();
   if(v==="confirmed"){
+    try{const sq=new Audio('squeak.mp3');sq.volume=0.8;sq.play().catch(()=>{})}catch(e){}
     const n=hits.filter(x=>x.review==="confirmed").length;
     toast(`🥕 Action taken: added to regression test set (${n} clip${n===1?"":"s"} total).`);
     renderPipe(5,{...lastT,4:"human decided",5:`${n} in test set`});
