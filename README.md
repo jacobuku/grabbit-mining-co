@@ -2,7 +2,7 @@
 
 **Describe a dangerous moment in one sentence. Get a human-verified edge-case test set from video nobody has watched.**
 
-> Headline: across **2352** indexed video segments, our agent flagged **[FLAGGED]** risky clips; a human reviewed them and confirmed **[PRECISION]**. Median LLM scoring time: **[MEDIAN_MS] ms** per clip. *(numbers from `eval_report.py`, Oct 2 2026)*
+> Headline: across **2352** indexed video segments, our agent flagged **17** risky clips; a human reviewed 15 and confirmed **60%** (9 clips now in the regression test set; 2 left pending for live review). Median LLM scoring time: **402 ms** per clip. *(numbers from `eval_report.py`, Oct 2 2026)*
 
 Live app: https://jacobuku.github.io/grabbit-mining-co · Demo video: [VIDEO_URL] · Team: LJ (build) & KJ (product, evaluation, human review)
 
@@ -40,7 +40,7 @@ Built with Cursor on the VAST workshop VM.
 python3 eval_report.py results.json --export   # prints report, writes metrics.md and edge_cases.jsonl
 ```
 
-Results: see [`metrics.md`](metrics.md).
+Results: see [`metrics.md`](metrics.md). Notable: the warehouse camera produced 9 of 9 confirmed cases; severity-2 flags were confirmed only 43% of the time, so a severity ≥3 threshold would cut review work with little loss.
 
 ## Numbers from today's run
 - 3 scenarios × 12 hits = 36 hits.
@@ -60,7 +60,7 @@ Cosmos Reason only writes down what the prompt asks for, so we re-ingested 8 war
 
 ## Honest limitations
 - Only clips we re-ingested carry distance/risk descriptions; the rest use the default captions.
-- Precision is measured on [REVIEWED] human-reviewed clips by one reviewer — a small sample.
+- Precision is measured on 15 human-reviewed clips by one reviewer — a small sample.
 - Severity is an LLM judgment, not a physical measurement of distance.
 
 ## Next

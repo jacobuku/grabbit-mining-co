@@ -16,8 +16,8 @@
           "similarity": 0.5419,
           "camera_id": "sdg_warehouse_cam-2",
           "location": "warehouse3",
-          "start_s": 5.0,
-          "end_s": 10.0,
+          "start_s": 5,
+          "end_s": 10,
           "caption": "The person is 2-5 meters away from the forklift. The forklift is moving and turning. The person is in a walkway or aisle. The person is running. The forklift is moving and turning, and the person is running away from it. RISK = high because the forklift is moving and turning while the person is running away from it, creating a potential collision hazard.",
           "detections": {
             "person": 2,
@@ -37,7 +37,7 @@
           },
           "latency_ms": 481,
           "evidence_source": "cosmos",
-          "review": "pending",
+          "review": "confirmed",
           "path": "live",
           "thumb_url": "thumbs/20261001_075712_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_03.rgb_chunk_0000_segment_002_of_002.jpg"
         },
@@ -47,8 +47,8 @@
           "similarity": 0.5915,
           "camera_id": "sdg_warehouse_cam-2",
           "location": "warehouse3",
-          "start_s": 0.0,
-          "end_s": 5.0,
+          "start_s": 0,
+          "end_s": 5,
           "caption": "The person is standing in a walkway between the forklift and the aisle, positioned about 2 meters away from the forklift. The forklift is moving slowly forward, and the person is not running but appears to be reacting to the forklift's movement. The forklift's forks are not raised or extended toward the person. RISK = medium because the person is in close proximity to the moving forklift, creating a potential collision hazard.",
           "detections": {
             "person": 1
@@ -65,7 +65,7 @@
           },
           "latency_ms": 460,
           "evidence_source": "cosmos",
-          "review": "pending",
+          "review": "confirmed",
           "path": "live",
           "thumb_url": "thumbs/20261001_075554_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_00.rgb_chunk_0000_segment_001_of_002.jpg"
         },
@@ -75,8 +75,8 @@
           "similarity": 0.5667,
           "camera_id": "sdg_warehouse_cam-2",
           "location": "warehouse3",
-          "start_s": 5.0,
-          "end_s": 10.0,
+          "start_s": 5,
+          "end_s": 10,
           "caption": "A person wearing a light-colored short-sleeved shirt and dark pants is seen in a warehouse environment. The individual is positioned near a forklift, which is stationary. The person appears to be interacting with the forklift, possibly preparing to operate it or having just completed a task. The warehouse has shelves stocked with various items, and the floor is marked with lines, indicating designated pathways or work areas. The lighting is warm, casting a yellowish hue over the scene. The person's posture suggests they are focused on the forklift, and there are no visible signs of spills or other hazards in the immediate vicinity. The overall setting indicates a typical warehouse operation where inventory handling and forklift use are common activities.",
           "detections": {
             "person": 1
@@ -93,7 +93,7 @@
           },
           "latency_ms": 429,
           "evidence_source": "cosmos",
-          "review": "pending",
+          "review": "confirmed",
           "path": "live",
           "thumb_url": "thumbs/20261001_075737_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_04.rgb_chunk_0000_segment_002_of_002.jpg"
         },
@@ -103,8 +103,8 @@
           "similarity": 0.5416,
           "camera_id": "sdg_warehouse_cam-2",
           "location": "warehouse3",
-          "start_s": 0.0,
-          "end_s": 5.0,
+          "start_s": 0,
+          "end_s": 5,
           "caption": "The person is standing in a walkway, positioned near a forklift. The forklift is moving slowly toward the person. The person is not running but appears to be reacting to the forklift's approach. The forklift's forks are not raised or extended toward the person. RISK = medium because the forklift is moving toward the person in a confined space, creating a potential collision hazard.",
           "detections": {
             "person": 1
@@ -122,7 +122,7 @@
           },
           "latency_ms": 454,
           "evidence_source": "cosmos",
-          "review": "pending",
+          "review": "confirmed",
           "path": "live",
           "thumb_url": "thumbs/20261001_075529_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_04.rgb_chunk_0000_segment_001_of_002.jpg"
         },
@@ -132,8 +132,8 @@
           "similarity": 0.5357,
           "camera_id": "sdg_warehouse_cam-2",
           "location": "warehouse3",
-          "start_s": 5.0,
-          "end_s": 10.0,
+          "start_s": 5,
+          "end_s": 10,
           "caption": "The video shows a warehouse interior with a blue and gray forklift positioned centrally on a dark gray tiled floor. A person wearing a white uniform and cap stands to the left of the forklift, facing it. In the background, yellow safety barriers and shelving units are visible, indicating an organized storage area. The scene is static, with no visible movement from the forklift or the person. No inventory handling, spills, or dock activity is evident in the clip.",
           "detections": {
             "person": 1,
@@ -151,7 +151,7 @@
           },
           "latency_ms": 417,
           "evidence_source": "cosmos",
-          "review": "pending",
+          "review": "confirmed",
           "path": "live",
           "thumb_url": "thumbs/20261001_074929_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_00.rgb_chunk_0000_segment_002_of_002.jpg"
         },
@@ -161,8 +161,8 @@
           "similarity": 0.5821,
           "camera_id": "sdg_warehouse_cam-2",
           "location": "warehouse3",
-          "start_s": 5.0,
-          "end_s": 10.0,
+          "start_s": 5,
+          "end_s": 10,
           "caption": "The person is walking away from the forklift, which is positioned in front of them. The forklift is stationary and not moving. The person is in a walkway or aisle, moving at a normal pace without running. The forklift's forks are not raised or extended toward the person. RISK = low because the person is walking away from the stationary forklift without any immediate danger.",
           "detections": {
             "person": 1
@@ -179,7 +179,7 @@
           },
           "latency_ms": 440,
           "evidence_source": "cosmos",
-          "review": "pending",
+          "review": "rejected",
           "path": "live",
           "thumb_url": "thumbs/20261001_075529_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_04.rgb_chunk_0000_segment_002_of_002.jpg"
         },
@@ -189,8 +189,8 @@
           "similarity": 0.5732,
           "camera_id": "sdg_warehouse_cam-2",
           "location": "warehouse3",
-          "start_s": 5.0,
-          "end_s": 10.0,
+          "start_s": 5,
+          "end_s": 10,
           "caption": "A person in a light-colored shirt and dark pants walks away from the forklift, moving into the aisle. The forklift, which is light blue with black accents and has the word \"ATLAS\" on its side, is initially stationary but then begins to move forward slowly. The person is positioned near the forklift, maintaining a distance of about 2-5 meters. The forklift is moving forward in the aisle, not turning. The person is walking in the aisle, not running. The forklift's forks are not raised or extended toward the person. RISK = low as the person is maintaining a safe distance and the forklift is moving slowly.",
           "detections": {
             "person": 1,
@@ -218,8 +218,8 @@
           "similarity": 0.56,
           "camera_id": "sdg_warehouse_cam-2",
           "location": "warehouse3",
-          "start_s": 5.0,
-          "end_s": 10.0,
+          "start_s": 5,
+          "end_s": 10,
           "caption": "The person is walking away from the forklift, which is stationary on a smooth, gray floor. The forklift is not moving, and the person is in a walkway or aisle. The person is not running. RISK = low because the person is walking away from the stationary forklift, and there is no indication of immediate danger.",
           "detections": {
             "person": 1
@@ -235,7 +235,7 @@
           },
           "latency_ms": 402,
           "evidence_source": "cosmos",
-          "review": "pending",
+          "review": "rejected",
           "path": "live",
           "thumb_url": "thumbs/20261001_075046_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_03.rgb_chunk_0000_segment_002_of_002.jpg"
         },
@@ -245,8 +245,8 @@
           "similarity": 0.5584,
           "camera_id": "sdg_warehouse_cam-2",
           "location": "warehouse3",
-          "start_s": 0.0,
-          "end_s": 5.0,
+          "start_s": 0,
+          "end_s": 5,
           "caption": "The person is standing in a walkway or aisle, positioned at a distance of approximately 2-5 meters from the forklift. The forklift is moving slowly toward the person, who remains stationary. The forklift is not turning but is advancing in a straight line. The person is not running and is standing still, facing the approaching forklift. The forks of the forklift are not raised or extended toward the person. RISK = low as the person is stationary and the forklift is moving slowly, maintaining a safe distance.",
           "detections": {
             "person": 1,
@@ -267,7 +267,7 @@
           },
           "latency_ms": 424,
           "evidence_source": "cosmos",
-          "review": "pending",
+          "review": "confirmed",
           "path": "live",
           "thumb_url": "thumbs/20261001_074513_0851b7a332077a4fc0e2_01021d3989e38beb3395_run_10_seed_213384163.ceiling_00.rgb_chunk_0000_segment_001_of_002.jpg"
         },
@@ -277,8 +277,8 @@
           "similarity": 0.5475,
           "camera_id": "sdg_warehouse_cam-2",
           "location": "warehouse3",
-          "start_s": 5.0,
-          "end_s": 10.0,
+          "start_s": 5,
+          "end_s": 10,
           "caption": "The person is standing near the forklift, initially close enough to be within 2 meters. The forklift is moving forward slowly, and the person is positioned in a walkway or aisle. The person is not running but appears to be moving away from the forklift. The forklift's forks are extended but not raised toward the person. RISK = low as the person is maintaining a safe distance and the forklift is moving at a slow speed.",
           "detections": {
             "person": 2,
@@ -297,7 +297,7 @@
           },
           "latency_ms": 433,
           "evidence_source": "cosmos",
-          "review": "pending",
+          "review": "confirmed",
           "path": "live",
           "thumb_url": "thumbs/20261001_074513_0851b7a332077a4fc0e2_01021d3989e38beb3395_run_10_seed_213384163.ceiling_00.rgb_chunk_0000_segment_002_of_002.jpg"
         },
@@ -307,8 +307,8 @@
           "similarity": 0.5456,
           "camera_id": "sdg_warehouse_cam-2",
           "location": "warehouse3",
-          "start_s": 0.0,
-          "end_s": 5.0,
+          "start_s": 0,
+          "end_s": 5,
           "caption": "The person is about 2 meters away from the forklift, which is moving forward slowly. The forklift is in a walkway and is not turning. The person is running. The forklift's forks are extended toward the person. RISK = low because the person is running away from the forklift.",
           "detections": {
             "person": 1,
@@ -327,7 +327,7 @@
           },
           "latency_ms": 472,
           "evidence_source": "cosmos",
-          "review": "pending",
+          "review": "rejected",
           "path": "live",
           "thumb_url": "thumbs/20261001_074955_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_01.rgb_chunk_0000_segment_001_of_002.jpg"
         },
@@ -337,8 +337,8 @@
           "similarity": 0.5345,
           "camera_id": "sdg_warehouse_cam-2",
           "location": "warehouse3",
-          "start_s": 0.0,
-          "end_s": 5.0,
+          "start_s": 0,
+          "end_s": 5,
           "caption": "The video shows a warehouse interior with a large, dark gray tiled floor. A person wearing a white shirt, light gray pants, and a white cap stands near a blue and black forklift. The forklift is positioned to the right of the person and appears to be stationary. In the background, there are yellow safety barriers and some shelving units holding various items. The person begins to move toward the forklift, extending their arm as if to interact with it. The scene is well-lit, and no other workers or vehicles are visible in the immediate area.",
           "detections": {
             "person": 1,
@@ -379,8 +379,8 @@
           "similarity": 0.3764,
           "camera_id": "sdg_warehouse_cam-2",
           "location": "warehouse3",
-          "start_s": 5.0,
-          "end_s": 10.0,
+          "start_s": 5,
+          "end_s": 10,
           "caption": "The person is 2-5 meters away from the forklift. The forklift is moving and turning. The person is in a walkway or aisle. The person is running. The forklift is moving and turning, and the person is running away from it. RISK = high because the forklift is moving and turning while the person is running away from it, creating a potential collision hazard.",
           "detections": {
             "person": 2,
@@ -398,7 +398,7 @@
           },
           "latency_ms": 416,
           "evidence_source": "cosmos",
-          "review": "pending",
+          "review": "confirmed",
           "path": "live",
           "thumb_url": "thumbs/20261001_075712_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_03.rgb_chunk_0000_segment_002_of_002.jpg"
         },
@@ -408,8 +408,8 @@
           "similarity": 0.4127,
           "camera_id": "neighborhood_cam-1",
           "location": "neighborhood",
-          "start_s": 0.0,
-          "end_s": 5.0,
+          "start_s": 0,
+          "end_s": 5,
           "caption": "A car is seen driving on the road in the background of the scene.",
           "detections": {
             "car": 3,
@@ -426,7 +426,7 @@
           },
           "latency_ms": 340,
           "evidence_source": "cosmos",
-          "review": "pending",
+          "review": "rejected",
           "path": "live",
           "thumb_url": "thumbs/20261001_074123_neighborhood_20260902_chunk_0012_segment_001_of_006.jpg"
         },
@@ -436,8 +436,8 @@
           "similarity": 0.3723,
           "camera_id": "neighborhood_cam-1",
           "location": "neighborhood",
-          "start_s": 10.0,
-          "end_s": 15.0,
+          "start_s": 10,
+          "end_s": 15,
           "caption": "A white utility truck with a ladder on the back is driving along a residential street. The truck is moving from right to left across the frame. The truck has a boxy cab and a flatbed with equipment. The ladder is mounted on the rear of the truck. The truck is moving at a moderate speed. The truck is driving on the right side of the road. The truck is moving away from the camera. The truck is driving on a two-lane road. The truck is moving towards the left side of the frame. The truck is driving on a straight road. The truck is moving towards the left side of the frame. The truck is driving on a straight road. The truck is moving towards the left side of the frame. The truck is driving on a straight road. The truck is moving towards the left side of the frame. The truck is driving on a straight road. The truck is moving towards the left side of the frame. The truck is driving on a straight road. The truck is moving towards the left side of the frame. The truck is driving on a straight road. The truck is...",
           "detections": {
             "car": 2,
@@ -456,7 +456,7 @@
           },
           "latency_ms": 381,
           "evidence_source": "yolo",
-          "review": "pending",
+          "review": "rejected",
           "path": "live",
           "thumb_url": "thumbs/20261001_073249_neighborhood_20260901_chunk_0022_segment_003_of_006.jpg"
         },
@@ -466,8 +466,8 @@
           "similarity": 0.3932,
           "camera_id": "sdg_warehouse_cam-2",
           "location": "warehouse3",
-          "start_s": 0.0,
-          "end_s": 5.0,
+          "start_s": 0,
+          "end_s": 5,
           "caption": "The person is about 2 meters away from the forklift, which is moving forward slowly. The forklift is in a walkway and is not turning. The person is running. The forklift's forks are extended toward the person. RISK = low because the person is running away from the forklift.",
           "detections": {
             "person": 1,
@@ -484,7 +484,7 @@
           },
           "latency_ms": 395,
           "evidence_source": "cosmos",
-          "review": "pending",
+          "review": "confirmed",
           "path": "live",
           "thumb_url": "thumbs/20261001_074955_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_01.rgb_chunk_0000_segment_001_of_002.jpg"
         },
@@ -494,8 +494,8 @@
           "similarity": 0.3822,
           "camera_id": "sdg_warehouse_cam-2",
           "location": "warehouse3",
-          "start_s": 0.0,
-          "end_s": 5.0,
+          "start_s": 0,
+          "end_s": 5,
           "caption": "The person is standing in a walkway, positioned about 2-5 meters away from the forklift. The forklift is moving slowly toward the person. The person is not running and remains in the walkway as the forklift approaches. The forklift's forks are not raised or extended toward the person. RISK = low because the forklift is moving slowly and the person is not in immediate danger.",
           "detections": {
             "person": 2,
@@ -513,7 +513,7 @@
           },
           "latency_ms": 448,
           "evidence_source": "cosmos",
-          "review": "pending",
+          "review": "rejected",
           "path": "live",
           "thumb_url": "thumbs/20261001_075412_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_01.rgb_chunk_0000_segment_001_of_002.jpg"
         },
@@ -523,8 +523,8 @@
           "similarity": 0.3573,
           "camera_id": "sdg_warehouse_cam-2",
           "location": "warehouse3",
-          "start_s": 5.0,
-          "end_s": 10.0,
+          "start_s": 5,
+          "end_s": 10,
           "caption": "The person is running away from the forklift, which is moving forward and turning slightly to the right. The person is in a walkway or aisle, and the forklift is moving and turning. The forklift is moving and turning, and the person is running away from it. The forklift is moving and turning, and the person is running away from it. The forklift is moving and turning, and the person is running away from it. The forklift is moving and turning, and the person is running away from it. The forklift is moving and turning, and the person is running away from it. The forklift is moving and turning, and the person is running away from it. The forklift is moving and turning, and the person is running away from it. The forklift is moving and turning, and the person is running away from it. The forklift is moving and turning, and the person is running away from it. The forklift is moving and turning, and the person is running away from it. The forklift is moving and turning, and the person is running away from it. The...",
           "detections": {
             "person": 1,
@@ -552,8 +552,8 @@
           "similarity": 0.4221,
           "camera_id": "sdg_warehouse_cam-2",
           "location": "warehouse3",
-          "start_s": 5.0,
-          "end_s": 10.0,
+          "start_s": 5,
+          "end_s": 10,
           "caption": "The person is walking away from the forklift, which is positioned in front of them. The forklift is stationary and not moving. The person is in a walkway or aisle, moving at a normal pace without running. The forklift's forks are not raised or extended toward the person. RISK = low because the person is walking away from the stationary forklift without any immediate danger.",
           "detections": {
             "person": 1
@@ -579,8 +579,8 @@
           "similarity": 0.4154,
           "camera_id": "neighborhood_cam-1",
           "location": "neighborhood",
-          "start_s": 25.0,
-          "end_s": 30.0,
+          "start_s": 25,
+          "end_s": 30,
           "caption": "A car is parked on the left side of the frame, facing away from the camera. Another car is parked on the right side, facing towards the camera. A third car is parked in the foreground, partially visible. A person is standing near the parked car on the right side of the frame. The person appears to be stationary and is not engaged in any visible activity.",
           "detections": {
             "car": 5,
@@ -608,8 +608,8 @@
           "similarity": 0.39,
           "camera_id": "sdg_warehouse_cam-2",
           "location": "warehouse3",
-          "start_s": 5.0,
-          "end_s": 10.0,
+          "start_s": 5,
+          "end_s": 10,
           "caption": "The person is walking away from the forklift, which is stationary on a smooth, gray floor. The forklift is not moving, and the person is in a walkway or aisle. The person is not running. RISK = low because the person is walking away from the stationary forklift, and there is no indication of immediate danger.",
           "detections": {
             "person": 1
@@ -635,8 +635,8 @@
           "similarity": 0.3662,
           "camera_id": "sdg_warehouse_cam-2",
           "location": "warehouse3",
-          "start_s": 0.0,
-          "end_s": 5.0,
+          "start_s": 0,
+          "end_s": 5,
           "caption": "The person is standing in a walkway, positioned near a forklift that is stationary. The forklift is not moving, turning, or interacting with the person. The person is not running and remains in the walkway. The forklift's forks are not raised or extended toward the person. RISK = low as there is no immediate danger or interaction between the person and the stationary forklift.",
           "detections": {
             "person": 1
@@ -662,8 +662,8 @@
           "similarity": 0.3626,
           "camera_id": "sdg_warehouse_cam-2",
           "location": "warehouse3",
-          "start_s": 5.0,
-          "end_s": 10.0,
+          "start_s": 5,
+          "end_s": 10,
           "caption": "The person is standing in a walkway, positioned about 2 to 5 meters away from the forklift. The forklift is stationary, with its forks extended forward but not raised. The person is not running and appears to be observing the forklift. The forklift is not moving, turning, or interacting with the person. RISK = low, as the person is maintaining a safe distance from the stationary forklift.",
           "detections": {
             "person": 1,
@@ -690,8 +690,8 @@
           "similarity": 0.3564,
           "camera_id": "neighborhood_cam-1",
           "location": "neighborhood",
-          "start_s": 10.0,
-          "end_s": 15.0,
+          "start_s": 10,
+          "end_s": 15,
           "caption": "The video shows a nighttime scene with a parked car visible in the background. The car is stationary and positioned near a tree. There are no people or other moving objects in the frame. The environment appears calm and quiet, with no unusual behavior or safety hazards observed. The car remains in the same position throughout the video, and there are no other vehicles or crowds present.",
           "detections": {
             "car": 4
@@ -729,8 +729,8 @@
           "similarity": 0.3407,
           "camera_id": "pie_cam-3",
           "location": "toronto",
-          "start_s": 20.0,
-          "end_s": 25.0,
+          "start_s": 20,
+          "end_s": 25,
           "caption": "The scene is a narrow, two-lane road with vehicles parked along both sides. The road surface is dry and marked with yellow lines. A large yellow and red dump truck is moving slowly in the left lane, partially blocking the lane. In front of the camera vehicle, a dark-colored SUV is stopped or moving very slowly, with its brake lights illuminated. The truck has the number \"78\" visible on its front bumper. Pedestrians are walking on the right side of the road, near the parked cars. There are no visible traffic lights or stop signs in the immediate area. The sky is overcast, and the surrounding buildings are industrial-style structures with brick facades and large windows.",
           "detections": {
             "car": 14,
@@ -762,9 +762,9 @@
           "similarity": 0.3449,
           "camera_id": "pie_cam-3",
           "location": "toronto",
-          "start_s": 25.0,
-          "end_s": 30.0,
-          "caption": "The scene is a narrow, single-lane urban street with parked vehicles lining both sides. A dark-colored SUV is stopped directly ahead of the camera vehicle, with its brake lights illuminated, indicating it is stationary or moving very slowly. To the left, a large black UPS delivery truck is parked along the curb, partially blocking the lane. The truck\u2019s logo and branding are clearly visible on its side. Behind the SUV, additional vehicles are visible, including a white car and another dark vehicle, all appearing to be at a standstill. The environment includes brick buildings with large windows and a tall chimney in the background, suggesting an industrial or older commercial area. There are no visible traffic lights, stop signs, or other traffic control devices in the immediate view. The sky is overcast, and the road surface appears dry. No pedestrians or cyclists are present in the frame. The overall impression is of a congested, narrow street where the stopped SUV and the parked UPS truck are the primary...",
+          "start_s": 25,
+          "end_s": 30,
+          "caption": "The scene is a narrow, single-lane urban street with parked vehicles lining both sides. A dark-colored SUV is stopped directly ahead of the camera vehicle, with its brake lights illuminated, indicating it is stationary or moving very slowly. To the left, a large black UPS delivery truck is parked along the curb, partially blocking the lane. The truck’s logo and branding are clearly visible on its side. Behind the SUV, additional vehicles are visible, including a white car and another dark vehicle, all appearing to be at a standstill. The environment includes brick buildings with large windows and a tall chimney in the background, suggesting an industrial or older commercial area. There are no visible traffic lights, stop signs, or other traffic control devices in the immediate view. The sky is overcast, and the road surface appears dry. No pedestrians or cyclists are present in the frame. The overall impression is of a congested, narrow street where the stopped SUV and the parked UPS truck are the primary...",
           "detections": {
             "car": 8,
             "truck": 2
@@ -791,8 +791,8 @@
           "similarity": 0.3778,
           "camera_id": "sdg_warehouse_cam-2",
           "location": "warehouse3",
-          "start_s": 0.0,
-          "end_s": 5.0,
+          "start_s": 0,
+          "end_s": 5,
           "caption": "A person wearing a white shirt with the word POLICE printed on the back and a white cap stands in a warehouse. The individual is positioned near a blue and black forklift labeled ATLAS. The person then turns and runs away from the forklift, moving toward the right side of the frame. The warehouse has a blue floor with visible seams and white brick walls. There are no other workers, inventory, or dock activity visible in the scene.",
           "detections": {
             "person": 1,
@@ -819,8 +819,8 @@
           "similarity": 0.3643,
           "camera_id": "smartspace_cam-1",
           "location": "indoor",
-          "start_s": 5.0,
-          "end_s": 10.0,
+          "start_s": 5,
+          "end_s": 10,
           "caption": "The scene takes place in a large, open warehouse or industrial space with a smooth, dark gray floor marked by faint grid lines. The walls are white and plain, with no visible windows or decorations. Several people are present, dressed in work attire including overalls, hard hats, and casual clothing. Some individuals wear blue or orange safety vests. They are scattered across the floor, walking in various directions, and appear to be engaged in routine activities or inspections. A few people stand still, observing their surroundings. In the background, there are yellow automated guided vehicles (AGVs) moving along the floor, transporting pallets and boxes. These vehicles operate smoothly and do not appear to be causing any disruptions. The overall atmosphere is calm and orderly, with no signs of conflict or unusual behavior. The lighting is even and bright, suggesting an indoor environment with artificial illumination. There are no visible signs of distress, accidents, or security incidents.",
           "detections": {
             "person": 14,
@@ -850,8 +850,8 @@
           "similarity": 0.3605,
           "camera_id": "sdg_warehouse_cam-2",
           "location": "warehouse3",
-          "start_s": 5.0,
-          "end_s": 10.0,
+          "start_s": 5,
+          "end_s": 10,
           "caption": "A person wearing a white shirt with the word POLICE on the back and a white cap is seen interacting with a blue and black forklift in a warehouse. The individual approaches the forklift, makes contact with it, and then runs away from it. The forklift, which has the brand name ATLAS visible on its side, begins to move forward on its own after the person departs. The warehouse floor is dark with visible seams, and the walls are made of light-colored bricks. There are no other visible objects, inventory, or dock activity in the scene.",
           "detections": {
             "person": 3,
@@ -878,8 +878,8 @@
           "similarity": 0.3514,
           "camera_id": "smartspace_cam-1",
           "location": "indoor",
-          "start_s": 0.0,
-          "end_s": 5.0,
+          "start_s": 0,
+          "end_s": 5,
           "caption": "The scene takes place in a large warehouse with a gray floor and orange shelving units along the left wall. Several workers and automated vehicles are present. A group of workers, including individuals wearing hard hats and casual work attire, are gathered near a yellow pallet jack carrying two cardboard boxes. One worker in a white jumpsuit and orange hard hat walks away from the group toward the left side of the frame. Another worker in a white jumpsuit and brown hard hat walks toward the center of the room. A worker in a purple shirt and red pants stands near the center, facing the group. A worker in a white shirt and dark pants stands near a yellow and white automated vehicle on the right side of the frame. A black robotic figure is positioned near the group of workers. In the background, two more automated vehicles are visible, one carrying a single cardboard box and the other empty. The workers appear to be engaged in a discussion or briefing, with some gesturing and others observing. The automated...",
           "detections": {
             "person": 16,
@@ -910,8 +910,8 @@
           "similarity": 0.3464,
           "camera_id": "smartspace_cam-1",
           "location": "indoor",
-          "start_s": 10.0,
-          "end_s": 15.0,
+          "start_s": 10,
+          "end_s": 15,
           "caption": "The scene takes place inside a large warehouse with a gray floor and orange shelving units along the left wall. Several workers and robotic figures are present, moving around the space. The workers wear various outfits, including hard hats in colors such as pink, orange, and white, along with casual clothing like sweaters and pants. Some individuals are walking across the floor, while others appear to be standing or observing. A few robotic figures, resembling humanoid robots, are also visible, some of which are moving or interacting with the environment. The overall activity suggests a demonstration or test of human-robot interaction within a warehouse setting.",
           "detections": {
             "person": 17,
@@ -943,8 +943,8 @@
           "similarity": 0.345,
           "camera_id": "sdg_warehouse_cam-2",
           "location": "warehouse3",
-          "start_s": 5.0,
-          "end_s": 10.0,
+          "start_s": 5,
+          "end_s": 10,
           "caption": "A person in a light-colored shirt and dark pants walks away from the forklift, moving into the aisle. The forklift, which is light blue with black accents and has the word \"ATLAS\" on its side, is initially stationary but then begins to move forward slowly. The person is positioned near the forklift, maintaining a distance of about 2-5 meters. The forklift is moving forward in the aisle, not turning. The person is walking in the aisle, not running. The forklift's forks are not raised or extended toward the person. RISK = low as the person is maintaining a safe distance and the forklift is moving slowly.",
           "detections": {
             "person": 1,
@@ -971,9 +971,9 @@
           "similarity": 0.3426,
           "camera_id": "smartspace_cam-1",
           "location": "indoor",
-          "start_s": 10.0,
-          "end_s": 15.0,
-          "caption": "The scene takes place inside a large warehouse with a gray floor marked by white lines. On the left side, tall orange and gray shelving units hold stacked cardboard boxes. Several people are present, including workers wearing hard hats in colors such as blue, pink, and orange, along with others in casual or work attire. Some individuals are walking across the floor, while others stand still, appearing to observe or wait. A few people are gathered near a pallet carrying two large cardboard boxes, seemingly engaged in a discussion or coordination. In the background, a small white robot with wheels moves slowly across the floor, and a yellow automated guided vehicle (AGV) is also visible, transporting a pallet with boxes. The overall activity suggests a busy logistics or warehouse environment where manual labor and automated systems coexist. The workers\u2019 movements and the presence of the AGV indicate ongoing material handling operations.",
+          "start_s": 10,
+          "end_s": 15,
+          "caption": "The scene takes place inside a large warehouse with a gray floor marked by white lines. On the left side, tall orange and gray shelving units hold stacked cardboard boxes. Several people are present, including workers wearing hard hats in colors such as blue, pink, and orange, along with others in casual or work attire. Some individuals are walking across the floor, while others stand still, appearing to observe or wait. A few people are gathered near a pallet carrying two large cardboard boxes, seemingly engaged in a discussion or coordination. In the background, a small white robot with wheels moves slowly across the floor, and a yellow automated guided vehicle (AGV) is also visible, transporting a pallet with boxes. The overall activity suggests a busy logistics or warehouse environment where manual labor and automated systems coexist. The workers’ movements and the presence of the AGV indicate ongoing material handling operations.",
           "detections": {
             "person": 13,
             "bench": 2,
@@ -1003,8 +1003,8 @@
           "similarity": 0.3421,
           "camera_id": "sdg_warehouse_cam-2",
           "location": "warehouse3",
-          "start_s": 0.0,
-          "end_s": 5.0,
+          "start_s": 0,
+          "end_s": 5,
           "caption": "The person is about 2 meters away from the forklift, which is moving forward slowly. The forklift is in a walkway and is not turning. The person is running. The forklift's forks are extended toward the person. RISK = low because the person is running away from the forklift.",
           "detections": {
             "person": 1,
@@ -1032,8 +1032,8 @@
           "similarity": 0.3418,
           "camera_id": "smartspace_cam-1",
           "location": "indoor",
-          "start_s": 15.0,
-          "end_s": 20.0,
+          "start_s": 15,
+          "end_s": 20,
           "caption": "The scene takes place inside a large warehouse with a gray floor marked by white lines. On the left side of the frame, tall orange and gray shelving units hold stacked cardboard boxes. Several people are present, wearing a variety of clothing including hard hats in colors such as orange, blue, and pink. Some individuals are walking across the floor, while others stand still. A few people are positioned near the shelving units, appearing to interact with the boxes or observe their surroundings. In the background, a small white vehicle is visible, and a yellow pallet jack is also present on the floor. The overall activity suggests a work environment where people are moving around and possibly engaged in tasks related to inventory or logistics.",
           "detections": {
             "person": 16,
@@ -1064,8 +1064,8 @@
           "similarity": 0.3379,
           "camera_id": "smartspace_cam-1",
           "location": "indoor",
-          "start_s": 20.0,
-          "end_s": 25.0,
+          "start_s": 20,
+          "end_s": 25,
           "caption": "The scene takes place in a large, open warehouse or industrial space with a smooth, dark gray floor marked by faint grid lines. The area is well lit, and the walls are plain and light-colored. Several individuals are present, dressed in casual or work attire, including some wearing hard hats and others in plain clothing. Some people are standing still, while others are walking slowly across the floor. A few individuals appear to be interacting with each other, while others seem to be observing their surroundings. In the background, there are a few small, wheeled vehicles or carts, some carrying boxes or other items. These vehicles are scattered around the space, and one appears to be moving slowly. The overall atmosphere is calm, with no signs of urgency or conflict. The individuals and vehicles are spaced out, and there is no indication of congestion or crowding. The scene suggests a routine activity or inspection taking place in a controlled environment.",
           "detections": {
             "person": 12,
