@@ -1,7 +1,7 @@
 {
   "runs": [
     {
-      "query": "forklift within 2m of a worker in an aisle",
+      "query": "forklift within 2 m of a worker in an aisle",
       "generated_at": "2026-10-02T20:59:56+00:00",
       "expand_path": "live",
       "search_queries": [

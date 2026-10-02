@@ -25,7 +25,7 @@ from datetime import datetime
 from urllib.parse import quote
 
 SCENARIOS = [
-    "forklift within 2m of a worker in an aisle",
+    "forklift within 2 m of a worker in an aisle",
     "person close to a moving vehicle",
     "vehicle braking hard",
 ]
