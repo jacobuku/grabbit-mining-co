@@ -17,6 +17,7 @@ import glob
 import json
 import os
 import re
+import statistics
 import time
 import urllib.error
 import urllib.request
@@ -28,6 +29,17 @@ SCENARIOS = [
     "person close to a moving vehicle",
     "vehicle braking hard",
 ]
+# Per scenario: the objects that make it a match, as (caption words, YOLO classes).
+# Forklift is not a YOLO (COCO) class, so only Cosmos can supply that evidence.
+PERSON = (["person", "worker", "pedestrian", "people", "man ", "woman"], ["person"])
+FORKLIFT = (["forklift"], [])
+VEHICLE = (["vehicle", "car", "truck", "bus", "van", "forklift", "motorcycle"],
+           ["car", "truck", "bus", "motorcycle"])
+SCENARIO_OBJECTS = {
+    SCENARIOS[0]: [FORKLIFT, PERSON],
+    SCENARIOS[1]: [PERSON, VEHICLE],
+    SCENARIOS[2]: [VEHICLE],
+}
 TIMEOUT_S = 12
 TOP_HITS = 12
 INFERENCE_BASE_URL = "https://api.inference.wandb.ai/v1"
@@ -203,11 +215,25 @@ def parse_counts(value):
         return {}
 
 
-def build_hit(backend, client, scenario, row):
+def evidence_source(scenario, caption, detections):
+    """Which signal covers all of the scenario's key objects. Otherwise the one covering
+    more of them; ties go to cosmos, since the LLM severity is judged from the caption."""
+    text = f" {caption.lower()} "
+    objects = SCENARIO_OBJECTS.get(scenario, [])
+    cosmos = sum(any(w in text for w in words) for words, _ in objects)
+    yolo = sum(any(detections.get(c) for c in classes) for _, classes in objects)
+    if objects and cosmos == yolo == len(objects):
+        return "both"
+    return "yolo" if yolo > cosmos else "cosmos"
+
+
+def build_hit(backend, client, scenario, row, rank):
     source = row["source"]
     failures = []
     hit = {
         "id": segment_id(source),
+        "search_rank": rank,
+        "similarity": round(row["similarity_score"], 4),
         "camera_id": row.get("camera_id"),
         "location": row.get("location"),
         "start_s": row.get("segment_start_sec"),
@@ -244,6 +270,7 @@ def build_hit(backend, client, scenario, row):
         failures.append(f"llm: {e}")
         hit["llm"] = keyword_judgment(hit["caption"])
     hit["latency_ms"] = round((time.monotonic() - t0) * 1000)
+    hit["evidence_source"] = evidence_source(scenario, hit["caption"], hit["detections"])
 
     hit["review"] = "pending"
     hit["path"] = "fallback" if failures else "live"
@@ -278,7 +305,8 @@ def mine(backend, client, scenario):
                 best[sid] = row
 
     top = sorted(best.values(), key=lambda r: r["similarity_score"], reverse=True)[:TOP_HITS]
-    run["hits"] = [build_hit(backend, client, scenario, row) for row in top]
+    hits = [build_hit(backend, client, scenario, row, rank) for rank, row in enumerate(top, 1)]
+    run["hits"] = sorted(hits, key=lambda h: (h["llm"]["severity"], h["similarity"]), reverse=True)
     return run
 
 
@@ -303,8 +331,13 @@ def main():
     for scenario in SCENARIOS[:args.limit]:
         print(f"scenario: {scenario}")
         run = mine(backend, client, scenario)
-        live = sum(h["path"] == "live" for h in run["hits"])
-        print(f"  {len(run['hits'])} hits ({live} live, {len(run['hits']) - live} fallback)")
+        hits = run["hits"]
+        live = sum(h["path"] == "live" for h in hits)
+        matches = sum(h["llm"]["is_match"] for h in hits)
+        lat = [h["latency_ms"] for h in hits if h["path"] == "live"]
+        median = statistics.median(lat) if lat else None
+        print(f"  {len(hits)} hits ({live} live, {len(hits) - live} fallback), {matches} matches, "
+              f"median LLM {median} ms")
         runs.append(run)
 
     with open(args.out, "w") as f:

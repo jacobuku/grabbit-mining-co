@@ -2,108 +2,18 @@
   "runs": [
     {
       "query": "forklift within 2m of a worker in an aisle",
-      "generated_at": "2026-10-02T20:42:55+00:00",
-      "path": "live",
+      "generated_at": "2026-10-02T20:59:56+00:00",
+      "expand_path": "live",
+      "search_queries": [
+        "forklift near worker in warehouse aisle within 2 meters",
+        "worker in warehouse aisle near forklift",
+        "forklift operation in warehouse aisle with worker present"
+      ],
       "hits": [
         {
-          "id": "20261001_075529_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_04.rgb_chunk_0000_segment_002_of_002",
-          "camera_id": "sdg_warehouse_cam-2",
-          "location": "warehouse3",
-          "start_s": 5.0,
-          "end_s": 10.0,
-          "caption": "The person is walking away from the forklift, which is positioned in front of them. The forklift is stationary and not moving. The person is in a walkway or aisle, moving at a normal pace without running. The forklift's forks are not raised or extended toward the person. RISK = low because the person is walking away from the stationary forklift without any immediate danger.",
-          "detections": {
-            "person": 1
-          },
-          "llm": {
-            "is_match": false,
-            "severity": 1,
-            "tags": [
-              "no_risk"
-            ],
-            "rationale": "The person is walking away from the stationary forklift, posing no immediate danger."
-          },
-          "review": "pending",
-          "latency_ms": 384,
-          "path": "live",
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/abe17ba39ab64117af6eeb7e1ee43aac/20261001_075529_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_04.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=8moYa%2B81sw2f4j8RAKwrLelIb4A%3D&Expires=1791060166"
-        },
-        {
-          "id": "20261001_075046_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_03.rgb_chunk_0000_segment_002_of_002",
-          "camera_id": "sdg_warehouse_cam-2",
-          "location": "warehouse3",
-          "start_s": 5.0,
-          "end_s": 10.0,
-          "caption": "The person is walking away from the forklift, which is stationary on a smooth, gray floor. The forklift is not moving, and the person is in a walkway or aisle. The person is not running. RISK = low because the person is walking away from the stationary forklift, and there is no indication of immediate danger.",
-          "detections": {
-            "person": 1
-          },
-          "llm": {
-            "is_match": false,
-            "severity": 1,
-            "tags": [
-              "low_risk"
-            ],
-            "rationale": "The person is walking away from the stationary forklift, indicating no immediate danger."
-          },
-          "review": "pending",
-          "latency_ms": 332,
-          "path": "live",
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/5db7d1934838447c9c25d0d5d410af07/20261001_075046_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_03.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=3OcN08CL%2BssN1IbFbZ2JkEgKob4%3D&Expires=1791060167"
-        },
-        {
-          "id": "20261001_075554_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_00.rgb_chunk_0000_segment_001_of_002",
-          "camera_id": "sdg_warehouse_cam-2",
-          "location": "warehouse3",
-          "start_s": 0.0,
-          "end_s": 5.0,
-          "caption": "The person is standing in a walkway between the forklift and the aisle, positioned about 2 meters away from the forklift. The forklift is moving slowly forward, and the person is not running but appears to be reacting to the forklift's movement. The forklift's forks are not raised or extended toward the person. RISK = medium because the person is in close proximity to the moving forklift, creating a potential collision hazard.",
-          "detections": {
-            "person": 1
-          },
-          "llm": {
-            "is_match": true,
-            "severity": 3,
-            "tags": [
-              "forklift",
-              "worker",
-              "collision_hazard"
-            ],
-            "rationale": "The person is in close proximity to the moving forklift, creating a potential collision hazard."
-          },
-          "review": "pending",
-          "latency_ms": 396,
-          "path": "live",
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/d2f30c1e4daa4f598129e34687a71e63/20261001_075554_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_00.rgb_chunk_0000_segment_001_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=RTqZFp2t9ldbNQrQWZhAfxNJIjo%3D&Expires=1791060168"
-        },
-        {
-          "id": "20261001_074955_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_01.rgb_chunk_0000_segment_001_of_002",
-          "camera_id": "sdg_warehouse_cam-2",
-          "location": "warehouse3",
-          "start_s": 0.0,
-          "end_s": 5.0,
-          "caption": "The person is about 2 meters away from the forklift, which is moving forward slowly. The forklift is in a walkway and is not turning. The person is running. The forklift's forks are extended toward the person. RISK = low because the person is running away from the forklift.",
-          "detections": {
-            "person": 1,
-            "suitcase": 1
-          },
-          "llm": {
-            "is_match": false,
-            "severity": 1,
-            "tags": [
-              "forklift",
-              "worker",
-              "aisle"
-            ],
-            "rationale": "The person is running away from the forklift, reducing the risk of contact."
-          },
-          "review": "pending",
-          "latency_ms": 377,
-          "path": "live",
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/c580ea1f821a43f7bd85da66f1431324/20261001_074955_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_01.rgb_chunk_0000_segment_001_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=GUm4GGsE0Oj6Kys0IkWWooKre6A%3D&Expires=1791060168"
-        },
-        {
           "id": "20261001_075712_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_03.rgb_chunk_0000_segment_002_of_002",
+          "search_rank": 9,
+          "similarity": 0.5419,
           "camera_id": "sdg_warehouse_cam-2",
           "location": "warehouse3",
           "start_s": 5.0,
@@ -113,50 +23,170 @@
             "person": 2,
             "suitcase": 1
           },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/f3a40f75faeb47a08311771a95ae258f/20261001_075712_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_03.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=DwlqA3CgToQOCxgR2TRws45AwgQ%3D&Expires=1790978420",
           "llm": {
-            "is_match": false,
+            "is_match": true,
+            "severity": 5,
+            "tags": [
+              "collision hazard",
+              "high risk",
+              "forklift",
+              "moving vehicle",
+              "worker in aisle"
+            ],
+            "rationale": "The forklift is moving and turning while the person is running away from it, creating a potential collision hazard."
+          },
+          "latency_ms": 481,
+          "evidence_source": "cosmos",
+          "review": "pending",
+          "path": "live"
+        },
+        {
+          "id": "20261001_075554_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_00.rgb_chunk_0000_segment_001_of_002",
+          "search_rank": 1,
+          "similarity": 0.5915,
+          "camera_id": "sdg_warehouse_cam-2",
+          "location": "warehouse3",
+          "start_s": 0.0,
+          "end_s": 5.0,
+          "caption": "The person is standing in a walkway between the forklift and the aisle, positioned about 2 meters away from the forklift. The forklift is moving slowly forward, and the person is not running but appears to be reacting to the forklift's movement. The forklift's forks are not raised or extended toward the person. RISK = medium because the person is in close proximity to the moving forklift, creating a potential collision hazard.",
+          "detections": {
+            "person": 1
+          },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/d2f30c1e4daa4f598129e34687a71e63/20261001_075554_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_00.rgb_chunk_0000_segment_001_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=xCjmm97LxKDgBYTChC4YFGZSl8s%3D&Expires=1790978414",
+          "llm": {
+            "is_match": true,
+            "severity": 3,
+            "tags": [
+              "collision hazard",
+              "forklift safety",
+              "aisle safety"
+            ],
+            "rationale": "The person is in close proximity to the moving forklift, creating a potential collision hazard."
+          },
+          "latency_ms": 460,
+          "evidence_source": "cosmos",
+          "review": "pending",
+          "path": "live"
+        },
+        {
+          "id": "20261001_075737_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_04.rgb_chunk_0000_segment_002_of_002",
+          "search_rank": 4,
+          "similarity": 0.5667,
+          "camera_id": "sdg_warehouse_cam-2",
+          "location": "warehouse3",
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "caption": "A person wearing a light-colored short-sleeved shirt and dark pants is seen in a warehouse environment. The individual is positioned near a forklift, which is stationary. The person appears to be interacting with the forklift, possibly preparing to operate it or having just completed a task. The warehouse has shelves stocked with various items, and the floor is marked with lines, indicating designated pathways or work areas. The lighting is warm, casting a yellowish hue over the scene. The person's posture suggests they are focused on the forklift, and there are no visible signs of spills or other hazards in the immediate vicinity. The overall setting indicates a typical warehouse operation where inventory handling and forklift use are common activities.",
+          "detections": {
+            "person": 1
+          },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_075737_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_04.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=5SOGQ5E%2B3A%2ByvB6uEuiVLwWL%2FZo%3D&Expires=1790978416",
+          "llm": {
+            "is_match": true,
+            "severity": 3,
+            "tags": [
+              "forklift",
+              "worker",
+              "aisle"
+            ],
+            "rationale": "The forklift is within 2m of the worker, indicating a potential collision risk if the forklift moves."
+          },
+          "latency_ms": 429,
+          "evidence_source": "cosmos",
+          "review": "pending",
+          "path": "live"
+        },
+        {
+          "id": "20261001_075529_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_04.rgb_chunk_0000_segment_001_of_002",
+          "search_rank": 10,
+          "similarity": 0.5416,
+          "camera_id": "sdg_warehouse_cam-2",
+          "location": "warehouse3",
+          "start_s": 0.0,
+          "end_s": 5.0,
+          "caption": "The person is standing in a walkway, positioned near a forklift. The forklift is moving slowly toward the person. The person is not running but appears to be reacting to the forklift's approach. The forklift's forks are not raised or extended toward the person. RISK = medium because the forklift is moving toward the person in a confined space, creating a potential collision hazard.",
+          "detections": {
+            "person": 1
+          },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/abe17ba39ab64117af6eeb7e1ee43aac/20261001_075529_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_04.rgb_chunk_0000_segment_001_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=kW1Esv2kPgW5uEANdrMeXZlgdHU%3D&Expires=1790978421",
+          "llm": {
+            "is_match": true,
+            "severity": 3,
+            "tags": [
+              "forklift",
+              "worker",
+              "aisle",
+              "collision hazard"
+            ],
+            "rationale": "The forklift is moving towards the worker in a confined space, creating a potential collision hazard."
+          },
+          "latency_ms": 454,
+          "evidence_source": "cosmos",
+          "review": "pending",
+          "path": "live"
+        },
+        {
+          "id": "20261001_074929_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_00.rgb_chunk_0000_segment_002_of_002",
+          "search_rank": 11,
+          "similarity": 0.5357,
+          "camera_id": "sdg_warehouse_cam-2",
+          "location": "warehouse3",
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "caption": "The video shows a warehouse interior with a blue and gray forklift positioned centrally on a dark gray tiled floor. A person wearing a white uniform and cap stands to the left of the forklift, facing it. In the background, yellow safety barriers and shelving units are visible, indicating an organized storage area. The scene is static, with no visible movement from the forklift or the person. No inventory handling, spills, or dock activity is evident in the clip.",
+          "detections": {
+            "person": 1,
+            "boat": 1
+          },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_074929_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_00.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=Tlc3LgRCLthBbg4LX4DKqJ%2BEFBY%3D&Expires=1790978421",
+          "llm": {
+            "is_match": true,
+            "severity": 3,
+            "tags": [
+              "proximity",
+              "forklift",
+              "worker"
+            ],
+            "rationale": "The forklift is within 2m of a worker in an aisle, posing a potential risk of collision."
+          },
+          "latency_ms": 417,
+          "evidence_source": "cosmos",
+          "review": "pending",
+          "path": "live"
+        },
+        {
+          "id": "20261001_075529_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_04.rgb_chunk_0000_segment_002_of_002",
+          "search_rank": 2,
+          "similarity": 0.5821,
+          "camera_id": "sdg_warehouse_cam-2",
+          "location": "warehouse3",
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "caption": "The person is walking away from the forklift, which is positioned in front of them. The forklift is stationary and not moving. The person is in a walkway or aisle, moving at a normal pace without running. The forklift's forks are not raised or extended toward the person. RISK = low because the person is walking away from the stationary forklift without any immediate danger.",
+          "detections": {
+            "person": 1
+          },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/abe17ba39ab64117af6eeb7e1ee43aac/20261001_075529_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_04.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=A4Qh8gZ6C0N%2Bjyp5ED9JC91c3Ts%3D&Expires=1790978415",
+          "llm": {
+            "is_match": true,
             "severity": 2,
             "tags": [
               "forklift",
               "worker",
               "aisle"
             ],
-            "rationale": "The person is running away from the forklift, reducing the risk of collision."
+            "rationale": "The forklift is within 2m of the worker, but the worker is walking away from it, reducing the immediate risk."
           },
+          "latency_ms": 440,
+          "evidence_source": "cosmos",
           "review": "pending",
-          "latency_ms": 376,
-          "path": "live",
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/f3a40f75faeb47a08311771a95ae258f/20261001_075712_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_03.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=XAPSrzi9%2F4kdsJAjYnx9OfHewno%3D&Expires=1791060169"
-        },
-        {
-          "id": "20261001_074513_0851b7a332077a4fc0e2_01021d3989e38beb3395_run_10_seed_213384163.ceiling_00.rgb_chunk_0000_segment_002_of_002",
-          "camera_id": "sdg_warehouse_cam-2",
-          "location": "warehouse3",
-          "start_s": 5.0,
-          "end_s": 10.0,
-          "caption": "The person is standing near the forklift, initially close enough to be within 2 meters. The forklift is moving forward slowly, and the person is positioned in a walkway or aisle. The person is not running but appears to be moving away from the forklift. The forklift's forks are extended but not raised toward the person. RISK = low as the person is maintaining a safe distance and the forklift is moving at a slow speed.",
-          "detections": {
-            "person": 2,
-            "truck": 2,
-            "suitcase": 2
-          },
-          "llm": {
-            "is_match": false,
-            "severity": 1,
-            "tags": [
-              "forklift",
-              "worker",
-              "aisle"
-            ],
-            "rationale": "The person is maintaining a safe distance and the forklift is moving at a slow speed."
-          },
-          "review": "pending",
-          "latency_ms": 389,
-          "path": "live",
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/5c61991d266747b8bdce58df78a0a52e/20261001_074513_0851b7a332077a4fc0e2_01021d3989e38beb3395_run_10_seed_213384163.ceiling_00.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=WeYkHmCxNS163CWvz7cKc%2BtHs%2BY%3D&Expires=1791060170"
+          "path": "live"
         },
         {
           "id": "20261001_075554_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_00.rgb_chunk_0000_segment_002_of_002",
+          "search_rank": 3,
+          "similarity": 0.5732,
           "camera_id": "sdg_warehouse_cam-2",
           "location": "warehouse3",
           "start_s": 5.0,
@@ -166,73 +196,53 @@
             "person": 1,
             "refrigerator": 1
           },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/d2f30c1e4daa4f598129e34687a71e63/20261001_075554_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_00.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=l2YlEEQhEl7h2vgM9rgXzsDvOI4%3D&Expires=1790978416",
           "llm": {
             "is_match": false,
-            "severity": 1,
+            "severity": 2,
             "tags": [
               "forklift",
               "worker",
               "aisle"
             ],
-            "rationale": "The person is maintaining a safe distance from the forklift, which is moving slowly."
+            "rationale": "The worker is maintaining a safe distance from the forklift, but the proximity is still a concern."
           },
+          "latency_ms": 402,
+          "evidence_source": "cosmos",
           "review": "pending",
-          "latency_ms": 494,
-          "path": "live",
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/d2f30c1e4daa4f598129e34687a71e63/20261001_075554_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_00.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=3zeo8EyGmZNw0yYUMQkxSMQ%2Bd8I%3D&Expires=1791060170"
+          "path": "live"
         },
         {
-          "id": "20261001_075112_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_04.rgb_chunk_0000_segment_002_of_002",
+          "id": "20261001_075046_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_03.rgb_chunk_0000_segment_002_of_002",
+          "search_rank": 5,
+          "similarity": 0.56,
           "camera_id": "sdg_warehouse_cam-2",
           "location": "warehouse3",
           "start_s": 5.0,
           "end_s": 10.0,
-          "caption": "The person is standing in a walkway, positioned about 2 to 5 meters away from the forklift. The forklift is stationary, with its forks extended forward but not raised. The person is not running and appears to be observing the forklift. The forklift is not moving, turning, or interacting with the person. RISK = low, as the person is maintaining a safe distance from the stationary forklift.",
-          "detections": {
-            "person": 1,
-            "suitcase": 2
-          },
-          "llm": {
-            "is_match": false,
-            "severity": 1,
-            "tags": [
-              "safe_distance",
-              "stationary_forklift"
-            ],
-            "rationale": "The person is maintaining a safe distance from the stationary forklift."
-          },
-          "review": "pending",
-          "latency_ms": 356,
-          "path": "live",
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/f0438186624a4f35a88478af0981dbbc/20261001_075112_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_04.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=j6OsHlQDo%2BvXuHvbiETDumlli7I%3D&Expires=1791060171"
-        },
-        {
-          "id": "20261001_075529_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_04.rgb_chunk_0000_segment_001_of_002",
-          "camera_id": "sdg_warehouse_cam-2",
-          "location": "warehouse3",
-          "start_s": 0.0,
-          "end_s": 5.0,
-          "caption": "The person is standing in a walkway, positioned near a forklift. The forklift is moving slowly toward the person. The person is not running but appears to be reacting to the forklift's approach. The forklift's forks are not raised or extended toward the person. RISK = medium because the forklift is moving toward the person in a confined space, creating a potential collision hazard.",
+          "caption": "The person is walking away from the forklift, which is stationary on a smooth, gray floor. The forklift is not moving, and the person is in a walkway or aisle. The person is not running. RISK = low because the person is walking away from the stationary forklift, and there is no indication of immediate danger.",
           "detections": {
             "person": 1
           },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/5db7d1934838447c9c25d0d5d410af07/20261001_075046_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_03.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=O1cmWyh7EgZPDHVB8K8x1oOyzps%3D&Expires=1790978417",
           "llm": {
             "is_match": true,
-            "severity": 3,
+            "severity": 2,
             "tags": [
-              "forklift",
-              "worker",
-              "aisle"
+              "stationary forklift",
+              "worker walking away"
             ],
-            "rationale": "The forklift is moving toward the person in a confined space, creating a potential collision hazard."
+            "rationale": "The worker is walking away from the stationary forklift, but still within a potentially hazardous area."
           },
+          "latency_ms": 402,
+          "evidence_source": "cosmos",
           "review": "pending",
-          "latency_ms": 390,
-          "path": "live",
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/abe17ba39ab64117af6eeb7e1ee43aac/20261001_075529_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_04.rgb_chunk_0000_segment_001_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=04GRzTZoVdZ7rDSP4RA1WzX1dgU%3D&Expires=1791060172"
+          "path": "live"
         },
         {
           "id": "20261001_074513_0851b7a332077a4fc0e2_01021d3989e38beb3395_run_10_seed_213384163.ceiling_00.rgb_chunk_0000_segment_001_of_002",
+          "search_rank": 6,
+          "similarity": 0.5584,
           "camera_id": "sdg_warehouse_cam-2",
           "location": "warehouse3",
           "start_s": 0.0,
@@ -245,23 +255,243 @@
             "oven": 1,
             "suitcase": 1
           },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/5c61991d266747b8bdce58df78a0a52e/20261001_074513_0851b7a332077a4fc0e2_01021d3989e38beb3395_run_10_seed_213384163.ceiling_00.rgb_chunk_0000_segment_001_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=DYwVNCWevuWnbDdQ7QB9BJf1Gss%3D&Expires=1790978418",
           "llm": {
-            "is_match": false,
+            "is_match": true,
             "severity": 2,
             "tags": [
               "forklift",
               "worker",
               "aisle"
             ],
-            "rationale": "The forklift is moving slowly and maintaining a safe distance, but the worker is still in the aisle."
+            "rationale": "The forklift is within 2m of a stationary worker in an aisle, posing a moderate risk of collision."
           },
+          "latency_ms": 424,
+          "evidence_source": "cosmos",
           "review": "pending",
-          "latency_ms": 406,
-          "path": "live",
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/5c61991d266747b8bdce58df78a0a52e/20261001_074513_0851b7a332077a4fc0e2_01021d3989e38beb3395_run_10_seed_213384163.ceiling_00.rgb_chunk_0000_segment_001_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=L8PuBDj3a7TzpAKbA1tFnwgJPzY%3D&Expires=1791060173"
+          "path": "live"
+        },
+        {
+          "id": "20261001_074513_0851b7a332077a4fc0e2_01021d3989e38beb3395_run_10_seed_213384163.ceiling_00.rgb_chunk_0000_segment_002_of_002",
+          "search_rank": 7,
+          "similarity": 0.5475,
+          "camera_id": "sdg_warehouse_cam-2",
+          "location": "warehouse3",
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "caption": "The person is standing near the forklift, initially close enough to be within 2 meters. The forklift is moving forward slowly, and the person is positioned in a walkway or aisle. The person is not running but appears to be moving away from the forklift. The forklift's forks are extended but not raised toward the person. RISK = low as the person is maintaining a safe distance and the forklift is moving at a slow speed.",
+          "detections": {
+            "person": 2,
+            "truck": 2,
+            "suitcase": 2
+          },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/5c61991d266747b8bdce58df78a0a52e/20261001_074513_0851b7a332077a4fc0e2_01021d3989e38beb3395_run_10_seed_213384163.ceiling_00.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=AX3K%2B2wLEKLb5B6Tf5kYHRo%2FZZM%3D&Expires=1790978418",
+          "llm": {
+            "is_match": true,
+            "severity": 2,
+            "tags": [
+              "forklift",
+              "worker",
+              "aisle"
+            ],
+            "rationale": "The forklift is within 2m of a worker in an aisle, indicating a moderate risk of collision."
+          },
+          "latency_ms": 433,
+          "evidence_source": "cosmos",
+          "review": "pending",
+          "path": "live"
+        },
+        {
+          "id": "20261001_074955_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_01.rgb_chunk_0000_segment_001_of_002",
+          "search_rank": 8,
+          "similarity": 0.5456,
+          "camera_id": "sdg_warehouse_cam-2",
+          "location": "warehouse3",
+          "start_s": 0.0,
+          "end_s": 5.0,
+          "caption": "The person is about 2 meters away from the forklift, which is moving forward slowly. The forklift is in a walkway and is not turning. The person is running. The forklift's forks are extended toward the person. RISK = low because the person is running away from the forklift.",
+          "detections": {
+            "person": 1,
+            "suitcase": 1
+          },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/c580ea1f821a43f7bd85da66f1431324/20261001_074955_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_01.rgb_chunk_0000_segment_001_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=moBGs3vETZ7sq2Y%2BFnfxPhf4veM%3D&Expires=1790978419",
+          "llm": {
+            "is_match": true,
+            "severity": 2,
+            "tags": [
+              "forklift",
+              "worker",
+              "aisle",
+              "low_risk"
+            ],
+            "rationale": "The forklift is within 2m of the worker, but the worker is running away, reducing the risk of contact."
+          },
+          "latency_ms": 472,
+          "evidence_source": "cosmos",
+          "review": "pending",
+          "path": "live"
+        },
+        {
+          "id": "20261001_074929_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_00.rgb_chunk_0000_segment_001_of_002",
+          "search_rank": 12,
+          "similarity": 0.5345,
+          "camera_id": "sdg_warehouse_cam-2",
+          "location": "warehouse3",
+          "start_s": 0.0,
+          "end_s": 5.0,
+          "caption": "The video shows a warehouse interior with a large, dark gray tiled floor. A person wearing a white shirt, light gray pants, and a white cap stands near a blue and black forklift. The forklift is positioned to the right of the person and appears to be stationary. In the background, there are yellow safety barriers and some shelving units holding various items. The person begins to move toward the forklift, extending their arm as if to interact with it. The scene is well-lit, and no other workers or vehicles are visible in the immediate area.",
+          "detections": {
+            "person": 1,
+            "boat": 1,
+            "truck": 1
+          },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_074929_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_00.rgb_chunk_0000_segment_001_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=JR7ffbxcno7v19MmSydDArotl%2FU%3D&Expires=1790978422",
+          "llm": {
+            "is_match": false,
+            "severity": 1,
+            "tags": [
+              "forklift",
+              "worker",
+              "aisle"
+            ],
+            "rationale": "The forklift is stationary and the worker is approaching it, but there is no indication of imminent contact."
+          },
+          "latency_ms": 407,
+          "evidence_source": "cosmos",
+          "review": "pending",
+          "path": "live"
+        }
+      ]
+    },
+    {
+      "query": "person close to a moving vehicle",
+      "generated_at": "2026-10-02T21:00:22+00:00",
+      "expand_path": "live",
+      "search_queries": [
+        "person near moving car",
+        "individual close to speeding vehicle",
+        "person in proximity to moving truck"
+      ],
+      "hits": [
+        {
+          "id": "20261001_075712_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_03.rgb_chunk_0000_segment_002_of_002",
+          "search_rank": 7,
+          "similarity": 0.3764,
+          "camera_id": "sdg_warehouse_cam-2",
+          "location": "warehouse3",
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "caption": "The person is 2-5 meters away from the forklift. The forklift is moving and turning. The person is in a walkway or aisle. The person is running. The forklift is moving and turning, and the person is running away from it. RISK = high because the forklift is moving and turning while the person is running away from it, creating a potential collision hazard.",
+          "detections": {
+            "person": 2,
+            "suitcase": 1
+          },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/f3a40f75faeb47a08311771a95ae258f/20261001_075712_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_03.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=gVxgRBmTLpDEv2W14hw6iON0IE8%3D&Expires=1790978444",
+          "llm": {
+            "is_match": true,
+            "severity": 5,
+            "tags": [
+              "collision hazard",
+              "high risk",
+              "moving vehicle"
+            ],
+            "rationale": "The person is running away from a moving and turning forklift, creating a high risk of imminent contact."
+          },
+          "latency_ms": 416,
+          "evidence_source": "cosmos",
+          "review": "pending",
+          "path": "live"
+        },
+        {
+          "id": "20261001_074123_neighborhood_20260902_chunk_0012_segment_001_of_006",
+          "search_rank": 3,
+          "similarity": 0.4127,
+          "camera_id": "neighborhood_cam-1",
+          "location": "neighborhood",
+          "start_s": 0.0,
+          "end_s": 5.0,
+          "caption": "A car is seen driving on the road in the background of the scene.",
+          "detections": {
+            "car": 3,
+            "donut": 1
+          },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_074123_neighborhood_20260902_chunk_0012_segment_001_of_006.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=hJxsxD5Zw9dQ%2Bz%2BjYuEFc3qiG30%3D&Expires=1790978441",
+          "llm": {
+            "is_match": true,
+            "severity": 4,
+            "tags": [
+              "moving_vehicle",
+              "pedestrian_risk"
+            ],
+            "rationale": "The person is in close proximity to multiple moving vehicles."
+          },
+          "latency_ms": 340,
+          "evidence_source": "cosmos",
+          "review": "pending",
+          "path": "live"
+        },
+        {
+          "id": "20261001_073249_neighborhood_20260901_chunk_0022_segment_003_of_006",
+          "search_rank": 8,
+          "similarity": 0.3723,
+          "camera_id": "neighborhood_cam-1",
+          "location": "neighborhood",
+          "start_s": 10.0,
+          "end_s": 15.0,
+          "caption": "A white utility truck with a ladder on the back is driving along a residential street. The truck is moving from right to left across the frame. The truck has a boxy cab and a flatbed with equipment. The ladder is mounted on the rear of the truck. The truck is moving at a moderate speed. The truck is driving on the right side of the road. The truck is moving away from the camera. The truck is driving on a two-lane road. The truck is moving towards the left side of the frame. The truck is driving on a straight road. The truck is moving towards the left side of the frame. The truck is driving on a straight road. The truck is moving towards the left side of the frame. The truck is driving on a straight road. The truck is moving towards the left side of the frame. The truck is driving on a straight road. The truck is moving towards the left side of the frame. The truck is driving on a straight road. The truck is moving towards the left side of the frame. The truck is driving on a straight road. The truck is...",
+          "detections": {
+            "car": 2,
+            "truck": 1,
+            "bus": 1,
+            "person": 1
+          },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_073249_neighborhood_20260901_chunk_0022_segment_003_of_006.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=y3BLgCxrA46T%2Fgq2uyeKYVIlqYQ%3D&Expires=1790978445",
+          "llm": {
+            "is_match": true,
+            "severity": 4,
+            "tags": [
+              "moving vehicle",
+              "pedestrian safety"
+            ],
+            "rationale": "The person is in close proximity to a moving truck, which poses a significant risk of collision."
+          },
+          "latency_ms": 381,
+          "evidence_source": "yolo",
+          "review": "pending",
+          "path": "live"
+        },
+        {
+          "id": "20261001_074955_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_01.rgb_chunk_0000_segment_001_of_002",
+          "search_rank": 4,
+          "similarity": 0.3932,
+          "camera_id": "sdg_warehouse_cam-2",
+          "location": "warehouse3",
+          "start_s": 0.0,
+          "end_s": 5.0,
+          "caption": "The person is about 2 meters away from the forklift, which is moving forward slowly. The forklift is in a walkway and is not turning. The person is running. The forklift's forks are extended toward the person. RISK = low because the person is running away from the forklift.",
+          "detections": {
+            "person": 1,
+            "suitcase": 1
+          },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/c580ea1f821a43f7bd85da66f1431324/20261001_074955_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_01.rgb_chunk_0000_segment_001_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=QXW5raj%2FmhZrXLmjonB8%2BEHgxbM%3D&Expires=1790978442",
+          "llm": {
+            "is_match": true,
+            "severity": 2,
+            "tags": [
+              "moving_vehicle",
+              "person_in_hazard_zone"
+            ],
+            "rationale": "The person is in close proximity to a moving vehicle with extended forks, despite running away from it."
+          },
+          "latency_ms": 395,
+          "evidence_source": "cosmos",
+          "review": "pending",
+          "path": "live"
         },
         {
           "id": "20261001_075412_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_01.rgb_chunk_0000_segment_001_of_002",
+          "search_rank": 6,
+          "similarity": 0.3822,
           "camera_id": "sdg_warehouse_cam-2",
           "location": "warehouse3",
           "start_s": 0.0,
@@ -271,23 +501,138 @@
             "person": 2,
             "suitcase": 1
           },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/58dcda1f7dca4902bacd90dd9b063db8/20261001_075412_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_01.rgb_chunk_0000_segment_001_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=0p7nU6gT57fU3EIOy83WW8kBxE8%3D&Expires=1790978443",
+          "llm": {
+            "is_match": true,
+            "severity": 2,
+            "tags": [
+              "pedestrian",
+              "moving vehicle",
+              "low risk"
+            ],
+            "rationale": "The person is in close proximity to a moving vehicle, but the risk is low due to the slow speed of the forklift."
+          },
+          "latency_ms": 448,
+          "evidence_source": "cosmos",
+          "review": "pending",
+          "path": "live"
+        },
+        {
+          "id": "20261001_075412_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_01.rgb_chunk_0000_segment_002_of_002",
+          "search_rank": 11,
+          "similarity": 0.3573,
+          "camera_id": "sdg_warehouse_cam-2",
+          "location": "warehouse3",
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "caption": "The person is running away from the forklift, which is moving forward and turning slightly to the right. The person is in a walkway or aisle, and the forklift is moving and turning. The forklift is moving and turning, and the person is running away from it. The forklift is moving and turning, and the person is running away from it. The forklift is moving and turning, and the person is running away from it. The forklift is moving and turning, and the person is running away from it. The forklift is moving and turning, and the person is running away from it. The forklift is moving and turning, and the person is running away from it. The forklift is moving and turning, and the person is running away from it. The forklift is moving and turning, and the person is running away from it. The forklift is moving and turning, and the person is running away from it. The forklift is moving and turning, and the person is running away from it. The forklift is moving and turning, and the person is running away from it. The...",
+          "detections": {
+            "person": 1,
+            "skis": 1,
+            "suitcase": 1
+          },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/58dcda1f7dca4902bacd90dd9b063db8/20261001_075412_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_01.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=UO2RWkuJAnCWxOrlL3%2BVERlz558%3D&Expires=1790978446",
           "llm": {
             "is_match": false,
             "severity": 2,
             "tags": [
-              "aisle",
-              "forklift",
-              "worker"
+              "moving_vehicle",
+              "person_in_hazard_zone"
             ],
-            "rationale": "The forklift is moving slowly and the person is not in immediate danger."
+            "rationale": "The person is running away from the forklift, indicating a potential hazard, but the forklift is not directly approaching the person."
           },
+          "latency_ms": 587,
+          "evidence_source": "cosmos",
           "review": "pending",
-          "latency_ms": 383,
-          "path": "live",
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/58dcda1f7dca4902bacd90dd9b063db8/20261001_075412_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_01.rgb_chunk_0000_segment_001_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=6kYEntUlrAayzK830L9KJqcYGGI%3D&Expires=1791060173"
+          "path": "live"
+        },
+        {
+          "id": "20261001_075529_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_04.rgb_chunk_0000_segment_002_of_002",
+          "search_rank": 1,
+          "similarity": 0.4221,
+          "camera_id": "sdg_warehouse_cam-2",
+          "location": "warehouse3",
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "caption": "The person is walking away from the forklift, which is positioned in front of them. The forklift is stationary and not moving. The person is in a walkway or aisle, moving at a normal pace without running. The forklift's forks are not raised or extended toward the person. RISK = low because the person is walking away from the stationary forklift without any immediate danger.",
+          "detections": {
+            "person": 1
+          },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/abe17ba39ab64117af6eeb7e1ee43aac/20261001_075529_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_04.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=VozJzcsGSF3onw9N9Aqn08vAQ7g%3D&Expires=1790978440",
+          "llm": {
+            "is_match": false,
+            "severity": 1,
+            "tags": [
+              "low_risk",
+              "stationary_vehicle"
+            ],
+            "rationale": "The person is walking away from the stationary forklift, posing no immediate danger."
+          },
+          "latency_ms": 421,
+          "evidence_source": "cosmos",
+          "review": "pending",
+          "path": "live"
+        },
+        {
+          "id": "20261001_073800_neighborhood_20260902_chunk_0004_segment_006_of_006",
+          "search_rank": 2,
+          "similarity": 0.4154,
+          "camera_id": "neighborhood_cam-1",
+          "location": "neighborhood",
+          "start_s": 25.0,
+          "end_s": 30.0,
+          "caption": "A car is parked on the left side of the frame, facing away from the camera. Another car is parked on the right side, facing towards the camera. A third car is parked in the foreground, partially visible. A person is standing near the parked car on the right side of the frame. The person appears to be stationary and is not engaged in any visible activity.",
+          "detections": {
+            "car": 5,
+            "bench": 1,
+            "donut": 1,
+            "person": 1
+          },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_073800_neighborhood_20260902_chunk_0004_segment_006_of_006.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=LS%2F1a5B3hn1yLfzBqnrGMygnuMs%3D&Expires=1790978441",
+          "llm": {
+            "is_match": false,
+            "severity": 1,
+            "tags": [
+              "stationary"
+            ],
+            "rationale": "The person is stationary and not in contact with the moving vehicle."
+          },
+          "latency_ms": 304,
+          "evidence_source": "both",
+          "review": "pending",
+          "path": "live"
+        },
+        {
+          "id": "20261001_075046_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_03.rgb_chunk_0000_segment_002_of_002",
+          "search_rank": 5,
+          "similarity": 0.39,
+          "camera_id": "sdg_warehouse_cam-2",
+          "location": "warehouse3",
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "caption": "The person is walking away from the forklift, which is stationary on a smooth, gray floor. The forklift is not moving, and the person is in a walkway or aisle. The person is not running. RISK = low because the person is walking away from the stationary forklift, and there is no indication of immediate danger.",
+          "detections": {
+            "person": 1
+          },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/5db7d1934838447c9c25d0d5d410af07/20261001_075046_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_03.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=psDhGuEyg7QXeOWnCZRAt5TaoZE%3D&Expires=1790978442",
+          "llm": {
+            "is_match": false,
+            "severity": 1,
+            "tags": [
+              "low_risk",
+              "stationary_vehicle"
+            ],
+            "rationale": "The person is walking away from a stationary forklift on a smooth floor, indicating no immediate danger."
+          },
+          "latency_ms": 395,
+          "evidence_source": "cosmos",
+          "review": "pending",
+          "path": "live"
         },
         {
           "id": "20261001_075712_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_03.rgb_chunk_0000_segment_001_of_002",
+          "search_rank": 9,
+          "similarity": 0.3662,
           "camera_id": "sdg_warehouse_cam-2",
           "location": "warehouse3",
           "start_s": 0.0,
@@ -296,19 +641,455 @@
           "detections": {
             "person": 1
           },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/f3a40f75faeb47a08311771a95ae258f/20261001_075712_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_03.rgb_chunk_0000_segment_001_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=H9%2B%2FEqHP2Uok7l8UdsmMNY979bI%3D&Expires=1790978445",
+          "llm": {
+            "is_match": false,
+            "severity": 1,
+            "tags": [
+              "stationary vehicle",
+              "low risk"
+            ],
+            "rationale": "The person is standing near a stationary forklift with no immediate danger or interaction."
+          },
+          "latency_ms": 363,
+          "evidence_source": "cosmos",
+          "review": "pending",
+          "path": "live"
+        },
+        {
+          "id": "20261001_075112_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_04.rgb_chunk_0000_segment_002_of_002",
+          "search_rank": 10,
+          "similarity": 0.3626,
+          "camera_id": "sdg_warehouse_cam-2",
+          "location": "warehouse3",
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "caption": "The person is standing in a walkway, positioned about 2 to 5 meters away from the forklift. The forklift is stationary, with its forks extended forward but not raised. The person is not running and appears to be observing the forklift. The forklift is not moving, turning, or interacting with the person. RISK = low, as the person is maintaining a safe distance from the stationary forklift.",
+          "detections": {
+            "person": 1,
+            "suitcase": 2
+          },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/f0438186624a4f35a88478af0981dbbc/20261001_075112_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_04.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=ndbDLlilGWUq9G%2Bnu%2Fc4sah3wls%3D&Expires=1790978446",
+          "llm": {
+            "is_match": false,
+            "severity": 1,
+            "tags": [
+              "safe_distance",
+              "stationary_vehicle"
+            ],
+            "rationale": "The person is maintaining a safe distance from the stationary forklift."
+          },
+          "latency_ms": 344,
+          "evidence_source": "cosmos",
+          "review": "pending",
+          "path": "live"
+        },
+        {
+          "id": "20261001_073710_neighborhood_20260902_chunk_0002_segment_003_of_006",
+          "search_rank": 12,
+          "similarity": 0.3564,
+          "camera_id": "neighborhood_cam-1",
+          "location": "neighborhood",
+          "start_s": 10.0,
+          "end_s": 15.0,
+          "caption": "The video shows a nighttime scene with a parked car visible in the background. The car is stationary and positioned near a tree. There are no people or other moving objects in the frame. The environment appears calm and quiet, with no unusual behavior or safety hazards observed. The car remains in the same position throughout the video, and there are no other vehicles or crowds present.",
+          "detections": {
+            "car": 4
+          },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_073710_neighborhood_20260902_chunk_0002_segment_003_of_006.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=bedG1HNhkVGdN7%2F0GgX6r%2FrmxGM%3D&Expires=1790978447",
           "llm": {
             "is_match": false,
             "severity": 1,
             "tags": [
               "no_risk",
-              "stationary"
+              "stationary_vehicle"
             ],
-            "rationale": "The forklift is stationary and not interacting with the person, posing no immediate danger."
+            "rationale": "The vehicle is stationary and there are no people or other moving objects in the frame."
           },
+          "latency_ms": 372,
+          "evidence_source": "cosmos",
           "review": "pending",
-          "latency_ms": 365,
-          "path": "live",
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/f3a40f75faeb47a08311771a95ae258f/20261001_075712_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_03.rgb_chunk_0000_segment_001_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=op84XYedp3PiOlzratFfFAC7kG8%3D&Expires=1791060174"
+          "path": "live"
+        }
+      ]
+    },
+    {
+      "query": "vehicle braking hard",
+      "generated_at": "2026-10-02T21:00:48+00:00",
+      "expand_path": "live",
+      "search_queries": [
+        "car braking hard on highway",
+        "vehicle sudden stop on street",
+        "emergency braking in warehouse parking lot"
+      ],
+      "hits": [
+        {
+          "id": "20261001_071303_set06_video_chunk_0006_segment_005_of_006",
+          "search_rank": 11,
+          "similarity": 0.3407,
+          "camera_id": "pie_cam-3",
+          "location": "toronto",
+          "start_s": 20.0,
+          "end_s": 25.0,
+          "caption": "The scene is a narrow, two-lane road with vehicles parked along both sides. The road surface is dry and marked with yellow lines. A large yellow and red dump truck is moving slowly in the left lane, partially blocking the lane. In front of the camera vehicle, a dark-colored SUV is stopped or moving very slowly, with its brake lights illuminated. The truck has the number \"78\" visible on its front bumper. Pedestrians are walking on the right side of the road, near the parked cars. There are no visible traffic lights or stop signs in the immediate area. The sky is overcast, and the surrounding buildings are industrial-style structures with brick facades and large windows.",
+          "detections": {
+            "car": 14,
+            "person": 3,
+            "truck": 2,
+            "bicycle": 1,
+            "horse": 1,
+            "umbrella": 1
+          },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_071303_set06_video_chunk_0006_segment_005_of_006.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=qNFFjLFgBg62i6XWqWwje4CFb%2B0%3D&Expires=1790978471",
+          "llm": {
+            "is_match": true,
+            "severity": 3,
+            "tags": [
+              "braking",
+              "pedestrian",
+              "obstacle"
+            ],
+            "rationale": "The vehicle is braking hard in a potentially hazardous area with pedestrians and obstacles present."
+          },
+          "latency_ms": 374,
+          "evidence_source": "both",
+          "review": "pending",
+          "path": "live"
+        },
+        {
+          "id": "20261001_071328_set06_video_chunk_0007_segment_006_of_006",
+          "search_rank": 7,
+          "similarity": 0.3449,
+          "camera_id": "pie_cam-3",
+          "location": "toronto",
+          "start_s": 25.0,
+          "end_s": 30.0,
+          "caption": "The scene is a narrow, single-lane urban street with parked vehicles lining both sides. A dark-colored SUV is stopped directly ahead of the camera vehicle, with its brake lights illuminated, indicating it is stationary or moving very slowly. To the left, a large black UPS delivery truck is parked along the curb, partially blocking the lane. The truck\u2019s logo and branding are clearly visible on its side. Behind the SUV, additional vehicles are visible, including a white car and another dark vehicle, all appearing to be at a standstill. The environment includes brick buildings with large windows and a tall chimney in the background, suggesting an industrial or older commercial area. There are no visible traffic lights, stop signs, or other traffic control devices in the immediate view. The sky is overcast, and the road surface appears dry. No pedestrians or cyclists are present in the frame. The overall impression is of a congested, narrow street where the stopped SUV and the parked UPS truck are the primary...",
+          "detections": {
+            "car": 8,
+            "truck": 2
+          },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_071328_set06_video_chunk_0007_segment_006_of_006.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=5BZCkHfv8a%2BL9iUK2Qkg45pomlc%3D&Expires=1790978469",
+          "llm": {
+            "is_match": true,
+            "severity": 2,
+            "tags": [
+              "braking",
+              "urban",
+              "congested"
+            ],
+            "rationale": "The vehicle is braking hard in a congested urban area with a parked truck partially blocking the lane."
+          },
+          "latency_ms": 405,
+          "evidence_source": "both",
+          "review": "pending",
+          "path": "live"
+        },
+        {
+          "id": "20261001_075138_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.eye_00.rgb_chunk_0000_segment_001_of_002",
+          "search_rank": 1,
+          "similarity": 0.3778,
+          "camera_id": "sdg_warehouse_cam-2",
+          "location": "warehouse3",
+          "start_s": 0.0,
+          "end_s": 5.0,
+          "caption": "A person wearing a white shirt with the word POLICE printed on the back and a white cap stands in a warehouse. The individual is positioned near a blue and black forklift labeled ATLAS. The person then turns and runs away from the forklift, moving toward the right side of the frame. The warehouse has a blue floor with visible seams and white brick walls. There are no other workers, inventory, or dock activity visible in the scene.",
+          "detections": {
+            "person": 1,
+            "chair": 1
+          },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_075138_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.eye_00.rgb_chunk_0000_segment_001_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=CZjGaMdvn3I36RDNWfxAVyIuMa8%3D&Expires=1790978465",
+          "llm": {
+            "is_match": false,
+            "severity": 1,
+            "tags": [
+              "pedestrian",
+              "vehicle"
+            ],
+            "rationale": "No vehicle is present in the scene."
+          },
+          "latency_ms": 500,
+          "evidence_source": "cosmos",
+          "review": "pending",
+          "path": "live"
+        },
+        {
+          "id": "20261001_075838_2025_test_Warehouse_017_Camera_chunk_0002_segment_002_of_006",
+          "search_rank": 2,
+          "similarity": 0.3643,
+          "camera_id": "smartspace_cam-1",
+          "location": "indoor",
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "caption": "The scene takes place in a large, open warehouse or industrial space with a smooth, dark gray floor marked by faint grid lines. The walls are white and plain, with no visible windows or decorations. Several people are present, dressed in work attire including overalls, hard hats, and casual clothing. Some individuals wear blue or orange safety vests. They are scattered across the floor, walking in various directions, and appear to be engaged in routine activities or inspections. A few people stand still, observing their surroundings. In the background, there are yellow automated guided vehicles (AGVs) moving along the floor, transporting pallets and boxes. These vehicles operate smoothly and do not appear to be causing any disruptions. The overall atmosphere is calm and orderly, with no signs of conflict or unusual behavior. The lighting is even and bright, suggesting an indoor environment with artificial illumination. There are no visible signs of distress, accidents, or security incidents.",
+          "detections": {
+            "person": 14,
+            "truck": 1,
+            "car": 2,
+            "tennis racket": 1
+          },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_075838_2025_test_Warehouse_017_Camera_chunk_0002_segment_002_of_006.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=ZU2uwhzdVluhDtLKgMJy%2B1Smg%2BU%3D&Expires=1790978465",
+          "llm": {
+            "is_match": false,
+            "severity": 1,
+            "tags": [
+              "braking",
+              "vehicle",
+              "indoor"
+            ],
+            "rationale": "The vehicle is not in a situation where it is likely to collide with anyone or anything."
+          },
+          "latency_ms": 390,
+          "evidence_source": "both",
+          "review": "pending",
+          "path": "live"
+        },
+        {
+          "id": "20261001_074538_0851b7a332077a4fc0e2_01021d3989e38beb3395_run_10_seed_213384163.ceiling_01.rgb_chunk_0000_segment_002_of_002",
+          "search_rank": 3,
+          "similarity": 0.3605,
+          "camera_id": "sdg_warehouse_cam-2",
+          "location": "warehouse3",
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "caption": "A person wearing a white shirt with the word POLICE on the back and a white cap is seen interacting with a blue and black forklift in a warehouse. The individual approaches the forklift, makes contact with it, and then runs away from it. The forklift, which has the brand name ATLAS visible on its side, begins to move forward on its own after the person departs. The warehouse floor is dark with visible seams, and the walls are made of light-colored bricks. There are no other visible objects, inventory, or dock activity in the scene.",
+          "detections": {
+            "person": 3,
+            "boat": 1
+          },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_074538_0851b7a332077a4fc0e2_01021d3989e38beb3395_run_10_seed_213384163.ceiling_01.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=nWEUC2Lz3WXRDWwGECMk58d0Mhc%3D&Expires=1790978466",
+          "llm": {
+            "is_match": false,
+            "severity": 1,
+            "tags": [
+              "vehicle",
+              "braking"
+            ],
+            "rationale": "No vehicle is present in the scene."
+          },
+          "latency_ms": 294,
+          "evidence_source": "cosmos",
+          "review": "pending",
+          "path": "live"
+        },
+        {
+          "id": "20261001_080820_2025_test_Warehouse_017_Camera_02_chunk_0005_segment_001_of_006",
+          "search_rank": 4,
+          "similarity": 0.3514,
+          "camera_id": "smartspace_cam-1",
+          "location": "indoor",
+          "start_s": 0.0,
+          "end_s": 5.0,
+          "caption": "The scene takes place in a large warehouse with a gray floor and orange shelving units along the left wall. Several workers and automated vehicles are present. A group of workers, including individuals wearing hard hats and casual work attire, are gathered near a yellow pallet jack carrying two cardboard boxes. One worker in a white jumpsuit and orange hard hat walks away from the group toward the left side of the frame. Another worker in a white jumpsuit and brown hard hat walks toward the center of the room. A worker in a purple shirt and red pants stands near the center, facing the group. A worker in a white shirt and dark pants stands near a yellow and white automated vehicle on the right side of the frame. A black robotic figure is positioned near the group of workers. In the background, two more automated vehicles are visible, one carrying a single cardboard box and the other empty. The workers appear to be engaged in a discussion or briefing, with some gesturing and others observing. The automated...",
+          "detections": {
+            "person": 16,
+            "bench": 2,
+            "truck": 2,
+            "car": 2,
+            "suitcase": 3,
+            "bicycle": 1
+          },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_080820_2025_test_Warehouse_017_Camera_02_chunk_0005_segment_001_of_006.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=3PGFt7pF4RXLi1odMWLu7PkXVo4%3D&Expires=1790978467",
+          "llm": {
+            "is_match": false,
+            "severity": 1,
+            "tags": [
+              "no pedestrians in path",
+              "no imminent contact"
+            ],
+            "rationale": "The vehicle braking hard does not pose an immediate risk to any pedestrians in the scene."
+          },
+          "latency_ms": 381,
+          "evidence_source": "both",
+          "review": "pending",
+          "path": "live"
+        },
+        {
+          "id": "20261001_080705_2025_test_Warehouse_017_Camera_02_chunk_0002_segment_003_of_006",
+          "search_rank": 5,
+          "similarity": 0.3464,
+          "camera_id": "smartspace_cam-1",
+          "location": "indoor",
+          "start_s": 10.0,
+          "end_s": 15.0,
+          "caption": "The scene takes place inside a large warehouse with a gray floor and orange shelving units along the left wall. Several workers and robotic figures are present, moving around the space. The workers wear various outfits, including hard hats in colors such as pink, orange, and white, along with casual clothing like sweaters and pants. Some individuals are walking across the floor, while others appear to be standing or observing. A few robotic figures, resembling humanoid robots, are also visible, some of which are moving or interacting with the environment. The overall activity suggests a demonstration or test of human-robot interaction within a warehouse setting.",
+          "detections": {
+            "person": 17,
+            "truck": 1,
+            "bench": 1,
+            "suitcase": 1,
+            "backpack": 1,
+            "sports ball": 1,
+            "bicycle": 1
+          },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_080705_2025_test_Warehouse_017_Camera_02_chunk_0002_segment_003_of_006.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=4BDqIhIR%2BGnEPvcqdNl6HyR0pK8%3D&Expires=1790978468",
+          "llm": {
+            "is_match": false,
+            "severity": 1,
+            "tags": [
+              "no_risk",
+              "warehouse"
+            ],
+            "rationale": "No vehicle collision risk detected, as the only vehicle present is a stationary truck."
+          },
+          "latency_ms": 352,
+          "evidence_source": "yolo",
+          "review": "pending",
+          "path": "live"
+        },
+        {
+          "id": "20261001_075554_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_00.rgb_chunk_0000_segment_002_of_002",
+          "search_rank": 6,
+          "similarity": 0.345,
+          "camera_id": "sdg_warehouse_cam-2",
+          "location": "warehouse3",
+          "start_s": 5.0,
+          "end_s": 10.0,
+          "caption": "A person in a light-colored shirt and dark pants walks away from the forklift, moving into the aisle. The forklift, which is light blue with black accents and has the word \"ATLAS\" on its side, is initially stationary but then begins to move forward slowly. The person is positioned near the forklift, maintaining a distance of about 2-5 meters. The forklift is moving forward in the aisle, not turning. The person is walking in the aisle, not running. The forklift's forks are not raised or extended toward the person. RISK = low as the person is maintaining a safe distance and the forklift is moving slowly.",
+          "detections": {
+            "person": 1,
+            "refrigerator": 1
+          },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/d2f30c1e4daa4f598129e34687a71e63/20261001_075554_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_00.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=PWGxhA4Kue736Kl4l43iVLebZVk%3D&Expires=1790978468",
+          "llm": {
+            "is_match": false,
+            "severity": 1,
+            "tags": [
+              "safe_distance",
+              "slow_speed"
+            ],
+            "rationale": "The person is maintaining a safe distance and the forklift is moving slowly, reducing the risk of collision."
+          },
+          "latency_ms": 389,
+          "evidence_source": "cosmos",
+          "review": "pending",
+          "path": "live"
+        },
+        {
+          "id": "20261001_080755_2025_test_Warehouse_017_Camera_02_chunk_0004_segment_003_of_006",
+          "search_rank": 8,
+          "similarity": 0.3426,
+          "camera_id": "smartspace_cam-1",
+          "location": "indoor",
+          "start_s": 10.0,
+          "end_s": 15.0,
+          "caption": "The scene takes place inside a large warehouse with a gray floor marked by white lines. On the left side, tall orange and gray shelving units hold stacked cardboard boxes. Several people are present, including workers wearing hard hats in colors such as blue, pink, and orange, along with others in casual or work attire. Some individuals are walking across the floor, while others stand still, appearing to observe or wait. A few people are gathered near a pallet carrying two large cardboard boxes, seemingly engaged in a discussion or coordination. In the background, a small white robot with wheels moves slowly across the floor, and a yellow automated guided vehicle (AGV) is also visible, transporting a pallet with boxes. The overall activity suggests a busy logistics or warehouse environment where manual labor and automated systems coexist. The workers\u2019 movements and the presence of the AGV indicate ongoing material handling operations.",
+          "detections": {
+            "person": 13,
+            "bench": 2,
+            "car": 3,
+            "bicycle": 1,
+            "suitcase": 2,
+            "truck": 2
+          },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_080755_2025_test_Warehouse_017_Camera_02_chunk_0004_segment_003_of_006.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=diZJqqPKX4u7UIslqkqDFOXan1s%3D&Expires=1790978469",
+          "llm": {
+            "is_match": false,
+            "severity": 1,
+            "tags": [
+              "no_vehicles",
+              "warehouse"
+            ],
+            "rationale": "No vehicle is involved in the braking action."
+          },
+          "latency_ms": 303,
+          "evidence_source": "both",
+          "review": "pending",
+          "path": "live"
+        },
+        {
+          "id": "20261001_074955_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_01.rgb_chunk_0000_segment_001_of_002",
+          "search_rank": 9,
+          "similarity": 0.3421,
+          "camera_id": "sdg_warehouse_cam-2",
+          "location": "warehouse3",
+          "start_s": 0.0,
+          "end_s": 5.0,
+          "caption": "The person is about 2 meters away from the forklift, which is moving forward slowly. The forklift is in a walkway and is not turning. The person is running. The forklift's forks are extended toward the person. RISK = low because the person is running away from the forklift.",
+          "detections": {
+            "person": 1,
+            "suitcase": 1
+          },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/c580ea1f821a43f7bd85da66f1431324/20261001_074955_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_01.rgb_chunk_0000_segment_001_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=7XmCnQX%2FPNet7JC9lyJS90zk158%3D&Expires=1790978470",
+          "llm": {
+            "is_match": false,
+            "severity": 1,
+            "tags": [
+              "low_risk",
+              "forklift",
+              "person_running"
+            ],
+            "rationale": "The person is running away from the forklift, reducing the risk of collision."
+          },
+          "latency_ms": 392,
+          "evidence_source": "cosmos",
+          "review": "pending",
+          "path": "live"
+        },
+        {
+          "id": "20261001_081001_2025_test_Warehouse_017_Camera_02_chunk_0009_segment_004_of_006",
+          "search_rank": 10,
+          "similarity": 0.3418,
+          "camera_id": "smartspace_cam-1",
+          "location": "indoor",
+          "start_s": 15.0,
+          "end_s": 20.0,
+          "caption": "The scene takes place inside a large warehouse with a gray floor marked by white lines. On the left side of the frame, tall orange and gray shelving units hold stacked cardboard boxes. Several people are present, wearing a variety of clothing including hard hats in colors such as orange, blue, and pink. Some individuals are walking across the floor, while others stand still. A few people are positioned near the shelving units, appearing to interact with the boxes or observe their surroundings. In the background, a small white vehicle is visible, and a yellow pallet jack is also present on the floor. The overall activity suggests a work environment where people are moving around and possibly engaged in tasks related to inventory or logistics.",
+          "detections": {
+            "person": 16,
+            "truck": 1,
+            "car": 1,
+            "bench": 2,
+            "tennis racket": 1,
+            "chair": 1
+          },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_081001_2025_test_Warehouse_017_Camera_02_chunk_0009_segment_004_of_006.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=4BnM1OjYh34jR3qDq%2FgcZbD6%2F5Q%3D&Expires=1790978471",
+          "llm": {
+            "is_match": false,
+            "severity": 1,
+            "tags": [
+              "vehicle",
+              "braking"
+            ],
+            "rationale": "The vehicle is stationary and not in motion."
+          },
+          "latency_ms": 299,
+          "evidence_source": "both",
+          "review": "pending",
+          "path": "live"
+        },
+        {
+          "id": "20261001_080019_2025_test_Warehouse_017_Camera_chunk_0006_segment_005_of_006",
+          "search_rank": 12,
+          "similarity": 0.3379,
+          "camera_id": "smartspace_cam-1",
+          "location": "indoor",
+          "start_s": 20.0,
+          "end_s": 25.0,
+          "caption": "The scene takes place in a large, open warehouse or industrial space with a smooth, dark gray floor marked by faint grid lines. The area is well lit, and the walls are plain and light-colored. Several individuals are present, dressed in casual or work attire, including some wearing hard hats and others in plain clothing. Some people are standing still, while others are walking slowly across the floor. A few individuals appear to be interacting with each other, while others seem to be observing their surroundings. In the background, there are a few small, wheeled vehicles or carts, some carrying boxes or other items. These vehicles are scattered around the space, and one appears to be moving slowly. The overall atmosphere is calm, with no signs of urgency or conflict. The individuals and vehicles are spaced out, and there is no indication of congestion or crowding. The scene suggests a routine activity or inspection taking place in a controlled environment.",
+          "detections": {
+            "person": 12,
+            "car": 3,
+            "truck": 2,
+            "motorcycle": 1,
+            "bicycle": 3,
+            "suitcase": 1,
+            "sports ball": 1
+          },
+          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_080019_2025_test_Warehouse_017_Camera_chunk_0006_segment_005_of_006.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=VA26HDRhuPdBq22kpu%2Bj7CV%2Bgp4%3D&Expires=1790978472",
+          "llm": {
+            "is_match": false,
+            "severity": 1,
+            "tags": [
+              "no_risk",
+              "routine_activity"
+            ],
+            "rationale": "The scene does not depict a vehicle braking hard, but rather a calm and controlled environment with individuals and vehicles spaced out."
+          },
+          "latency_ms": 416,
+          "evidence_source": "both",
+          "review": "pending",
+          "path": "live"
         }
       ]
     }
