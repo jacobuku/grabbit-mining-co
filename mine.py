@@ -256,13 +256,6 @@ def build_hit(backend, client, scenario, row, rank):
     except Exception as e:
         failures.append(f"detections: {e}")
 
-    try:
-        url = backend.playback_url(source).get("url")
-        if url:
-            hit["video_url"] = url
-    except Exception as e:
-        failures.append(f"playback-url: {e}")
-
     t0 = time.monotonic()
     try:
         hit["llm"] = judge_hit(client, scenario, hit["caption"], hit["detections"])

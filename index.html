@@ -323,8 +323,8 @@ function showClip(h){
   const pills=Object.entries(h.detections||{}).map(([k,v])=>`<span class="pill">${v} ${esc(k)}</span>`).join("");
   const meta=`<span class="pill">${esc(h.camera_id)}</span><span class="pill">${esc(h.location)}</span><span class="pill">${fmt(h.start_s)}–${fmt(h.end_s)}</span>`;
   let media;
-  if(h.video_url) media=`<video src="${esc(h.video_url)}" autoplay muted loop playsinline></video>`;
-  else if(h.thumb_url) media=`<img src="${esc(h.thumb_url)}" alt="">`;
+  if(h.thumb_url) media=`<img src="${esc(h.thumb_url)}" alt="">`;
+  else if(h.video_url) media=`<video src="${esc(h.video_url)}" autoplay muted loop playsinline></video>`;
   else media=`<div class="ph"><span class="pick">⛏️</span><b>${esc(h.llm.tags&&h.llm.tags.length?h.llm.tags.join(" · "):"clip")}</b></div>`;
   $("clip").innerHTML=media+`<div class="overlay">${meta}${pills}</div>`+(h.llm.is_match?`<div class="sevbig o${h.llm.severity}">${["","STONE","COAL","IRON","GOLD","DIAMOND"][Math.max(1,Math.min(5,h.llm.severity))]} · SEV ${h.llm.severity}</div>`:"");
   $("caption").textContent=h.caption||"—";

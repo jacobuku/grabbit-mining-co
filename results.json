@@ -23,7 +23,6 @@
             "person": 2,
             "suitcase": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/f3a40f75faeb47a08311771a95ae258f/20261001_075712_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_03.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=DwlqA3CgToQOCxgR2TRws45AwgQ%3D&Expires=1790978420",
           "llm": {
             "is_match": true,
             "severity": 5,
@@ -54,7 +53,6 @@
           "detections": {
             "person": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/d2f30c1e4daa4f598129e34687a71e63/20261001_075554_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_00.rgb_chunk_0000_segment_001_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=xCjmm97LxKDgBYTChC4YFGZSl8s%3D&Expires=1790978414",
           "llm": {
             "is_match": true,
             "severity": 3,
@@ -83,7 +81,6 @@
           "detections": {
             "person": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_075737_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_04.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=5SOGQ5E%2B3A%2ByvB6uEuiVLwWL%2FZo%3D&Expires=1790978416",
           "llm": {
             "is_match": true,
             "severity": 3,
@@ -112,7 +109,6 @@
           "detections": {
             "person": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/abe17ba39ab64117af6eeb7e1ee43aac/20261001_075529_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_04.rgb_chunk_0000_segment_001_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=kW1Esv2kPgW5uEANdrMeXZlgdHU%3D&Expires=1790978421",
           "llm": {
             "is_match": true,
             "severity": 3,
@@ -143,7 +139,6 @@
             "person": 1,
             "boat": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_074929_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_00.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=Tlc3LgRCLthBbg4LX4DKqJ%2BEFBY%3D&Expires=1790978421",
           "llm": {
             "is_match": true,
             "severity": 3,
@@ -172,7 +167,6 @@
           "detections": {
             "person": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/abe17ba39ab64117af6eeb7e1ee43aac/20261001_075529_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_04.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=A4Qh8gZ6C0N%2Bjyp5ED9JC91c3Ts%3D&Expires=1790978415",
           "llm": {
             "is_match": true,
             "severity": 2,
@@ -202,7 +196,6 @@
             "person": 1,
             "refrigerator": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/d2f30c1e4daa4f598129e34687a71e63/20261001_075554_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_00.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=l2YlEEQhEl7h2vgM9rgXzsDvOI4%3D&Expires=1790978416",
           "llm": {
             "is_match": false,
             "severity": 2,
@@ -231,7 +224,6 @@
           "detections": {
             "person": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/5db7d1934838447c9c25d0d5d410af07/20261001_075046_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_03.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=O1cmWyh7EgZPDHVB8K8x1oOyzps%3D&Expires=1790978417",
           "llm": {
             "is_match": true,
             "severity": 2,
@@ -263,7 +255,6 @@
             "oven": 1,
             "suitcase": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/5c61991d266747b8bdce58df78a0a52e/20261001_074513_0851b7a332077a4fc0e2_01021d3989e38beb3395_run_10_seed_213384163.ceiling_00.rgb_chunk_0000_segment_001_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=DYwVNCWevuWnbDdQ7QB9BJf1Gss%3D&Expires=1790978418",
           "llm": {
             "is_match": true,
             "severity": 2,
@@ -294,7 +285,6 @@
             "truck": 2,
             "suitcase": 2
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/5c61991d266747b8bdce58df78a0a52e/20261001_074513_0851b7a332077a4fc0e2_01021d3989e38beb3395_run_10_seed_213384163.ceiling_00.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=AX3K%2B2wLEKLb5B6Tf5kYHRo%2FZZM%3D&Expires=1790978418",
           "llm": {
             "is_match": true,
             "severity": 2,
@@ -324,7 +314,6 @@
             "person": 1,
             "suitcase": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/c580ea1f821a43f7bd85da66f1431324/20261001_074955_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_01.rgb_chunk_0000_segment_001_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=moBGs3vETZ7sq2Y%2BFnfxPhf4veM%3D&Expires=1790978419",
           "llm": {
             "is_match": true,
             "severity": 2,
@@ -356,7 +345,6 @@
             "boat": 1,
             "truck": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_074929_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_00.rgb_chunk_0000_segment_001_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=JR7ffbxcno7v19MmSydDArotl%2FU%3D&Expires=1790978422",
           "llm": {
             "is_match": false,
             "severity": 1,
@@ -398,7 +386,6 @@
             "person": 2,
             "suitcase": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/f3a40f75faeb47a08311771a95ae258f/20261001_075712_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_03.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=gVxgRBmTLpDEv2W14hw6iON0IE8%3D&Expires=1790978444",
           "llm": {
             "is_match": true,
             "severity": 5,
@@ -428,7 +415,6 @@
             "car": 3,
             "donut": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_074123_neighborhood_20260902_chunk_0012_segment_001_of_006.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=hJxsxD5Zw9dQ%2Bz%2BjYuEFc3qiG30%3D&Expires=1790978441",
           "llm": {
             "is_match": true,
             "severity": 4,
@@ -459,7 +445,6 @@
             "bus": 1,
             "person": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_073249_neighborhood_20260901_chunk_0022_segment_003_of_006.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=y3BLgCxrA46T%2Fgq2uyeKYVIlqYQ%3D&Expires=1790978445",
           "llm": {
             "is_match": true,
             "severity": 4,
@@ -488,7 +473,6 @@
             "person": 1,
             "suitcase": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/c580ea1f821a43f7bd85da66f1431324/20261001_074955_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_01.rgb_chunk_0000_segment_001_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=QXW5raj%2FmhZrXLmjonB8%2BEHgxbM%3D&Expires=1790978442",
           "llm": {
             "is_match": true,
             "severity": 2,
@@ -517,7 +501,6 @@
             "person": 2,
             "suitcase": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/58dcda1f7dca4902bacd90dd9b063db8/20261001_075412_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_01.rgb_chunk_0000_segment_001_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=0p7nU6gT57fU3EIOy83WW8kBxE8%3D&Expires=1790978443",
           "llm": {
             "is_match": true,
             "severity": 2,
@@ -548,7 +531,6 @@
             "skis": 1,
             "suitcase": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/58dcda1f7dca4902bacd90dd9b063db8/20261001_075412_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_01.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=UO2RWkuJAnCWxOrlL3%2BVERlz558%3D&Expires=1790978446",
           "llm": {
             "is_match": false,
             "severity": 2,
@@ -576,7 +558,6 @@
           "detections": {
             "person": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/abe17ba39ab64117af6eeb7e1ee43aac/20261001_075529_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.ceiling_04.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=VozJzcsGSF3onw9N9Aqn08vAQ7g%3D&Expires=1790978440",
           "llm": {
             "is_match": false,
             "severity": 1,
@@ -607,7 +588,6 @@
             "donut": 1,
             "person": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_073800_neighborhood_20260902_chunk_0004_segment_006_of_006.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=LS%2F1a5B3hn1yLfzBqnrGMygnuMs%3D&Expires=1790978441",
           "llm": {
             "is_match": false,
             "severity": 1,
@@ -634,7 +614,6 @@
           "detections": {
             "person": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/5db7d1934838447c9c25d0d5d410af07/20261001_075046_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_03.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=psDhGuEyg7QXeOWnCZRAt5TaoZE%3D&Expires=1790978442",
           "llm": {
             "is_match": false,
             "severity": 1,
@@ -662,7 +641,6 @@
           "detections": {
             "person": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/f3a40f75faeb47a08311771a95ae258f/20261001_075712_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_03.rgb_chunk_0000_segment_001_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=H9%2B%2FEqHP2Uok7l8UdsmMNY979bI%3D&Expires=1790978445",
           "llm": {
             "is_match": false,
             "severity": 1,
@@ -691,7 +669,6 @@
             "person": 1,
             "suitcase": 2
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/f0438186624a4f35a88478af0981dbbc/20261001_075112_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_04.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=ndbDLlilGWUq9G%2Bnu%2Fc4sah3wls%3D&Expires=1790978446",
           "llm": {
             "is_match": false,
             "severity": 1,
@@ -719,7 +696,6 @@
           "detections": {
             "car": 4
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_073710_neighborhood_20260902_chunk_0002_segment_003_of_006.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=bedG1HNhkVGdN7%2F0GgX6r%2FrmxGM%3D&Expires=1790978447",
           "llm": {
             "is_match": false,
             "severity": 1,
@@ -764,7 +740,6 @@
             "horse": 1,
             "umbrella": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_071303_set06_video_chunk_0006_segment_005_of_006.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=qNFFjLFgBg62i6XWqWwje4CFb%2B0%3D&Expires=1790978471",
           "llm": {
             "is_match": true,
             "severity": 3,
@@ -794,7 +769,6 @@
             "car": 8,
             "truck": 2
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_071328_set06_video_chunk_0007_segment_006_of_006.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=5BZCkHfv8a%2BL9iUK2Qkg45pomlc%3D&Expires=1790978469",
           "llm": {
             "is_match": true,
             "severity": 2,
@@ -824,7 +798,6 @@
             "person": 1,
             "chair": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_075138_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.eye_00.rgb_chunk_0000_segment_001_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=CZjGaMdvn3I36RDNWfxAVyIuMa8%3D&Expires=1790978465",
           "llm": {
             "is_match": false,
             "severity": 1,
@@ -855,7 +828,6 @@
             "car": 2,
             "tennis racket": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_075838_2025_test_Warehouse_017_Camera_chunk_0002_segment_002_of_006.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=ZU2uwhzdVluhDtLKgMJy%2B1Smg%2BU%3D&Expires=1790978465",
           "llm": {
             "is_match": false,
             "severity": 1,
@@ -885,7 +857,6 @@
             "person": 3,
             "boat": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_074538_0851b7a332077a4fc0e2_01021d3989e38beb3395_run_10_seed_213384163.ceiling_01.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=nWEUC2Lz3WXRDWwGECMk58d0Mhc%3D&Expires=1790978466",
           "llm": {
             "is_match": false,
             "severity": 1,
@@ -918,7 +889,6 @@
             "suitcase": 3,
             "bicycle": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_080820_2025_test_Warehouse_017_Camera_02_chunk_0005_segment_001_of_006.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=3PGFt7pF4RXLi1odMWLu7PkXVo4%3D&Expires=1790978467",
           "llm": {
             "is_match": false,
             "severity": 1,
@@ -952,7 +922,6 @@
             "sports ball": 1,
             "bicycle": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_080705_2025_test_Warehouse_017_Camera_02_chunk_0002_segment_003_of_006.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=4BDqIhIR%2BGnEPvcqdNl6HyR0pK8%3D&Expires=1790978468",
           "llm": {
             "is_match": false,
             "severity": 1,
@@ -981,7 +950,6 @@
             "person": 1,
             "refrigerator": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/d2f30c1e4daa4f598129e34687a71e63/20261001_075554_16face5576497e69c190_03a2937960b9e61f1c99_run_7_seed_900334964.eye_00.rgb_chunk_0000_segment_002_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=PWGxhA4Kue736Kl4l43iVLebZVk%3D&Expires=1790978468",
           "llm": {
             "is_match": false,
             "severity": 1,
@@ -1014,7 +982,6 @@
             "suitcase": 2,
             "truck": 2
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_080755_2025_test_Warehouse_017_Camera_02_chunk_0004_segment_003_of_006.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=diZJqqPKX4u7UIslqkqDFOXan1s%3D&Expires=1790978469",
           "llm": {
             "is_match": false,
             "severity": 1,
@@ -1043,7 +1010,6 @@
             "person": 1,
             "suitcase": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/reingest/c580ea1f821a43f7bd85da66f1431324/20261001_074955_0b12b2416a91a8686bf0_016c1396912bfc432997_run_3_seed_1053328212.ceiling_01.rgb_chunk_0000_segment_001_of_002.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=7XmCnQX%2FPNet7JC9lyJS90zk158%3D&Expires=1790978470",
           "llm": {
             "is_match": false,
             "severity": 1,
@@ -1077,7 +1043,6 @@
             "tennis racket": 1,
             "chair": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_081001_2025_test_Warehouse_017_Camera_02_chunk_0009_segment_004_of_006.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=4BnM1OjYh34jR3qDq%2FgcZbD6%2F5Q%3D&Expires=1790978471",
           "llm": {
             "is_match": false,
             "severity": 1,
@@ -1111,7 +1076,6 @@
             "suitcase": 1,
             "sports ball": 1
           },
-          "video_url": "http://builder.cosmos-var201.cosmo.vastdata.com/team-45-vss-chunks-segments/segments/20261001_080019_2025_test_Warehouse_017_Camera_chunk_0006_segment_005_of_006.mp4?AWSAccessKeyId=U83DJVW2QBPRHY93GBKW&Signature=VA26HDRhuPdBq22kpu%2Bj7CV%2Bgp4%3D&Expires=1790978472",
           "llm": {
             "is_match": false,
             "severity": 1,
